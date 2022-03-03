@@ -1,6 +1,6 @@
 {
-  "name": "react-native-stripe-identity-react-native-example",
-  "description": "Example app for react-native-stripe-identity-react-native",
+  "name": "stripe-identity-react-native-example",
+  "description": "Example app for stripe-identity-react-native",
   "version": "0.0.1",
   "private": true,
   "scripts": {

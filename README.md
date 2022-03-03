@@ -1,17 +1,18 @@
-# react-native-stripe-identity-react-native
+# stripe-identity-react-native
 
 Stripe identity react native SDK library
 
 ## Installation
 
 ```sh
-npm install react-native-stripe-identity-react-native
+npm install stripe-identity-react-native
+yarn add stripe-identity-react-native
 ```
 
 ## Usage
 
 ```js
-import { multiply } from 'react-native-stripe-identity-react-native';
+import { multiply } from 'stripe-identity-react-native';
 
 // ...
 
