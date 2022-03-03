@@ -17,6 +17,9 @@ const StripeIdentityReactNative = NativeModules.StripeIdentityReactNative
       }
     );
 
-export function multiply(a: number, b: number): Promise<number> {
-  return StripeIdentityReactNative.multiply(a, b);
-}
+type StripeIdentitySdkType = {
+  init: Init;
+  present: Present;
+};
+
+export default StripeIdentityReactNative as StripeIdentitySdkType;
