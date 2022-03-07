@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { init, present } from 'stripe-identity-react-native';
 import { StyleSheet, View, Text, Image, Button } from 'react-native';
-import logo from './logo.png';
+import logo from './assets/RocketRides.png';
 
 const baseURL =
   'https://stripe-mobile-identity-verification-playground.glitch.me';
