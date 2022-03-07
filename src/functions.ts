@@ -1,14 +1,9 @@
+import StripeIdentityReactNative from './StripeIdentitySdk';
+
 export function init(options: Options): void {
-  console.log(options);
+  StripeIdentityReactNative.init(options);
 }
 
-export function present(
-  sessionId: string,
-  ephemeralKeySecret: string
-): Promise<{ status: IdentityStatus }> {
-  console.log(sessionId);
-  console.log(ephemeralKeySecret);
-  return new Promise((resolve) => {
-    resolve({ status: 'Completed' });
-  });
+export function present(): Promise<{ status: IdentityStatus }> {
+  return StripeIdentityReactNative.present();
 }

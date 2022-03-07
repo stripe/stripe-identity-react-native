@@ -1,4 +1,6 @@
 type Options = {
+  sessionId: string;
+  ephemeralKeySecret: string;
   merchantLogo: Image;
 };
 
@@ -6,10 +8,7 @@ type IdentityStatus = 'Idle' | 'Completed' | 'Canceled' | 'Failed';
 
 type Init = (options: Options) => void;
 
-type Present = (
-  sessionId: string,
-  ephemeralKeySecret: string
-) => Promise<{ status: IdentityStatus }>;
+type Present = () => Promise<{ status: IdentityStatus }>;
 
 type UseStripeIdentity = (options: Options) => {
   present: Present;

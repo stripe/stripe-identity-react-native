@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react';
-import { StripeIdentityContext } from 'src/components/StripeIdentityContext';
-import { present } from 'src/functions';
+import { StripeIdentityContext } from '../components/StripeIdentityContext';
+import { present } from '../functions';
 
 export type Props = {
   merchantLogo: string;
