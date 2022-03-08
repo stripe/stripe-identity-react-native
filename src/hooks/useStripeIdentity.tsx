@@ -1,17 +1,22 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { StripeIdentityContext } from '../components/StripeIdentityContext';
-import { present } from '../functions';
+import { present as presentIdentity } from '../functions';
 
 export type Props = {
   merchantLogo: string;
 };
 
-export function useStripeIdentity({ merchantLogo }: Props) {
-  const { isLoading, status } = useContext(StripeIdentityContext);
+export function useStripeIdentity() {
+  const { status, setStatus } = useContext(StripeIdentityContext);
 
-  useEffect(() => {
-    console.log(merchantLogo);
-  }, [merchantLogo]);
+  const present = async () => {
+    try {
+      const result = await presentIdentity();
+      setStatus(result.status);
+    } catch (e) {
+      setStatus('Failed');
+    }
+  };
 
-  return { isLoading, status, present };
+  return { status, present };
 }

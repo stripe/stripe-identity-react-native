@@ -12,3 +12,6 @@ export {
   StripeIdentityProvider,
   Props as StripeIdentityProviderProps,
 } from './components/StripeIdentityProvider';
+
+// types
+export type { Options, IdentityStatus } from './types';

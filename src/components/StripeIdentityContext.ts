@@ -1,11 +1,12 @@
 import { createContext } from 'react';
+import type { IdentityStatus } from '../types';
 
 type ContextType = {
-  isLoading: boolean;
   status: IdentityStatus;
+  setStatus(status: IdentityStatus): void;
 };
 
 export const StripeIdentityContext = createContext<ContextType>({
-  isLoading: true,
   status: 'Idle',
+  setStatus: () => {},
 });

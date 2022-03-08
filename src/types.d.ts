@@ -1,14 +1,14 @@
-type Options = {
+export type Options = {
   sessionId: string;
   ephemeralKeySecret: string;
-  merchantLogo: Image;
+  merchantLogo: ImageResolvedAssetSource;
 };
 
-type IdentityStatus = 'Idle' | 'Completed' | 'Canceled' | 'Failed';
+export type IdentityStatus = 'Idle' | 'Completed' | 'Canceled' | 'Failed';
 
-type Init = (options: Options) => void;
+export type Init = (options: Options) => void;
 
-type Present = () => Promise<{ status: IdentityStatus }>;
+export type Present = () => Promise<{ status: IdentityStatus }>;
 
 type UseStripeIdentity = (options: Options) => {
   present: Present;
