@@ -1,9 +1,9 @@
 package com.reactnativestripeidentityreactnative
 
-import com.facebook.react.bridge.ReactApplicationContext
-import com.facebook.react.bridge.ReactContextBaseJavaModule
-import com.facebook.react.bridge.ReactMethod
-import com.facebook.react.bridge.Promise
+import android.app.Activity
+import android.content.Intent
+import com.facebook.react.bridge.*
+import androidx.appcompat.app.AppCompatActivity
 
 class StripeIdentityReactNativeModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
 
@@ -11,14 +11,42 @@ class StripeIdentityReactNativeModule(reactContext: ReactApplicationContext) : R
         return "StripeIdentityReactNative"
     }
 
-    // Example method
-    // See https://reactnative.dev/docs/native-modules-android
-    @ReactMethod
-    fun multiply(a: Int, b: Int, promise: Promise) {
-    
-      promise.resolve(a * b)
-    
+    lateinit var stripeIdentityVerificationSheetFragment: StripeIdentityVerificationSheetFragment
+
+    private val mActivityEventListener = object : BaseActivityEventListener() {
+      override fun onActivityResult(activity: Activity, requestCode: Int, resultCode: Int, data: Intent?) {
+        stripeIdentityVerificationSheetFragment?.activity?.activityResultRegistry?.dispatchResult(requestCode, resultCode, data)
+      }
     }
 
-    
+    init {
+      reactContext.addActivityEventListener(mActivityEventListener);
+    }
+
+    @ReactMethod
+    fun init(options: ReadableMap) {
+
+    val activity = currentActivity as AppCompatActivity?
+
+    if (activity == null) {
+      return
+    }
+
+      stripeIdentityVerificationSheetFragment = StripeIdentityVerificationSheetFragment().also {
+        val bundle = toBundleObject(options)
+        it.arguments = bundle
+      }
+
+    activity.supportFragmentManager.beginTransaction()
+      .add(stripeIdentityVerificationSheetFragment!!, "identity_sheet_launch_fragment")
+      .commit()
+
+    }
+
+    @ReactMethod
+    fun present(promise: Promise) {
+      stripeIdentityVerificationSheetFragment.present(promise)
+    }
+
+
 }

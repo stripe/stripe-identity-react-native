@@ -3,6 +3,7 @@ buildscript {
   def kotlin_version = rootProject.ext.has('kotlinVersion') ? rootProject.ext.get('kotlinVersion') : project.properties['StripeIdentityReactNative_kotlinVersion']
 
   repositories {
+    mavenLocal()
     google()
     mavenCentral()
     jcenter()
@@ -35,7 +36,7 @@ android {
     versionName "1.0"
     
   }
-  
+
   buildTypes {
     release {
       minifyEnabled false
@@ -51,6 +52,7 @@ android {
 }
 
 repositories {
+  mavenLocal()
   mavenCentral()
   jcenter()
   google()
@@ -127,4 +129,5 @@ dependencies {
   // noinspection GradleDynamicVersion
   api 'com.facebook.react:react-native:+'
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+  implementation 'com.stripe:stripe-identity:19.2.2'
 }
