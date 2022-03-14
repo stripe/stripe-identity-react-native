@@ -19,17 +19,19 @@ class StripeIdentityReactNative: NSObject {
         assertionFailure("Did not receive a valid merchantLogo.")
         return
     }
-    guard let logo = RCTConvert.uiImage(merchantLogo) else {
-        assertionFailure("Did not receive a valid logo.")
-        return
+    DispatchQueue.main.async {
+      guard let logo = RCTConvert.uiImage(merchantLogo) else {
+          assertionFailure("Did not receive a valid logo.")
+          return
+      }
+    self.verificationSheet = IdentityVerificationSheet(
+        verificationSessionId: verificationSessionId,
+        ephemeralKeySecret: ephemeralKeySecret,
+            configuration: IdentityVerificationSheet.Configuration(
+                merchantLogo:logo
+            )
+        )
     }
-   self.verificationSheet = IdentityVerificationSheet(
-       verificationSessionId: verificationSessionId,
-       ephemeralKeySecret: ephemeralKeySecret,
-           configuration: IdentityVerificationSheet.Configuration(
-               merchantLogo:logo
-           )
-       )
   }
 
   @objc func present(_ resolve: @escaping RCTPromiseResolveBlock, rejecter reject: @escaping RCTPromiseRejectBlock) {

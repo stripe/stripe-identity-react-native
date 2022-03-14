@@ -7,7 +7,7 @@ export type Props = {
 };
 
 export function useStripeIdentity() {
-  const { status, setStatus } = useContext(StripeIdentityContext);
+  const { status, setStatus, loading } = useContext(StripeIdentityContext);
 
   const present = async () => {
     try {
@@ -18,5 +18,5 @@ export function useStripeIdentity() {
     }
   };
 
-  return { status, present };
+  return { status, present, loading };
 }

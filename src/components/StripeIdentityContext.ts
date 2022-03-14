@@ -4,9 +4,11 @@ import type { IdentityStatus } from '../types';
 type ContextType = {
   status: IdentityStatus;
   setStatus(status: IdentityStatus): void;
+  loading: boolean;
 };
 
 export const StripeIdentityContext = createContext<ContextType>({
   status: 'Idle',
   setStatus: () => {},
+  loading: true,
 });

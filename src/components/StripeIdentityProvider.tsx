@@ -1,30 +1,29 @@
 import React, { useEffect, useState } from 'react';
-import type { ImageResolvedAssetSource } from 'react-native';
 import { StripeIdentityContext } from './StripeIdentityContext';
 import { init } from '../functions';
-import type { IdentityStatus } from '../types';
+import type { IdentityStatus, Options } from '../types';
 
 export type Props = {
   children: React.ReactElement | React.ReactElement[];
-  sessionId: string;
-  ephemeralKeySecret: string;
-  merchantLogo: ImageResolvedAssetSource;
+  optionsProvider: () => Promise<Options>;
 };
 
-export function StripeIdentityProvider({
-  children,
-  sessionId,
-  ephemeralKeySecret,
-  merchantLogo,
-}: Props) {
+export function StripeIdentityProvider({ children, optionsProvider }: Props) {
+  const [loading, setLoading] = useState(true);
   const [status, setStatus] = useState<IdentityStatus>('Idle');
 
   useEffect(() => {
-    init({ sessionId, ephemeralKeySecret, merchantLogo });
-  }, [sessionId, ephemeralKeySecret, merchantLogo]);
+    async function _initialize() {
+      setLoading(true);
+      const options = await optionsProvider();
+      setLoading(false);
+      init(options);
+    }
+    _initialize();
+  }, [optionsProvider]);
 
   return (
-    <StripeIdentityContext.Provider value={{ setStatus, status }}>
+    <StripeIdentityContext.Provider value={{ setStatus, status, loading }}>
       {children}
     </StripeIdentityContext.Provider>
   );

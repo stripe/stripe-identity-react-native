@@ -1,9 +1,21 @@
+import type { AllowedTypes, VerificationSessionOptions } from '../types';
+
 const baseURL =
   'https://stripe-mobile-identity-verification-playground.glitch.me';
 const verifyEndpoint = '/create-verification-session';
 
-export const getTestCredentials = async () => {
+export const getTestCredentials = async (
+  options: VerificationSessionOptions
+) => {
   try {
+    console.log({
+      require_matching_selfie: options.requireMatchingSelfie,
+      require_id_number: options.requireIdNumber,
+      require_live_capture: options.requireLiveCapture,
+      allowed_types: (
+        Object.keys(options.allowedTypes) as AllowedTypes[]
+      ).filter((key: AllowedTypes) => options.allowedTypes[key]),
+    });
     const data = await fetch(baseURL + verifyEndpoint, {
       method: 'POST',
       headers: {
@@ -13,10 +25,12 @@ export const getTestCredentials = async () => {
         type: 'document',
         options: {
           document: {
-            require_matching_selfie: false,
-            require_id_number: false,
-            allowed_types: ['driving_license', 'passport', 'id_card'],
-            require_live_capture: false,
+            require_matching_selfie: options.requireMatchingSelfie,
+            require_id_number: options.requireIdNumber,
+            require_live_capture: options.requireLiveCapture,
+            allowed_types: (
+              Object.keys(options.allowedTypes) as AllowedTypes[]
+            ).filter((key: AllowedTypes) => options.allowedTypes[key]),
           },
         },
       }),
