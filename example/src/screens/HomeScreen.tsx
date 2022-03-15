@@ -19,7 +19,7 @@ export function HomeScreen() {
     requireLiveCapture: false,
   });
 
-  const fetchCredentials = useCallback(async () => {
+  const fetchOptions = useCallback(async () => {
     const credentials = await getTestCredentials(options);
     return {
       sessionId: credentials.id,
@@ -32,7 +32,7 @@ export function HomeScreen() {
     <SafeAreaView style={styles.container}>
       <Options options={options} setOptions={setOptions} />
       <View style={styles.divider} />
-      <StripeIdentityProvider optionsProvider={fetchCredentials}>
+      <StripeIdentityProvider optionsProvider={fetchOptions}>
         <Identity />
       </StripeIdentityProvider>
     </SafeAreaView>

@@ -8,14 +8,6 @@ export const getTestCredentials = async (
   options: VerificationSessionOptions
 ) => {
   try {
-    console.log({
-      require_matching_selfie: options.requireMatchingSelfie,
-      require_id_number: options.requireIdNumber,
-      require_live_capture: options.requireLiveCapture,
-      allowed_types: (
-        Object.keys(options.allowedTypes) as AllowedTypes[]
-      ).filter((key: AllowedTypes) => options.allowedTypes[key]),
-    });
     const data = await fetch(baseURL + verifyEndpoint, {
       method: 'POST',
       headers: {

@@ -38,7 +38,7 @@ class StripeIdentityReactNative: NSObject {
       DispatchQueue.main.async {
         self.verificationSheet?.presentInternal(
             from: UIApplication.shared.delegate?.window??.rootViewController ?? UIViewController(),
-            completion: { [weak self] result in
+            completion: { result in
                 switch result {
                 case .flowCompleted:
                     resolve(["status": "Completed"])
