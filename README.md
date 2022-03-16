@@ -61,7 +61,7 @@ const getCredentials = async () => {
     const json = await data.json();
     return json;
   } catch (e) {
-    return 'Failed';
+    return {};
   }
 };
 ```
@@ -159,7 +159,7 @@ const customPresent = async () => {
 
     return result.status;
   } catch (e) {
-    return {};
+    return 'Failed';
   }
 };
 ```
@@ -174,16 +174,12 @@ import type { Options, IdentityStatus } from 'stripe-identity-react-native';
 
 ## Run the example app
 
-- Go to example folder
-  - `cd example`
-- Install the dependencies
-  - `yarn install`
-- Install pods
-  - `cd ios && pod install`
-- Start the example in the example folder
-  - `yarn ios`
-  - or
-  - `yarn android`
+- Run this command from root folder
+  - `yarn bootstrap`
+- Run example app on a specific device
+- `yarn example ios`
+- or
+- `yarn example android`
 
 ## Contributing
 
