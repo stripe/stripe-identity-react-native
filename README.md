@@ -177,9 +177,9 @@ import type { Options, IdentityStatus } from 'stripe-identity-react-native';
 - Run this command from root folder
   - `yarn bootstrap`
 - Run example app on a specific device
-- `yarn example ios`
-- or
-- `yarn example android`
+  - `yarn example ios`
+  - or
+  - `yarn example android`
 
 ## Contributing
 
