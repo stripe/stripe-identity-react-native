@@ -1,4 +1,5 @@
 import { NativeModules, Platform } from 'react-native';
+import type { Init, Present } from './types';
 
 const LINKING_ERROR =
   `The package 'stripe-identity-react-native' doesn't seem to be linked. Make sure: \n\n` +

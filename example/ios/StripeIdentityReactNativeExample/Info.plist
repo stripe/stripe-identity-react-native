@@ -53,5 +53,9 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+  <key>NSCameraUsageDescription</key>
+  <string>To verify your identity.</string>
+  <key>NSPhotoLibraryUsageDescription</key>
+  <string>To verify your identity.</string>
 </dict>
 </plist>

@@ -1,7 +1,7 @@
 require_relative '../node_modules/react-native/scripts/react_native_pods'
 require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
 
-platform :ios, '10.0'
+platform :ios, '14.3'
 
 target 'StripeIdentityReactNativeExample' do
   config = use_native_modules!
@@ -14,6 +14,7 @@ target 'StripeIdentityReactNativeExample' do
   pod 'StripeUICore', :git => 'https://github.com/stripe/stripe-ios.git', :branch => 'identity-ios-beta-2'
   pod 'StripeCameraCore', :git => 'https://github.com/stripe/stripe-ios.git', :branch => 'identity-ios-beta-2'
   pod 'StripeIdentity', :git => 'https://github.com/stripe/stripe-ios.git', :branch => 'identity-ios-beta-2'
+
 
   # Enables Flipper.
   #

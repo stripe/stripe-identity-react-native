@@ -205,7 +205,7 @@
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				C1D60D28B925C94BD88E79D7 /* [CP] Copy Pods Resources */,
-				DD397D589F4D871946BB429E /* [CP] Embed Pods Frameworks */,
+				CA86F5F5B184A92163CE465E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -409,7 +409,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StripeIdentityReactNativeExample/Pods-StripeIdentityReactNativeExample-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DD397D589F4D871946BB429E /* [CP] Embed Pods Frameworks */ = {
+		CA86F5F5B184A92163CE465E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -534,7 +534,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.reactnativestripeidentityreactnative;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.stripeidentityreactnative;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StripeIdentityReactNativeExample.app/StripeIdentityReactNativeExample";
 			};
@@ -553,7 +553,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.reactnativestripeidentityreactnative;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.stripeidentityreactnative;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StripeIdentityReactNativeExample.app/StripeIdentityReactNativeExample";
 			};
@@ -615,7 +615,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.reactnativestripeidentityreactnative;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.stripeidentityreactnative;
 				PRODUCT_NAME = StripeIdentityReactNativeExample;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -671,7 +671,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.example.reactnativestripeidentityreactnative;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.stripeidentityreactnative;
 				PRODUCT_NAME = StripeIdentityReactNativeExample;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
