@@ -61,7 +61,7 @@ const getCredentials = async () => {
     const json = await data.json();
     return json;
   } catch (e) {
-    return {};
+    return 'Failed';
   }
 };
 ```
@@ -71,6 +71,7 @@ Once you get credentials you can use `StripeIdentityProvider` passing optionsPro
 ```tsx
 // HomeScreen.tsx
 import { StripeIdentityProvider } from 'stripe-identity-react-native';
+import logo from './assets/logo.png';
 
 function HomeScreen() {
   const fetchOptions = async () => {
@@ -132,6 +133,7 @@ ephemeralKeySecret, merchantLogo) from your verification session to it:
 
 ```tsx
 import { init } from 'stripe-identity-react-native';
+import logo from './assets/logo.png';
 
 const customInit = async () => {
   const credentials = await getCredentials();
@@ -167,7 +169,7 @@ const customPresent = async () => {
 There are two types available: Options and IdentityStatus, you can import these in your TypeScript project directly from Stripe Identity React Native SDK:
 
 ```tsx
-import { Options, IdentityStatus } from 'stripe-identity-react-native';
+import type { Options, IdentityStatus } from 'stripe-identity-react-native';
 ```
 
 ## Run the example app
