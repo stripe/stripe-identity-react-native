@@ -33,7 +33,7 @@ export type Props = {
  *    <App />
  *  </StripeIdentityProvider>
  * ```
- * @param __namedParameters Props
+ * @param Props
  * @returns JSX.Element
  * @category ReactComponents
  */
