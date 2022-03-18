@@ -1,16 +1,17 @@
-import { useContext } from 'react';
-import { StripeIdentityContext } from '../components/StripeIdentityContext';
-import { present as presentIdentity } from '../functions';
+import { useState } from 'react';
+import { init, present as presentIdentity } from '../functions';
+import type { IdentityStatus, Options } from '../types';
 
-export type Props = {
-  merchantLogo: string;
-};
-
-export function useStripeIdentity() {
-  const { status, setStatus } = useContext(StripeIdentityContext);
+export function useStripeIdentity(optionsProvider: () => Promise<Options>) {
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState<IdentityStatus>('Idle');
 
   const present = async () => {
     try {
+      setLoading(true);
+      const options = await optionsProvider();
+      init(options);
+      setLoading(false);
       const result = await presentIdentity();
       setStatus(result.status);
     } catch (e) {
@@ -18,5 +19,5 @@ export function useStripeIdentity() {
     }
   };
 
-  return { status, present };
+  return { status, present, loading };
 }
