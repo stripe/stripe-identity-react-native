@@ -2,11 +2,8 @@ package com.reactnativestripeidentityreactnative
 
 import android.os.Bundle
 import android.util.Log
-import com.facebook.react.bridge.*
-
-internal fun getStringOr(map: ReadableMap, key: String, default: String? = null): String? {
-  return if (map.hasKey(key)) map.getString(key) else default
-}
+import com.facebook.react.bridge.ReadableMap
+import com.facebook.react.bridge.ReadableType
 
 internal fun toBundleObject(readableMap: ReadableMap?): Bundle? {
   val result = Bundle()

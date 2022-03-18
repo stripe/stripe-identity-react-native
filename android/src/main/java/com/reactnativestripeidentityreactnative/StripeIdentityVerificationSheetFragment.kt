@@ -1,20 +1,22 @@
 package com.reactnativestripeidentityreactnative
 
+import android.net.Uri
 import android.os.Bundle
-import android.view.View
-import androidx.activity.ComponentActivity
-import androidx.fragment.app.Fragment
-import com.facebook.react.bridge.*
-import com.stripe.android.identity.*
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
+import androidx.fragment.app.Fragment
+import com.facebook.react.bridge.Promise
+import com.facebook.react.bridge.WritableNativeMap
+import com.stripe.android.identity.IdentityVerificationSheet
+import com.stripe.android.identity.IdentityVerificationSheet.VerificationResult
 
 class StripeIdentityVerificationSheetFragment : Fragment() {
 
   private var identityVerificationSheet: IdentityVerificationSheet? = null
-  private var verificationSessionId: String? = null
-  private var ephemeralKeySecret: String? = null
+  lateinit var verificationSessionId: String
+  lateinit var ephemeralKeySecret: String
 
   override fun onCreateView(
     inflater: LayoutInflater,
@@ -28,18 +30,23 @@ class StripeIdentityVerificationSheetFragment : Fragment() {
     super.onViewCreated(view, savedInstanceState)
     verificationSessionId = arguments?.getString("sessionId").orEmpty()
     ephemeralKeySecret = arguments?.getString("ephemeralKeySecret").orEmpty()
-    identityVerificationSheet = IdentityVerificationSheet.create(activity as ComponentActivity, IdentityVerificationSheet.Configuration(merchantLogo = 0))
+    val imageUri = arguments?.getBundle("merchantLogo")?.getString("uri").orEmpty()
+    identityVerificationSheet = IdentityVerificationSheet.create(this, IdentityVerificationSheet.Configuration(brandLogo = Uri.parse(imageUri)))
   }
 
   fun present(promise: Promise) {
-//    var sheet = identityVerificationSheet
-//    if(sheet != null) {
-//      sheet.present(
-//          verificationSessionId = verificationSessionId,
-//          ephemeralKeySecret = ephemeralKeySecret
-//      ) {
-//        promise.resolve("TRUE")
-//      }
-//    }
+    identityVerificationSheet?.present(
+      verificationSessionId = verificationSessionId,
+      ephemeralKeySecret = ephemeralKeySecret
+    ) {
+      val result = WritableNativeMap()
+      when (it) {
+        VerificationResult.Completed -> result.putString("status", "Completed")
+        VerificationResult.Canceled -> result.putString("status", "Canceled")
+        else -> result.putString("status", "Failed")
+      }
+      promise.resolve(result)
+    }
+
   }
 }
