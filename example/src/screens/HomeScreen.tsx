@@ -1,5 +1,4 @@
 import React, { useState, useCallback } from 'react';
-import { StripeIdentityProvider } from 'stripe-identity-react-native';
 import { StyleSheet, Image, View, SafeAreaView } from 'react-native';
 import logo from '../assets/RocketRides.png';
 import { getTestCredentials } from '../utils/api';
@@ -32,9 +31,7 @@ export function HomeScreen() {
     <SafeAreaView style={styles.container}>
       <Options options={options} setOptions={setOptions} />
       <View style={styles.divider} />
-      <StripeIdentityProvider optionsProvider={fetchOptions}>
-        <Identity />
-      </StripeIdentityProvider>
+      <Identity fetchOptions={fetchOptions} />
     </SafeAreaView>
   );
 }
