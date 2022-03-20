@@ -21,9 +21,19 @@ export function Identity({ fetchOptions }: Props) {
 
   const renderButton = useCallback(() => {
     if (loading) {
-      return <ActivityIndicator />;
+      return (
+        <View testID="loading-spinner">
+          <ActivityIndicator />
+        </View>
+      );
     }
-    return <Button title="Verify Identity" onPress={handlePress} />;
+    return (
+      <Button
+        testID="verify-btn"
+        title="Verify Identity"
+        onPress={handlePress}
+      />
+    );
   }, [loading, handlePress]);
 
   return (
