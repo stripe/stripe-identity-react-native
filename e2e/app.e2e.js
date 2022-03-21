@@ -9,9 +9,9 @@ describe('Identity', () => {
 
     await device.reloadReactNative();
 
-    const button = element(by.id('verify-btn'));
-    await waitFor(button).toBeVisible();
-    await button.tap();
+    const identityButton = element(by.id('verify-btn'));
+    await waitFor(identityButton).toBeVisible();
+    await identityButton.tap();
 
     const loadingSpinner = element(by.id('loading-spinner'));
 
