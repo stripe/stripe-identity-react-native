@@ -6,7 +6,7 @@ export type Options = {
   merchantLogo: ImageResolvedAssetSource;
 };
 
-export type IdentityStatus = 'Idle' | 'Completed' | 'Canceled' | 'Failed';
+export type IdentityStatus = 'Completed' | 'Canceled' | 'Failed';
 
 export type Init = (options: Options) => void;
 
