@@ -16,6 +16,6 @@ describe('Identity', () => {
     const loadingSpinner = element(by.id('loading-spinner'));
 
     await expect(loadingSpinner).toNotExist();
-    await expect(button).toNotExist();
+    await expect(identityButton).toNotExist();
   });
 });
