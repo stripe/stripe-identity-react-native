@@ -29,7 +29,7 @@ export function Identity({ fetchOptions }: Props) {
   return (
     <View style={styles.container}>
       <View style={styles.buttonContainer}>{renderButton()}</View>
-      <Text>Status: {status}</Text>
+      <Text>Status: {status ?? "Undefined"}</Text>
     </View>
   );
 }

@@ -4,7 +4,7 @@ import type { IdentityStatus, Options } from '../types';
 
 export function useStripeIdentity(optionsProvider: () => Promise<Options>) {
   const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState<IdentityStatus>('Idle');
+  const [status, setStatus] = useState<IdentityStatus | undefined>();
 
   const present = async () => {
     try {
