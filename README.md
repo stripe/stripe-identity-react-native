@@ -34,7 +34,7 @@ Alternatively use the `plugin-transform-typescript` plugin in your project.
 
 ## Stripe Identity SDK initialization
 
-To initialize Stripe Identity SDK in your React Native app, use the `StripeIdentityProvider` component in the screen where you want to use it.
+To initialize Stripe Identity SDK in your React Native app, use the `useStripeIdentity` hook in the screen where you want to use it.
 
 First you need a server-side endpoint to [create the VerificationSession](https://stripe.com/docs/api/identity/verification_sessions/create), then you can send a POST request to create verification session:
 
@@ -66,11 +66,11 @@ const getCredentials = async () => {
 };
 ```
 
-Once you get credentials you can use `StripeIdentityProvider` passing optionsProvider to it.
+Once you get credentials you can use `useStripeIdentity` passing fetchOptions to it.
 
 ```tsx
 // HomeScreen.tsx
-import { StripeIdentityProvider } from 'stripe-identity-react-native';
+import { useStripeIdentity } from 'stripe-identity-react-native';
 import logo from './assets/logo.png';
 
 function HomeScreen() {
@@ -84,49 +84,31 @@ function HomeScreen() {
     };
   };
 
-  return (
-    <StripeIdentityProvider optionsProvider={fetchOptions}>
-      <Identity />
-    </StripeIdentityProvider>
-  );
-}
-```
-
-## useStripeIdentity hook
-
-To get loading and status or call present function you can use `useStripeIdentity` hook:
-
-```tsx
-// Identity.tsx
-import { useStripeIdentity } from 'stripe-identity-react-native';
-
-function Identity() {
-  const { status, present, loading } = useStripeIdentity();
+  const { status, present, loading } = useStripeIdentity(fetchOptions);
 
   const handlePress = useCallback(() => {
     present();
   }, [present]);
 
-  const renderContent = useCallback(() => {
+  const renderButton = useCallback(() => {
     if (loading) {
       return <ActivityIndicator />;
     }
+    return <Button title="Verify Identity" onPress={handlePress} />;
+  }, [loading, handlePress]);
 
-    return (
-      <View>
-        <Button title="Verify Identity" onPress={handlePress} />
-        <Text>Status: {status}</Text>
-      </View>
-    );
-  }, [loading, status, handlePress]);
-
-  return <View>{renderContent()}</View>;
+  return (
+    <View>
+      <View>{renderButton()}</View>
+      <Text>Status: {status}</Text>
+    </View>
+  );
 }
 ```
 
 ## init and present methods
 
-If you don't want to use `StripeIdentityProvider`, you can also use these 2 methods to create your own implementation:
+If you don't want to use `useStripeIdentity` hook, you can also use these 2 methods to create your own implementation:
 
 `init` method for initialization, if you want to use it, you need to pass options (sessionId,
 ephemeralKeySecret, merchantLogo) from your verification session to it:
