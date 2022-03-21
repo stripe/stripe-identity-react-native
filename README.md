@@ -130,7 +130,7 @@ const customInit = async () => {
 };
 ```
 
-`present` method will return an object with status: 'Idle' | 'Completed' | 'Canceled' | 'Failed':
+`present` method will return an object with status: 'Completed' | 'Canceled' | 'Failed':
 
 ```tsx
 import { present } from 'stripe-identity-react-native';
