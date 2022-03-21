@@ -39,7 +39,7 @@ To initialize Stripe Identity SDK in your React Native app, use the `useStripeId
 First you need a server-side endpoint to [create the VerificationSession](https://stripe.com/docs/api/identity/verification_sessions/create), then you can send a POST request to create verification session:
 
 ```ts
-const getCredentials = async () => {
+const fetchVerificationSessionParams = async () => {
   try {
     const data = await fetch(`${API_URL}/create-verification-session`, {
       method: 'POST',
@@ -75,7 +75,7 @@ import logo from './assets/logo.png';
 
 function HomeScreen() {
   const fetchOptions = async () => {
-    const credentials = await getCredentials();
+    const credentials = await fetchVerificationSessionParams();
 
     return {
       sessionId: credentials.id,
@@ -118,7 +118,7 @@ import { init } from 'stripe-identity-react-native';
 import logo from './assets/logo.png';
 
 const customInit = async () => {
-  const credentials = await getCredentials();
+  const credentials = await fetchVerificationSessionParams();
 
   const options = {
     sessionId: credentials.id,
