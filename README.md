@@ -10,14 +10,26 @@ Get started with our [📚 integration guides](https://stripe.com/docs/identity)
 
 ## Installation
 
+Install the SDK by running:
+
 ```sh
 npm install stripe-identity-react-native
+or
 yarn add stripe-identity-react-native
 ```
 
 ### iOS
 
-You'll need to run `pod install` in your `ios` directory to install the native dependencies.
+For iOS, run `pod install` in your `ios` directory to ensure that you also install the required native dependencies. Android doesn’t require any additional steps.
+
+Set up camera authorisation
+
+Stripe Identity requires access to the device’s camera to capture identity documents. To enable your app to request camera permissions:
+
+- Open your project’s Info.plist in Xcode.
+- Add the `NSCameraUsageDescription` key.
+- Add a string value that explains to your users why your app requires camera permissions, something like:
+  > This app uses the camera to take a picture of your identity documents.
 
 ### Requirements
 
@@ -41,23 +53,16 @@ First you need a server-side endpoint to [create the VerificationSession](https:
 ```ts
 const fetchVerificationSessionParams = async () => {
   try {
-    const data = await fetch(`${API_URL}/create-verification-session`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        type: 'document',
-        options: {
-          document: {
-            require_matching_selfie: false,
-            require_id_number: false,
-            require_live_capture: false,
-            allowed_types: ['driving_license', 'passport', 'id_card'],
-          },
+    const data = await fetch(
+      `${YOUR_SERVER_BASE_URL}/create-verification-session`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-      }),
-    });
+        body: {},
+      }
+    );
     const json = await data.json();
     return json;
   } catch (e) {
@@ -66,7 +71,7 @@ const fetchVerificationSessionParams = async () => {
 };
 ```
 
-Once you get credentials you can use `useStripeIdentity` passing fetchOptions to it.
+Once you get options you can use `useStripeIdentity` passing fetchOptions to it.
 
 ```tsx
 // HomeScreen.tsx
@@ -75,12 +80,12 @@ import logo from './assets/logo.png';
 
 function HomeScreen() {
   const fetchOptions = async () => {
-    const credentials = await fetchVerificationSessionParams();
+    const response = await fetchVerificationSessionParams();
 
     return {
-      sessionId: credentials.id,
-      ephemeralKeySecret: credentials.ephemeral_key_secret,
-      merchantLogo: Image.resolveAssetSource(logo),
+      sessionId: response.id,
+      ephemeralKeySecret: response.ephemeral_key_secret,
+      brandLogo: Image.resolveAssetSource(logo),
     };
   };
 
@@ -111,7 +116,7 @@ function HomeScreen() {
 If you don't want to use `useStripeIdentity` hook, you can also use these 2 methods to create your own implementation:
 
 `init` method for initialization, if you want to use it, you need to pass options (sessionId,
-ephemeralKeySecret, merchantLogo) from your verification session to it:
+ephemeralKeySecret, brandLogo) from your verification session to it:
 
 ```tsx
 import { init } from 'stripe-identity-react-native';
@@ -123,7 +128,7 @@ const customInit = async () => {
   const options = {
     sessionId: credentials.id,
     ephemeralKeySecret: credentials.ephemeral_key_secret,
-    merchantLogo: Image.resolveAssetSource(logo),
+    brandLogo: Image.resolveAssetSource(logo),
   };
 
   init(options);
