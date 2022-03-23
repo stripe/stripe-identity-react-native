@@ -1,10 +1,10 @@
 import StripeIdentityReactNative from './StripeIdentitySdk';
-import type { Options, IdentityStatus } from './types';
+import type { IdentityVerificationSheetOptions, IdentityVerificationSheetResult } from './types';
 
-export function init(options: Options): void {
+export function initIdentityVerificationSheet(options: IdentityVerificationSheetOptions): void {
   StripeIdentityReactNative.init(options);
 }
 
-export function present(): Promise<{ status: IdentityStatus }> {
+export function presentIdentityVerificationSheet(): Promise<{ result: IdentityVerificationSheetResult }> {
   return StripeIdentityReactNative.present();
 }

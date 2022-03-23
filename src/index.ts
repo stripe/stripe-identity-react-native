@@ -5,4 +5,4 @@ export { useStripeIdentity } from './hooks/useStripeIdentity';
 export { init, present } from './functions';
 
 // types
-export type { Options, IdentityStatus } from './types';
+export type { IdentityVerificationSheetOptions, IdentityVerificationSheetResult } from './types';

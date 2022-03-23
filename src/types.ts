@@ -1,13 +1,13 @@
 import type { ImageResolvedAssetSource } from 'react-native';
 
-export type Options = {
+export type IdentityVerificationSheetOptions = {
   sessionId: string;
   ephemeralKeySecret: string;
   merchantLogo: ImageResolvedAssetSource;
 };
 
-export type IdentityStatus = 'Completed' | 'Canceled' | 'Failed';
+export type IdentityVerificationSheetResult = 'FlowCompleted' | 'FlowCanceled' | 'FlowFailed';
 
-export type Init = (options: Options) => void;
+export type Init = (options: IdentityVerificationSheetOptions) => void;
 
-export type Present = () => Promise<{ status: IdentityStatus }>;
+export type Present = () => Promise<{ result: IdentityVerificationSheetResult }>;
