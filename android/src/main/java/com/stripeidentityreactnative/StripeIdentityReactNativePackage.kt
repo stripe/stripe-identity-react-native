@@ -1,4 +1,4 @@
-package com.reactnativestripeidentityreactnative
+package com.stripeidentityreactnative
 
 import com.facebook.react.ReactPackage
 import com.facebook.react.bridge.NativeModule

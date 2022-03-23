@@ -1,4 +1,4 @@
-package com.example.reactnativestripeidentityreactnative;
+package com.example.stripeidentityreactnative;
 
 import android.os.Bundle;
 import com.facebook.react.ReactActivity;

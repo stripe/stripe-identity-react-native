@@ -1,4 +1,4 @@
-package com.reactnativestripeidentityreactnative
+package com.stripeidentityreactnative
 
 import android.app.Activity
 import android.content.Intent

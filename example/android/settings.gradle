@@ -2,5 +2,5 @@ rootProject.name = 'StripeIdentityReactNativeExample'
 apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
 include ':app'
 
-include ':reactnativestripeidentityreactnative'
-project(':reactnativestripeidentityreactnative').projectDir = new File(rootProject.projectDir, '../../android')
+include ':stripeidentityreactnative'
+project(':stripeidentityreactnative').projectDir = new File(rootProject.projectDir, '../../android')

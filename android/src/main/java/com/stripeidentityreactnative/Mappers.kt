@@ -1,4 +1,4 @@
-package com.reactnativestripeidentityreactnative
+package com.stripeidentityreactnative
 
 import android.os.Bundle
 import android.util.Log

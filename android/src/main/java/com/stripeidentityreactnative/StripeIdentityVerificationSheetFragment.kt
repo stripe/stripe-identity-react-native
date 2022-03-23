@@ -1,4 +1,4 @@
-package com.reactnativestripeidentityreactnative
+package com.stripeidentityreactnative
 
 import android.net.Uri
 import android.os.Bundle
@@ -14,9 +14,9 @@ import com.stripe.android.identity.IdentityVerificationSheet.VerificationResult
 
 class StripeIdentityVerificationSheetFragment : Fragment() {
 
-  private var identityVerificationSheet: IdentityVerificationSheet? = null
-  lateinit var verificationSessionId: String
-  lateinit var ephemeralKeySecret: String
+  private lateinit var identityVerificationSheet: IdentityVerificationSheet
+  private lateinit var verificationSessionId: String
+  private lateinit var ephemeralKeySecret: String
 
   override fun onCreateView(
     inflater: LayoutInflater,
@@ -35,7 +35,7 @@ class StripeIdentityVerificationSheetFragment : Fragment() {
   }
 
   fun present(promise: Promise) {
-    identityVerificationSheet?.present(
+    identityVerificationSheet.present(
       verificationSessionId = verificationSessionId,
       ephemeralKeySecret = ephemeralKeySecret
     ) {
