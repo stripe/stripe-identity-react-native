@@ -1,5 +1,8 @@
 import { NativeModules, Platform } from 'react-native';
-import type { Init, Present } from './types';
+import type {
+  InitIdentityVerificationSheet,
+  PresentIdentityVerificationSheet,
+} from './types';
 
 const LINKING_ERROR =
   `The package 'stripe-identity-react-native' doesn't seem to be linked. Make sure: \n\n` +
@@ -19,8 +22,8 @@ const StripeIdentityReactNative = NativeModules.StripeIdentityReactNative
     );
 
 type StripeIdentitySdkType = {
-  init: Init;
-  present: Present;
+  initIdentityVerificationSheet: InitIdentityVerificationSheet;
+  presentIdentityVerificationSheet: PresentIdentityVerificationSheet;
 };
 
 export default StripeIdentityReactNative as StripeIdentitySdkType;
