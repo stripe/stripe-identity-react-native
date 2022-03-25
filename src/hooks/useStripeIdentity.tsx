@@ -1,8 +1,5 @@
 import { useState } from 'react';
-import {
-  initIdentityVerificationSheet,
-  presentIdentityVerificationSheet,
-} from '../functions';
+import { presentIdentityVerificationSheet } from '../functions';
 import type {
   IdentityVerificationSheetOptions,
   IdentityVerificationSheetStatus,
@@ -44,9 +41,8 @@ export function useStripeIdentity(
   const present = async () => {
     setLoading(true);
     const options = await optionsProvider();
-    initIdentityVerificationSheet(options);
     setLoading(false);
-    const { status, error } = await presentIdentityVerificationSheet();
+    const { status, error } = await presentIdentityVerificationSheet(options);
     setStatus(status);
     setError(error);
   };
