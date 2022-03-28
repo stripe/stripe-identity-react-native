@@ -17,7 +17,7 @@ export type InitIdentityVerificationSheet = (options: IdentityVerificationSheetO
 
 export type PresentIdentityVerificationSheet = () => Promise<IdentityVerificationSheetResult>;
 
-type ErrorType =
+export type ErrorType =
   | 'api_connection_error'
   | 'api_error'
   | 'authentication_error'
