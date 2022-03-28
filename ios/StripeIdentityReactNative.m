@@ -8,4 +8,10 @@ RCT_EXTERN_METHOD(
                   presentIdentityVerificationSheet:(RCTPromiseResolveBlock)resolve
                   rejecter: (RCTPromiseRejectBlock)reject
                   )
+
++ (BOOL)requiresMainQueueSetup
+{
+    return YES;
+}
+
 @end
