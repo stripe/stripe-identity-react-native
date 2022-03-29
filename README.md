@@ -4,7 +4,7 @@ Stripe Identity enables online businesses to securely verify the identities of u
 
 ## Getting started
 
-Get started with our [📚 integration guides](https://stripe.com/docs/identity) and [example project](#run-the-example-app).
+Get started with our [📚 integration guides](https://stripe.com/docs/identity/verify-identity-documents?platform=react-native) and [example project](#run-the-example-app).
 
 > Updating to a newer version of the SDK? See our [changelog](https://github.com/stripe/stripe-identity-react-native/blob/main/CHANGELOG.md).
 ## Features
