@@ -307,16 +307,16 @@ PODS:
     - React-jsi (= 0.63.4)
   - stripe-identity-react-native (0.1.0):
     - React-Core
-    - StripeIdentity (~> 21.12.0)
-  - StripeCameraCore (21.12.0):
-    - StripeCore (= 21.12.0)
-  - StripeCore (21.12.0)
-  - StripeIdentity (21.12.0):
-    - StripeCameraCore (= 21.12.0)
-    - StripeCore (= 21.12.0)
-    - StripeUICore (= 21.12.0)
-  - StripeUICore (21.12.0):
-    - StripeCore (= 21.12.0)
+    - StripeIdentity (~> 21.13.0)
+  - StripeCameraCore (21.13.0):
+    - StripeCore (= 21.13.0)
+  - StripeCore (21.13.0)
+  - StripeIdentity (21.13.0):
+    - StripeCameraCore (= 21.13.0)
+    - StripeCore (= 21.13.0)
+    - StripeUICore (= 21.13.0)
+  - StripeUICore (21.13.0):
+    - StripeCore (= 21.13.0)
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
     - Yoga (~> 1.14)
@@ -369,10 +369,10 @@ DEPENDENCIES:
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - stripe-identity-react-native (from `../..`)
-  - StripeCameraCore (from `https://github.com/mskwierczynski/stripe-ios.git`, branch `mskwierczynski/snapshot-mar-8`)
-  - StripeCore (from `https://github.com/mskwierczynski/stripe-ios.git`, branch `mskwierczynski/snapshot-mar-8`)
-  - StripeIdentity (from `https://github.com/mskwierczynski/stripe-ios.git`, branch `mskwierczynski/snapshot-mar-8`)
-  - StripeUICore (from `https://github.com/mskwierczynski/stripe-ios.git`, branch `mskwierczynski/snapshot-mar-8`)
+  - StripeCameraCore (from `https://github.com/stripe/stripe-ios.git`, branch `identity-ios-beta-2`)
+  - StripeCore (from `https://github.com/stripe/stripe-ios.git`, branch `identity-ios-beta-2`)
+  - StripeIdentity (from `https://github.com/stripe/stripe-ios.git`, branch `identity-ios-beta-2`)
+  - StripeUICore (from `https://github.com/stripe/stripe-ios.git`, branch `identity-ios-beta-2`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -444,33 +444,33 @@ EXTERNAL SOURCES:
   stripe-identity-react-native:
     :path: "../.."
   StripeCameraCore:
-    :branch: mskwierczynski/snapshot-mar-8
-    :git: https://github.com/mskwierczynski/stripe-ios.git
+    :branch: identity-ios-beta-2
+    :git: https://github.com/stripe/stripe-ios.git
   StripeCore:
-    :branch: mskwierczynski/snapshot-mar-8
-    :git: https://github.com/mskwierczynski/stripe-ios.git
+    :branch: identity-ios-beta-2
+    :git: https://github.com/stripe/stripe-ios.git
   StripeIdentity:
-    :branch: mskwierczynski/snapshot-mar-8
-    :git: https://github.com/mskwierczynski/stripe-ios.git
+    :branch: identity-ios-beta-2
+    :git: https://github.com/stripe/stripe-ios.git
   StripeUICore:
-    :branch: mskwierczynski/snapshot-mar-8
-    :git: https://github.com/mskwierczynski/stripe-ios.git
+    :branch: identity-ios-beta-2
+    :git: https://github.com/stripe/stripe-ios.git
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 CHECKOUT OPTIONS:
   StripeCameraCore:
-    :commit: 25402ce36a364ca0e46b757e69257abb3891be0c
-    :git: https://github.com/mskwierczynski/stripe-ios.git
+    :commit: be96a31cb1d37be832d96453c91b6795b8dc35fc
+    :git: https://github.com/stripe/stripe-ios.git
   StripeCore:
-    :commit: 25402ce36a364ca0e46b757e69257abb3891be0c
-    :git: https://github.com/mskwierczynski/stripe-ios.git
+    :commit: be96a31cb1d37be832d96453c91b6795b8dc35fc
+    :git: https://github.com/stripe/stripe-ios.git
   StripeIdentity:
-    :commit: 25402ce36a364ca0e46b757e69257abb3891be0c
-    :git: https://github.com/mskwierczynski/stripe-ios.git
+    :commit: be96a31cb1d37be832d96453c91b6795b8dc35fc
+    :git: https://github.com/stripe/stripe-ios.git
   StripeUICore:
-    :commit: 25402ce36a364ca0e46b757e69257abb3891be0c
-    :git: https://github.com/mskwierczynski/stripe-ios.git
+    :commit: be96a31cb1d37be832d96453c91b6795b8dc35fc
+    :git: https://github.com/stripe/stripe-ios.git
 
 SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
@@ -509,14 +509,14 @@ SPEC CHECKSUMS:
   React-RCTText: 5c51df3f08cb9dedc6e790161195d12bac06101c
   React-RCTVibration: ae4f914cfe8de7d4de95ae1ea6cc8f6315d73d9d
   ReactCommon: 73d79c7039f473b76db6ff7c6b159c478acbbb3b
-  stripe-identity-react-native: 707a5f6fec9f86113c272947991c8cff0bfeda50
-  StripeCameraCore: 7a97b531ca9ffb90bc254f62b190984ea3cd07e7
-  StripeCore: 5e38cdea3dc176a32d8797ef312fe1ab41571272
-  StripeIdentity: 21d723f9084ee9d41d0ce9816c9c2b4f2448682f
-  StripeUICore: c28e371b385f968388ae38bedb93a2723c078442
+  stripe-identity-react-native: 429ec0f06d4c680cb2817a5216812494effaee0b
+  StripeCameraCore: 866c511625b034e35aada89ae3a2c6cdd8868a1c
+  StripeCore: 7f51191328315ad0c38a8ff455ad8880d16b4e94
+  StripeIdentity: cb903e5b60b89f4e12c3751f81031f6d5afae34d
+  StripeUICore: 1a5094b4656c31e99badb091fb82651a9b8fe1da
   Yoga: 4bd86afe9883422a7c4028c00e34790f560923d6
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: 6fbb61c34ca64b0c7a3cd5a439e8b7d84476fd4c
+PODFILE CHECKSUM: fa1e4ff02bcec0f20be0b57b8a83cf3f3107f5e6
 
 COCOAPODS: 1.11.2

@@ -10,10 +10,11 @@ target 'StripeIdentityReactNativeExample' do
 
   pod 'stripe-identity-react-native', :path => '../..'
 
-  pod 'StripeCore', :git => 'https://github.com/mskwierczynski/stripe-ios.git', :branch => 'mskwierczynski/snapshot-mar-8'
-  pod 'StripeUICore', :git => 'https://github.com/mskwierczynski/stripe-ios.git', :branch => 'mskwierczynski/snapshot-mar-8'
-  pod 'StripeCameraCore', :git => 'https://github.com/mskwierczynski/stripe-ios.git', :branch => 'mskwierczynski/snapshot-mar-8'
-  pod 'StripeIdentity', :git => 'https://github.com/mskwierczynski/stripe-ios.git', :branch => 'mskwierczynski/snapshot-mar-8'
+  pod 'StripeCore', :git => 'https://github.com/stripe/stripe-ios.git', :branch => 'identity-ios-beta-2'
+  pod 'StripeUICore', :git => 'https://github.com/stripe/stripe-ios.git', :branch => 'identity-ios-beta-2'
+  pod 'StripeCameraCore', :git => 'https://github.com/stripe/stripe-ios.git', :branch => 'identity-ios-beta-2'
+  pod 'StripeIdentity', :git => 'https://github.com/stripe/stripe-ios.git', :branch => 'identity-ios-beta-2'
+
 
   # Enables Flipper.
   #

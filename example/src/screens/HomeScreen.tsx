@@ -23,7 +23,7 @@ export function HomeScreen() {
     return {
       sessionId: credentials.id,
       ephemeralKeySecret: credentials.ephemeral_key_secret,
-      merchantLogo: Image.resolveAssetSource(logo),
+      brandLogo: Image.resolveAssetSource(logo),
     };
   }, [options]);
 
