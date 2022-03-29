@@ -22,7 +22,7 @@ yarn add stripe-identity-react-native
 
 For iOS, run `pod install` in your `ios` directory to ensure that you also install the required native dependencies. Android doesn’t require any additional steps.
 
-Set up camera authorisation
+Set up camera authorization
 
 Stripe Identity requires access to the device’s camera to capture identity documents. To enable your app to request camera permissions:
 
