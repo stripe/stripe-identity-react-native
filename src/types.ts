@@ -6,16 +6,22 @@ export type IdentityVerificationSheetOptions = {
   brandLogo: ImageResolvedAssetSource;
 };
 
-export type IdentityVerificationSheetStatus = 'FlowCompleted' | 'FlowCanceled' | 'FlowFailed';
+export type IdentityVerificationSheetStatus =
+  | 'FlowCompleted'
+  | 'FlowCanceled'
+  | 'FlowFailed';
 
 export type IdentityVerificationSheetResult = {
   status: IdentityVerificationSheetStatus;
-  error?: StripeError
+  error?: StripeError;
 };
 
-export type InitIdentityVerificationSheet = (options: IdentityVerificationSheetOptions) => void;
+export type InitIdentityVerificationSheet = (
+  options: IdentityVerificationSheetOptions
+) => void;
 
-export type PresentIdentityVerificationSheet = () => Promise<IdentityVerificationSheetResult>;
+export type PresentIdentityVerificationSheet =
+  () => Promise<IdentityVerificationSheetResult>;
 
 export type ErrorType =
   | 'api_connection_error'
@@ -26,7 +32,6 @@ export type ErrorType =
   | 'invalid_request_error'
   | 'rate_limit_error';
 
-
 export type StripeError = {
   code: IdentityVerificationSheetStatus;
   message: string;
@@ -34,4 +39,4 @@ export type StripeError = {
   declineCode?: string;
   stripeErrorCode?: string;
   type?: ErrorType;
-}
+};

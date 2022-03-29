@@ -5,4 +5,10 @@ export { useStripeIdentity } from './hooks/useStripeIdentity';
 export { presentIdentityVerificationSheet } from './functions';
 
 // types
-export type { IdentityVerificationSheetOptions, IdentityVerificationSheetResult, IdentityVerificationSheetStatus, StripeError, ErrorType } from './types';
+export type {
+  IdentityVerificationSheetOptions,
+  IdentityVerificationSheetResult,
+  IdentityVerificationSheetStatus,
+  StripeError,
+  ErrorType,
+} from './types';
