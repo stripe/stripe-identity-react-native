@@ -7,6 +7,7 @@ Stripe Identity enables online businesses to securely verify the identities of u
 Get started with our [📚 integration guides](https://stripe.com/docs/identity/verify-identity-documents?platform=react-native) and [example project](#run-the-example-app).
 
 > Updating to a newer version of the SDK? See our [changelog](https://github.com/stripe/stripe-identity-react-native/blob/main/CHANGELOG.md).
+
 ## Features
 
 **Simplified security**: We've made it simple for you to securely collect your user's personally identifiable information (PII) such as identity document images. Sensitive PII data is sent directly to Stripe Identity instead of passing through your server. For more information, see our [integration security guide](https://stripe.com/docs/security).
@@ -53,7 +54,9 @@ Alternatively use the `plugin-transform-typescript` plugin in your project.
 
 - Compatible with apps targeting iOS 13.0 or above.
 
-## Stripe Identity SDK initialization
+## Usage example
+
+Get started with our [📚 integration guides](https://stripe.com/docs/identity/verify-identity-documents?platform=react-native) and [example project](#run-the-example-app), or [📘 browse the SDK reference](https://stripe.dev/stripe-identity-react-native).
 
 To initialize Stripe Identity SDK in your React Native app, use the `useStripeIdentity` hook in the screen where you want to use it.
 
@@ -120,52 +123,67 @@ function HomeScreen() {
 }
 ```
 
-## init and present methods
-
-If you don't want to use `useStripeIdentity` hook, you can also use these 2 methods to create your own implementation:
-
-`init` method for initialization, if you want to use it, you need to pass options (sessionId,
-ephemeralKeySecret, brandLogo) from your verification session to it:
+Or if you don't want to use `useStripeIdentity` hook, you can also use this method to create your own implementation:
 
 ```tsx
-import { init } from 'stripe-identity-react-native';
+// HomeScreen.tsx
+import { useState } from 'react';
+import { presentIdentityVerificationSheet } from 'stripe-identity-react-native';
 import logo from './assets/logo.png';
 
-const customInit = async () => {
-  const credentials = await fetchVerificationSessionParams();
+function HomeScreen() {
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState<
+    IdentityVerificationSheetStatus | undefined
+  >();
+  const [error, setError] = useState<StripeError | undefined>();
 
-  const options = {
-    sessionId: credentials.id,
-    ephemeralKeySecret: credentials.ephemeral_key_secret,
-    brandLogo: Image.resolveAssetSource(logo),
+  const fetchOptions = async () => {
+    const response = await fetchVerificationSessionParams();
+
+    return {
+      sessionId: response.id,
+      ephemeralKeySecret: response.ephemeral_key_secret,
+      brandLogo: Image.resolveAssetSource(logo),
+    };
   };
 
-  init(options);
-};
+  const present = async () => {
+    setLoading(true);
+    const options = await fetchOptions();
+    setLoading(false);
+    const { status, error } = await presentIdentityVerificationSheet(options);
+    setStatus(status);
+    setError(error);
+  };
+
+  const handlePress = useCallback(() => {
+    present();
+  }, [present]);
+
+  const renderButton = useCallback(() => {
+    if (loading) {
+      return <ActivityIndicator />;
+    }
+    return <Button title="Verify Identity" onPress={handlePress} />;
+  }, [loading, handlePress]);
+
+  return (
+    <View>
+      <View>{renderButton()}</View>
+      <Text>Status: {status}</Text>
+    </View>
+  );
+}
 ```
 
-`present` method will return an object with status: 'Completed' | 'Canceled' | 'Failed':
+There are two types available: StripeError and IdentityVerificationSheetStatus, you can import these in your TypeScript project directly from Stripe Identity React Native SDK:
 
 ```tsx
-import { present } from 'stripe-identity-react-native';
-
-const customPresent = async () => {
-  try {
-    const result = await present();
-
-    return result.status;
-  } catch (e) {
-    return 'Failed';
-  }
-};
-```
-
-## Types
-
-There are two types available: Options and IdentityStatus, you can import these in your TypeScript project directly from Stripe Identity React Native SDK:
-
-```tsx
-import type { Options, IdentityStatus } from 'stripe-identity-react-native';
+import type {
+  StripeError,
+  IdentityVerificationSheetStatus,
+} from 'stripe-identity-react-native';
 ```
 
 ## Run the example app
