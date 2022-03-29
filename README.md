@@ -42,7 +42,7 @@ Alternatively use the `plugin-transform-typescript` plugin in your project.
 
 #### iOS
 
-- Compatible with apps targeting iOS 13 or above.
+- Compatible with apps targeting iOS 13.0 or above.
 
 ## Stripe Identity SDK initialization
 
