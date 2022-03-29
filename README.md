@@ -6,7 +6,7 @@ Stripe Identity enables online businesses to securely verify the identities of u
 
 Get started with our [📚 integration guides](https://stripe.com/docs/identity) and [example project](#run-the-example-app).
 
-> Updating to a newer version of the SDK? See our [changelog](https://github.com/stripe/stripe-identity-react-native/blob/master/CHANGELOG.md).
+> Updating to a newer version of the SDK? See our [changelog](https://github.com/stripe/stripe-identity-react-native/blob/main/CHANGELOG.md).
 ## Features
 
 **Simplified security**: We've made it simple for you to securely collect your user's personally identifiable information (PII) such as identity document images. Sensitive PII data is sent directly to Stripe Identity instead of passing through your server. For more information, see our [integration security guide](https://stripe.com/docs/security).
