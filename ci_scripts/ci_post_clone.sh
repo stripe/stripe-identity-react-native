@@ -5,4 +5,5 @@ brew install cocoapods
 brew install yarn
 
 # Install dependencies
+yarn
 yarn bootstrap
