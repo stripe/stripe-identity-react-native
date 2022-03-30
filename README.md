@@ -190,7 +190,7 @@ import type {
 
 - Run this command from root folder
   - `yarn bootstrap`
-- Run example app on a specific device
+- Run example app on a specific simulator/emulator
   - `yarn example ios`
   - or
   - `yarn example android`
