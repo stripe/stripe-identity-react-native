@@ -30,7 +30,7 @@ class StripeIdentityVerificationSheetFragment : Fragment() {
     super.onViewCreated(view, savedInstanceState)
     verificationSessionId = arguments?.getString("sessionId").orEmpty()
     ephemeralKeySecret = arguments?.getString("ephemeralKeySecret").orEmpty()
-    val imageUri = arguments?.getBundle("merchantLogo")?.getString("uri").orEmpty()
+    val imageUri = arguments?.getBundle("brandLogo")?.getString("uri").orEmpty()
     identityVerificationSheet = IdentityVerificationSheet.create(this, IdentityVerificationSheet.Configuration(brandLogo = Uri.parse(imageUri)))
   }
 
@@ -41,9 +41,9 @@ class StripeIdentityVerificationSheetFragment : Fragment() {
     ) {
       val result = WritableNativeMap()
       when (it) {
-        VerificationResult.Completed -> result.putString("status", "Completed")
-        VerificationResult.Canceled -> result.putString("status", "Canceled")
-        else -> result.putString("status", "Failed")
+        VerificationResult.Completed -> result.putString("status", "FlowCompleted")
+        VerificationResult.Canceled -> result.putString("status", "FlowCanceled")
+        else -> result.putString("status", "FlowFailed")
       }
       promise.resolve(result)
     }

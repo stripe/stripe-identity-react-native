@@ -24,7 +24,7 @@ class StripeIdentityReactNativeModule(reactContext: ReactApplicationContext) : R
   }
 
   @ReactMethod
-  fun init(options: ReadableMap) {
+  fun initIdentityVerificationSheet(options: ReadableMap) {
 
     val activity = currentActivity as AppCompatActivity? ?: return
 
@@ -40,7 +40,7 @@ class StripeIdentityReactNativeModule(reactContext: ReactApplicationContext) : R
   }
 
   @ReactMethod
-  fun present(promise: Promise) {
+  fun presentIdentityVerificationSheet(promise: Promise) {
     stripeIdentityVerificationSheetFragment.present(promise)
   }
 
