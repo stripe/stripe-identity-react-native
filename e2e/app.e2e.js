@@ -1,15 +1,10 @@
 /* eslint-env detox/detox, jest */
 
-import { getStatusText, pressBack } from './utils';
+import { getStatusText, pressBack, setupDevice } from './utils';
 
 describe('Identity', () => {
   it('Verify', async () => {
-    await device.launchApp({
-      newInstance: true,
-      permissions: { camera: 'YES' },
-    });
-
-    await device.reloadReactNative();
+    await setupDevice();
 
     const identityButton = element(by.id('verify-btn'));
     await waitFor(identityButton).toBeVisible();
@@ -23,12 +18,8 @@ describe('Identity', () => {
     await expect(identityButton).toNotExist();
   });
   it('Cancel', async () => {
-    await device.launchApp({
-      newInstance: true,
-      permissions: { camera: 'YES' },
-    });
+    await setupDevice();
 
-    await device.reloadReactNative();
     const identityButton = element(by.id('verify-btn'));
     await waitFor(identityButton).toBeVisible();
     await identityButton.tap();
