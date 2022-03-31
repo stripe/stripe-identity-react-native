@@ -1,4 +1,5 @@
 /* eslint-env detox/detox, jest */
+/* eslint-disable */
 
 export const setupDevice = async () => {
   await device.launchApp({

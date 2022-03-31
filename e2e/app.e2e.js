@@ -1,18 +1,6 @@
 /* eslint-env detox/detox, jest */
+/* eslint-disable */
 
-<<<<<<< HEAD
-describe('Identity', () => {
-  it('Verify', async () => {
-    await device.launchApp({
-      newInstance: true,
-      permissions: { camera: 'YES' },
-    });
-
-    await device.reloadReactNative();
-
-    const identityButton = element(by.id('verify-btn'));
-    await waitFor(identityButton).toBeVisible();
-=======
 import { getStatusText, pressBack, setupDevice } from './utils';
 
 describe('Identity', () => {
@@ -23,7 +11,6 @@ describe('Identity', () => {
     await waitFor(identityButton).toBeVisible();
     const statusText = await getStatusText('Undefined');
     await expect(statusText).toBeVisible();
->>>>>>> 4d3b161ba63012a4241dedcbb1bec720213f914f
     await identityButton.tap();
 
     const loadingSpinner = element(by.id('loading-spinner'));
@@ -31,8 +18,6 @@ describe('Identity', () => {
     await expect(loadingSpinner).toNotExist();
     await expect(identityButton).toNotExist();
   });
-<<<<<<< HEAD
-=======
   it('Cancel', async () => {
     await setupDevice();
 
@@ -47,5 +32,4 @@ describe('Identity', () => {
     const statusText = await getStatusText('FlowCanceled');
     await expect(statusText).toBeVisible();
   });
->>>>>>> 4d3b161ba63012a4241dedcbb1bec720213f914f
 });
