@@ -2,10 +2,16 @@
 
 @interface RCT_EXTERN_MODULE(StripeIdentityReactNative, NSObject)
 
-RCT_EXTERN_METHOD(init: (NSDictionary)options)
+RCT_EXTERN_METHOD(initIdentityVerificationSheet: (NSDictionary)options)
 
 RCT_EXTERN_METHOD(
-                  present:(RCTPromiseResolveBlock)resolve
+                  presentIdentityVerificationSheet:(RCTPromiseResolveBlock)resolve
                   rejecter: (RCTPromiseRejectBlock)reject
                   )
+
++ (BOOL)requiresMainQueueSetup
+{
+    return YES;
+}
+
 @end
