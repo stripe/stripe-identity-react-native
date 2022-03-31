@@ -42,9 +42,10 @@ export function useStripeIdentity(
     setLoading(true);
     const options = await optionsProvider();
     setLoading(false);
-    const { status, error } = await presentIdentityVerificationSheet(options);
-    setStatus(status);
-    setError(error);
+    const { status: identityStatus, error: identityError } =
+      await presentIdentityVerificationSheet(options);
+    setStatus(identityStatus);
+    setError(identityError);
   };
 
   return { present, status, loading, error };
