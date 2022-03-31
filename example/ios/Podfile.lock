@@ -581,7 +581,7 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: a9d3c82ddf7ffdad9fbe6a81c6d6f8c06385464d
   ReactCommon: 07d0c460b9ba9af3eaf1b8f5abe7daaad28c9c4e
   RNScreens: 40a2cb40a02a609938137a1e0acfbf8fc9eebf19
-  stripe-identity-react-native: cc5a2c117b73f4abcab299988585b5079e79d354
+  stripe-identity-react-native: 37fc2eb953193967c9e280730e6a691595b0a8f8
   StripeCameraCore: 866c511625b034e35aada89ae3a2c6cdd8868a1c
   StripeCore: 7f51191328315ad0c38a8ff455ad8880d16b4e94
   StripeIdentity: cb903e5b60b89f4e12c3751f81031f6d5afae34d
@@ -589,6 +589,6 @@ SPEC CHECKSUMS:
   Yoga: d6b6a80659aa3e91aaba01d0012e7edcbedcbecd
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: 5c1c0815f22cb0526baaacc41add5f2fba825062
+PODFILE CHECKSUM: eeb478e0d989d9eee19033eea3c4aaa98871b582
 
 COCOAPODS: 1.11.3
