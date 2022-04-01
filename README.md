@@ -189,11 +189,17 @@ import type {
 ## Run the example app
 
 - Run this command from root folder
-  - `yarn bootstrap`
-- Run example app on a specific simulator/emulator
+  - `cd example && yarn`
+- Install pods for iOS
+  - `cd ios && pod install`
+- Run example app on a specific simulator/emulator from root folder
   - `yarn example ios`
   - or
   - `yarn example android`
+- Or from example folder
+  - `yarn ios`
+  - or
+  - `yarn android`
 
 ## Contributing
 
