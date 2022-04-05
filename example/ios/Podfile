@@ -14,12 +14,6 @@ target 'StripeIdentityReactNativeExample' do
 
   pod 'stripe-identity-react-native', :path => '../..'
 
-  pod 'StripeCore', :git => 'https://github.com/stripe/stripe-ios.git', :branch => 'identity-ios-beta-2'
-  pod 'StripeUICore', :git => 'https://github.com/stripe/stripe-ios.git', :branch => 'identity-ios-beta-2'
-  pod 'StripeCameraCore', :git => 'https://github.com/stripe/stripe-ios.git', :branch => 'identity-ios-beta-2'
-  pod 'StripeIdentity', :git => 'https://github.com/stripe/stripe-ios.git', :branch => 'identity-ios-beta-2'
-
-
   # Enables Flipper.
   #
   # Note that if you have use_frameworks! enabled, Flipper will not work and
