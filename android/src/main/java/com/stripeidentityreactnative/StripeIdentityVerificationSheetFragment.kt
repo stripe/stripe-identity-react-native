@@ -18,6 +18,8 @@ class StripeIdentityVerificationSheetFragment : Fragment() {
   private lateinit var verificationSessionId: String
   private lateinit var ephemeralKeySecret: String
 
+  private var promise: Promise? = null
+
   override fun onCreateView(
     inflater: LayoutInflater,
     container: ViewGroup?,
@@ -32,18 +34,23 @@ class StripeIdentityVerificationSheetFragment : Fragment() {
     ephemeralKeySecret = arguments?.getString("ephemeralKeySecret").orEmpty()
     val imageUri = arguments?.getBundle("brandLogo")?.getString("uri").orEmpty()
     identityVerificationSheet = IdentityVerificationSheet.create(this, IdentityVerificationSheet.Configuration(brandLogo = Uri.parse(imageUri))) {
-      val result = WritableNativeMap()
-
-      when (it) {
-        VerificationFlowResult.Completed -> result.putString("status", "FlowCompleted")
-        VerificationFlowResult.Canceled -> result.putString("status", "FlowCanceled")
-        else -> result.putString("status", "FlowFailed")
+      promise?.let { currentPromise->
+        val result = WritableNativeMap()
+        when (it) {
+          VerificationFlowResult.Completed -> result.putString("status", "FlowCompleted")
+          VerificationFlowResult.Canceled -> result.putString("status", "FlowCanceled")
+          else -> result.putString("status", "FlowFailed")
+        }
+        currentPromise.resolve(result)
+      } ?: run {
+        throw Exception("No promise is set to handle results")
       }
-      // promise.resolve(result)
+
     }
   }
 
   fun present(promise: Promise) {
+    this.promise = promise
     identityVerificationSheet.present(
       verificationSessionId = verificationSessionId,
       ephemeralKeySecret = ephemeralKeySecret
