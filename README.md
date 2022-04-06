@@ -24,7 +24,9 @@ Install the SDK by running:
 
 ```sh
 npm install stripe-identity-react-native
+```
 or
+```sh
 yarn add stripe-identity-react-native
 ```
 
