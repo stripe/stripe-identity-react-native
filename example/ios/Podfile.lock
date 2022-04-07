@@ -348,16 +348,16 @@ PODS:
     - React-RCTImage
   - stripe-identity-react-native (0.1.0):
     - React-Core
-    - StripeIdentity (~> 21.13.0)
-  - StripeCameraCore (21.13.0):
-    - StripeCore (= 21.13.0)
-  - StripeCore (21.13.0)
-  - StripeIdentity (21.13.0):
-    - StripeCameraCore (= 21.13.0)
-    - StripeCore (= 21.13.0)
-    - StripeUICore (= 21.13.0)
-  - StripeUICore (21.13.0):
-    - StripeCore (= 21.13.0)
+    - StripeIdentity (~> 22.1)
+  - StripeCameraCore (22.1.0):
+    - StripeCore (= 22.1.0)
+  - StripeCore (22.1.0)
+  - StripeIdentity (22.1.0):
+    - StripeCameraCore (= 22.1.0)
+    - StripeCore (= 22.1.0)
+    - StripeUICore (= 22.1.0)
+  - StripeUICore (22.1.0):
+    - StripeCore (= 22.1.0)
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
     - Yoga (~> 1.14)
@@ -419,10 +419,6 @@ DEPENDENCIES:
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - stripe-identity-react-native (from `../..`)
-  - StripeCameraCore (from `https://github.com/stripe/stripe-ios.git`, branch `identity-ios-beta-2`)
-  - StripeCore (from `https://github.com/stripe/stripe-ios.git`, branch `identity-ios-beta-2`)
-  - StripeIdentity (from `https://github.com/stripe/stripe-ios.git`, branch `identity-ios-beta-2`)
-  - StripeUICore (from `https://github.com/stripe/stripe-ios.git`, branch `identity-ios-beta-2`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -440,6 +436,10 @@ SPEC REPOS:
     - fmt
     - libevent
     - OpenSSL-Universal
+    - StripeCameraCore
+    - StripeCore
+    - StripeIdentity
+    - StripeUICore
     - YogaKit
 
 EXTERNAL SOURCES:
@@ -507,39 +507,13 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-screens"
   stripe-identity-react-native:
     :path: "../.."
-  StripeCameraCore:
-    :branch: identity-ios-beta-2
-    :git: https://github.com/stripe/stripe-ios.git
-  StripeCore:
-    :branch: identity-ios-beta-2
-    :git: https://github.com/stripe/stripe-ios.git
-  StripeIdentity:
-    :branch: identity-ios-beta-2
-    :git: https://github.com/stripe/stripe-ios.git
-  StripeUICore:
-    :branch: identity-ios-beta-2
-    :git: https://github.com/stripe/stripe-ios.git
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
-
-CHECKOUT OPTIONS:
-  StripeCameraCore:
-    :commit: be96a31cb1d37be832d96453c91b6795b8dc35fc
-    :git: https://github.com/stripe/stripe-ios.git
-  StripeCore:
-    :commit: be96a31cb1d37be832d96453c91b6795b8dc35fc
-    :git: https://github.com/stripe/stripe-ios.git
-  StripeIdentity:
-    :commit: be96a31cb1d37be832d96453c91b6795b8dc35fc
-    :git: https://github.com/stripe/stripe-ios.git
-  StripeUICore:
-    :commit: be96a31cb1d37be832d96453c91b6795b8dc35fc
-    :git: https://github.com/stripe/stripe-ios.git
 
 SPEC CHECKSUMS:
   boost: a7c83b31436843459a1961bfd74b96033dc77234
   CocoaAsyncSocket: 065fd1e645c7abab64f7a6a2007a48038fdc6a99
-  DoubleConversion: cde416483dac037923206447da6e1454df403714
+  DoubleConversion: 831926d9b8bf8166fd87886c4abab286c2422662
   FBLazyVector: f7b0632c6437e312acf6349288d9aa4cb6d59030
   FBReactNativeSpec: 0f4e1f4cfeace095694436e7c7fcc5bf4b03a0ff
   Flipper: 30e8eeeed6abdc98edaf32af0cda2f198be4b733
@@ -552,7 +526,7 @@ SPEC CHECKSUMS:
   Flipper-RSocket: d9d9ade67cbecf6ac10730304bf5607266dd2541
   FlipperKit: d8d346844eca5d9120c17d441a2f38596e8ed2b9
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
-  glog: 40a13f7840415b9a77023fbcae0f1e6f43192af3
+  glog: 85ecdd10ee8d8ec362ef519a6a45ff9aa27b2e85
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   OpenSSL-Universal: 1aa4f6a6ee7256b83db99ec1ccdaa80d10f9af9b
   RCT-Folly: 803a9cfd78114b2ec0f140cfa6fa2a6bafb2d685
@@ -581,14 +555,14 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: a9d3c82ddf7ffdad9fbe6a81c6d6f8c06385464d
   ReactCommon: 07d0c460b9ba9af3eaf1b8f5abe7daaad28c9c4e
   RNScreens: 40a2cb40a02a609938137a1e0acfbf8fc9eebf19
-  stripe-identity-react-native: 37fc2eb953193967c9e280730e6a691595b0a8f8
-  StripeCameraCore: 866c511625b034e35aada89ae3a2c6cdd8868a1c
-  StripeCore: 7f51191328315ad0c38a8ff455ad8880d16b4e94
-  StripeIdentity: cb903e5b60b89f4e12c3751f81031f6d5afae34d
-  StripeUICore: 1a5094b4656c31e99badb091fb82651a9b8fe1da
+  stripe-identity-react-native: afd1e5b2cf47c9d32f8ca8dee71fcbea76c13f6b
+  StripeCameraCore: 5d64f7d9a12e5bba9713c846e16222ea51dce0a7
+  StripeCore: 1ece9b1aa1882380437a7a980ed1fa914b5b72f4
+  StripeIdentity: 168abc8e9238e94e4d55316540400cb28ed9b0c9
+  StripeUICore: 38cbdf5e4d8a279af2426e9a57b179294dca8a40
   Yoga: d6b6a80659aa3e91aaba01d0012e7edcbedcbecd
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: eeb478e0d989d9eee19033eea3c4aaa98871b582
+PODFILE CHECKSUM: e285f5777a0e4bb906318538c42a56421ee2a200
 
 COCOAPODS: 1.11.3
