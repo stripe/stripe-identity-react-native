@@ -25,15 +25,17 @@ class StripeIdentityVerificationSheetFragment : Fragment() {
     container: ViewGroup?,
     savedInstanceState: Bundle?
   ): View {
-    return FrameLayout(requireActivity())
+    identityVerificationSheet = createIdentityVerificationSheet()
+    return FrameLayout(requireActivity()).also {
+      it.visibility = View.GONE
+    }
   }
 
-  override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-    super.onViewCreated(view, savedInstanceState)
+  private fun createIdentityVerificationSheet(): IdentityVerificationSheet {
     verificationSessionId = arguments?.getString("sessionId").orEmpty()
     ephemeralKeySecret = arguments?.getString("ephemeralKeySecret").orEmpty()
     val imageUri = arguments?.getBundle("brandLogo")?.getString("uri").orEmpty()
-    identityVerificationSheet = IdentityVerificationSheet.create(this, IdentityVerificationSheet.Configuration(brandLogo = Uri.parse(imageUri))) {
+    return IdentityVerificationSheet.create(this, IdentityVerificationSheet.Configuration(brandLogo = Uri.parse(imageUri))) {
       promise?.let { currentPromise->
         val result = WritableNativeMap()
         when (it) {
@@ -49,11 +51,16 @@ class StripeIdentityVerificationSheetFragment : Fragment() {
     }
   }
 
-  fun present(promise: Promise) {
-    this.promise = promise
+  override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    super.onViewCreated(view, savedInstanceState)
+
     identityVerificationSheet.present(
       verificationSessionId = verificationSessionId,
       ephemeralKeySecret = ephemeralKeySecret
     )
+  }
+
+  fun present(promise: Promise) {
+    this.promise = promise
   }
 }
