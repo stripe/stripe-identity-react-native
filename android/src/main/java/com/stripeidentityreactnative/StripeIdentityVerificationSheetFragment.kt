@@ -36,7 +36,7 @@ class StripeIdentityVerificationSheetFragment : Fragment() {
     ephemeralKeySecret = arguments?.getString("ephemeralKeySecret").orEmpty()
     val imageUri = arguments?.getBundle("brandLogo")?.getString("uri").orEmpty()
     return IdentityVerificationSheet.create(this, IdentityVerificationSheet.Configuration(brandLogo = Uri.parse(imageUri))) {
-      promise?.let { currentPromise->
+      promise?.let { currentPromise ->
         val result = WritableNativeMap()
         when (it) {
           VerificationFlowResult.Completed -> result.putString("status", "FlowCompleted")
