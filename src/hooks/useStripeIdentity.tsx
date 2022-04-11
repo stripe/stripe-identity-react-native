@@ -8,10 +8,12 @@ import type {
 
 /**
  * useStripeIdentity hook.
- * This hook gives you an acesss to the present method
- * as well as the verification status and the loading flag
- * This hook takes as an argument optionsProvider method.
- * This method should fetch Identity Credentials and return them along with the brandLogo.
+ *
+ * This hook provides access to the present method,
+ * verification status, and loading flag.
+ *
+ * @param optionsProvider - An optionsProvider method that fetches the
+ * VerificationSession ID, ephemeral key secret, and brandLogo.
  *
  * @example
  * ```ts
@@ -24,10 +26,9 @@ import type {
  *      brandLogo: Image.resolveAssetSource(logo),
  *    };
  *  };
- * 
+ *
  * const { present, status, loading, error } = useStripeIdentity(fetchOptionsProvider)
  * ```
- 
  */
 export function useStripeIdentity(
   optionsProvider: () => Promise<IdentityVerificationSheetOptions>
