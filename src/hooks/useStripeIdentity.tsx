@@ -18,7 +18,7 @@ import type {
  * @example
  * ```ts
  * const fechOptionsProvider = async () => {
- *    const response = await fetch('http://${YOUR_SERVER_BASE_URL}/create-verification-session');
+ *    const response = await fetch('https://${YOUR_SERVER_BASE_URL}/create-verification-session');
  *    const { id, ephemeral_key_secret } = await response.json();
  *    return {
  *      sessionId: id,
