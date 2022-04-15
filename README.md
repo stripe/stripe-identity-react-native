@@ -18,17 +18,6 @@ Get started with our [📚 integration guides](https://stripe.com/docs/identity/
 
 **Automated verification**: Stripe Identity's automated verification technology looks for patterns to help determine if an ID document is real or fake and uses distinctive physiological characteristics of faces to match your users' selfies to photos on their ID document. Collected identity information is checked against a global set of databases to confirm that it exists. Learn more about the [verification checks supported by Stripe Identity](https://stripe.com/docs/identity/verification-checks), [accessing verification results](https://stripe.com/docs/identity/access-verification-results), or our integration guide on [handling verification outcomes](https://stripe.com/docs/identity/handle-verification-outcomes).
 
-## Installation
-
-Install the SDK by running:
-
-```sh
-npm install stripe-identity-react-native
-```
-or
-```sh
-yarn add stripe-identity-react-native
-```
 
 ### iOS
 
