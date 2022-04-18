@@ -13,13 +13,7 @@
     "android",
     "ios",
     "cpp",
-    "stripe-identity-react-native.podspec",
-    "!lib/typescript/example",
-    "!android/build",
-    "!ios/build",
-    "!**/__tests__",
-    "!**/__fixtures__",
-    "!**/__mocks__"
+    "stripe-identity-react-native.podspec"
   ],
   "scripts": {
     "test": "jest",
