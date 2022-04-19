@@ -1,5 +1,5 @@
 {
-  "name": "stripe-identity-react-native",
+  "name": "@stripe/stripe-identity-react-native",
   "version": "0.1.0",
   "description": "Stripe identity react native SDK library",
   "main": "lib/commonjs/index",
@@ -13,13 +13,7 @@
     "android",
     "ios",
     "cpp",
-    "stripe-identity-react-native.podspec",
-    "!lib/typescript/example",
-    "!android/build",
-    "!ios/build",
-    "!**/__tests__",
-    "!**/__fixtures__",
-    "!**/__mocks__"
+    "stripe-identity-react-native.podspec"
   ],
   "scripts": {
     "test": "jest",
