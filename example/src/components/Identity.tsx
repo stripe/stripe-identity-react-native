@@ -9,7 +9,7 @@ import {
 import {
   useStripeIdentity,
   IdentityVerificationSheetOptions,
-} from 'stripe-identity-react-native';
+} from '@stripe/stripe-identity-react-native';
 
 type Props = {
   fetchOptions: () => Promise<IdentityVerificationSheetOptions>;
