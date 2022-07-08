@@ -181,7 +181,7 @@ import type {
 
 - Run this command from root folder
   - `cd example && yarn`
-- Install pods for iOS
+- Install pods for iOS and update StripeIdentity
   - `cd ios && pod install && pod update StripeIdentity`
 - Run example app on a specific simulator/emulator from root folder
   - `yarn example ios`
