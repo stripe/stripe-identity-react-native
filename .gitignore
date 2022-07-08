@@ -43,7 +43,6 @@ android.iml
 # Cocoapods
 #
 example/ios/Pods
-example/ios/Podfile.lock
 
 # node.js
 #
