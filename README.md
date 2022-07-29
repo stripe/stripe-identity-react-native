@@ -2,6 +2,8 @@
 
 Stripe Identity enables online businesses to securely verify the identities of users around the world. Robust identity verification helps prevent fraud, simplify compliance, and increase trust. Stripe will use biometric technology (on images of you and your IDs) and other data sources. With the Stripe Identity React Native SDK, you can confidently verify the authenticity of ID documents from over 33 countries in your React Native application.
 
+> Access to the Identity React Native SDK is currently limited to beta users. If you're interested in trying it out, please send an email to <identity-mobile-sdk-beta@stripe.com>. We'll work with  you to see how we can help you implement Stripe Identity in your mobile app.
+
 ## Getting started
 
 Get started with our [📚 integration guides](https://stripe.com/docs/identity/verify-identity-documents?platform=react-native) and [example project](#run-the-example-app).
