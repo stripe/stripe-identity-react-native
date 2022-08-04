@@ -80,7 +80,7 @@ Once you get options you can use `useStripeIdentity` passing fetchOptions to it.
 
 ```tsx
 // HomeScreen.tsx
-import { useStripeIdentity } from 'stripe-identity-react-native';
+import { useStripeIdentity } from '@stripe/stripe-identity-react-native';
 import logo from './assets/logo.png';
 
 function HomeScreen() {
@@ -121,7 +121,7 @@ Or if you don't want to use `useStripeIdentity` hook, you can also use this meth
 ```tsx
 // HomeScreen.tsx
 import { useState } from 'react';
-import { presentIdentityVerificationSheet } from 'stripe-identity-react-native';
+import { presentIdentityVerificationSheet } from '@stripe/stripe-identity-react-native';
 import logo from './assets/logo.png';
 
 function HomeScreen() {
@@ -176,7 +176,7 @@ There are two types available: StripeError and IdentityVerificationSheetStatus, 
 import type {
   StripeError,
   IdentityVerificationSheetStatus,
-} from 'stripe-identity-react-native';
+} from '@stripe/stripe-identity-react-native';
 ```
 
 ## Run the example app
