@@ -20,32 +20,26 @@ Get started with our [📚 integration guides](https://stripe.com/docs/identity/
 
 **Automated verification**: Stripe Identity's automated verification technology looks for patterns to help determine if an ID document is real or fake and uses distinctive physiological characteristics of faces to match your users' selfies to photos on their ID document. Collected identity information is checked against a global set of databases to confirm that it exists. Learn more about the [verification checks supported by Stripe Identity](https://stripe.com/docs/identity/verification-checks), [accessing verification results](https://stripe.com/docs/identity/access-verification-results), or our integration guide on [handling verification outcomes](https://stripe.com/docs/identity/handle-verification-outcomes).
 
-
-### iOS
-
-For iOS, run `pod install` in your `ios` directory to ensure that you also install the required native dependencies. Android doesn’t require any additional steps.
-
-Set up camera authorization
-
-Stripe Identity requires access to the device’s camera to capture identity documents. To enable your app to request camera permissions:
-
-- Open your project’s Info.plist in Xcode.
-- Add the `NSCameraUsageDescription` key.
-- Add a string value that explains to your users why your app requires camera permissions, something like:
-  > This app uses the camera to take a picture of your identity documents.
-
 ### Requirements
 
 The SDK uses TypeScript features available in Babel version `7.9.0` and above.
 Alternatively use the `plugin-transform-typescript` plugin in your project.
 
 #### Android
-
 - Android 5.0 (API level 21) and above
+- Stripe Identity requires the hosting activity to use material theme. To enable material theme:
+  - Open your project's AndroidManifest.xml
+  - Make sure the `android:theme` applied to the `application` is a child of one of the material themes(e.g `Theme.MaterialComponents.DayNight`).
+    > See more details about material theme [here](https://material.io/develop/android/theming/dark).
 
 #### iOS
-
 - Compatible with apps targeting iOS 13.0 or above.
+- Run `pod install` in your `ios` directory to ensure that you also install the required native dependencies.
+- Stripe Identity requires access to the device’s camera to capture identity documents. To enable your app to request camera permissions:
+  - Open your project’s Info.plist in Xcode.
+  - Add the `NSCameraUsageDescription` key.
+  - Add a string value that explains to your users why your app requires camera permissions, something like:
+    > This app uses the camera to take a picture of your identity documents.
 
 ## Usage example
 
