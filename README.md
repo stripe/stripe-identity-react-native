@@ -26,9 +26,9 @@ The SDK uses TypeScript features available in Babel version `7.9.0` and above.
 Alternatively use the `plugin-transform-typescript` plugin in your project.
 
 #### Android
-- Android 5.0 (API level 21) and above
+- Compatible with Android 5.0 (API level 21) and above.
 - Stripe Identity requires the hosting activity to use material theme. To enable material theme:
-  - Open your project's AndroidManifest.xml
+  - Open your project's `AndroidManifest.xml`.
   - Make sure the `android:theme` applied to the `application` is a child of one of the material themes(e.g `Theme.MaterialComponents.DayNight`).
     > See more details about material theme [here](https://material.io/develop/android/theming/dark).
 
@@ -36,10 +36,9 @@ Alternatively use the `plugin-transform-typescript` plugin in your project.
 - Compatible with apps targeting iOS 13.0 or above.
 - Run `pod install` in your `ios` directory to ensure that you also install the required native dependencies.
 - Stripe Identity requires access to the device’s camera to capture identity documents. To enable your app to request camera permissions:
-  - Open your project’s Info.plist in Xcode.
+  - Open your project’s `Info.plist`.
   - Add the `NSCameraUsageDescription` key.
-  - Add a string value that explains to your users why your app requires camera permissions, something like:
-    > This app uses the camera to take a picture of your identity documents.
+  - Add a string value that explains to your users why your app requires camera permissions(e.g `This app uses the camera to take a picture of your identity documents.`).
 
 ## Usage example
 
