@@ -11,11 +11,15 @@ class StripeIdentityReactNativeModule(reactContext: ReactApplicationContext) : R
     return "StripeIdentityReactNative"
   }
 
-  lateinit var stripeIdentityVerificationSheetFragment: StripeIdentityVerificationSheetFragment
+  private var stripeIdentityVerificationSheetFragment: StripeIdentityVerificationSheetFragment? = null
+  private var initialized = false
 
   private val mActivityEventListener = object : BaseActivityEventListener() {
     override fun onActivityResult(activity: Activity, requestCode: Int, resultCode: Int, data: Intent?) {
-      stripeIdentityVerificationSheetFragment.activity?.activityResultRegistry?.dispatchResult(requestCode, resultCode, data)
+      if (initialized) {
+        initialized = false
+        stripeIdentityVerificationSheetFragment?.activity?.activityResultRegistry?.dispatchResult(requestCode, resultCode, data)
+      }
     }
   }
 
@@ -25,24 +29,27 @@ class StripeIdentityReactNativeModule(reactContext: ReactApplicationContext) : R
 
   @ReactMethod
   fun initIdentityVerificationSheet(options: ReadableMap) {
-
+    initialized = true
     val activity = currentActivity as AppCompatActivity? ?: return
 
+    // If a fragment was already initialized, we want to remove it first
+    stripeIdentityVerificationSheetFragment?.let {
+      activity.supportFragmentManager.beginTransaction().remove(it).commitAllowingStateLoss()
+    }
     stripeIdentityVerificationSheetFragment = StripeIdentityVerificationSheetFragment().also {
       val bundle = toBundleObject(options)
       it.arguments = bundle
     }
 
     activity.supportFragmentManager.beginTransaction()
-      .add(stripeIdentityVerificationSheetFragment, "identity_sheet_launch_fragment")
+      .add(requireNotNull(stripeIdentityVerificationSheetFragment), "identity_sheet_launch_fragment")
       .commit()
 
   }
 
   @ReactMethod
   fun presentIdentityVerificationSheet(promise: Promise) {
-    stripeIdentityVerificationSheetFragment.present(promise)
+    stripeIdentityVerificationSheetFragment?.present(promise)
   }
-
 
 }
