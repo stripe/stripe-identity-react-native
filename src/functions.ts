@@ -7,6 +7,10 @@ import type {
 export function presentIdentityVerificationSheet(
   options: IdentityVerificationSheetOptions
 ): Promise<IdentityVerificationSheetResult> {
-  StripeIdentityReactNative.initIdentityVerificationSheet(options);
+  const initVerificationSheet = async () => {
+    await StripeIdentityReactNative.initIdentityVerificationSheet(options);
+  };
+  initVerificationSheet();
+
   return StripeIdentityReactNative.presentIdentityVerificationSheet();
 }
