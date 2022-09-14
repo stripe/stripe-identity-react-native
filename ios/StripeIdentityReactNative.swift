@@ -4,9 +4,10 @@ import UIKit
 @objc(StripeIdentityReactNative)
 class StripeIdentityReactNative: NSObject {
     var verificationSheet: IdentityVerificationSheet?
-    
-    
-    @objc func initIdentityVerificationSheet(_ options: NSDictionary) -> Void {
+
+
+    @objc func initIdentityVerificationSheet(_ options: NSDictionary, resolver resolve: @escaping RCTPromiseResolveBlock,
+                          rejecter reject: @escaping RCTPromiseRejectBlock) -> Void {
         guard let verificationSessionId = options["sessionId"] as? String else {
             assertionFailure("Did not receive a valid id.")
             return
@@ -32,8 +33,9 @@ class StripeIdentityReactNative: NSObject {
                 )
             )
         }
+        resolve(NSNull())
     }
-    
+
     @objc func presentIdentityVerificationSheet(_ resolve: @escaping RCTPromiseResolveBlock, rejecter reject: @escaping RCTPromiseRejectBlock) {
         DispatchQueue.main.async {
             self.verificationSheet?.present(

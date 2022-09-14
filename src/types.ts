@@ -18,7 +18,7 @@ export type IdentityVerificationSheetResult = {
 
 export type InitIdentityVerificationSheet = (
   options: IdentityVerificationSheetOptions
-) => void;
+) => Promise<void>;
 
 export type PresentIdentityVerificationSheet =
   () => Promise<IdentityVerificationSheetResult>;

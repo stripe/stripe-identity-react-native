@@ -4,9 +4,9 @@ import type {
   IdentityVerificationSheetResult,
 } from './types';
 
-export function presentIdentityVerificationSheet(
+export async function presentIdentityVerificationSheet(
   options: IdentityVerificationSheetOptions
 ): Promise<IdentityVerificationSheetResult> {
-  StripeIdentityReactNative.initIdentityVerificationSheet(options);
-  return StripeIdentityReactNative.presentIdentityVerificationSheet();
+  await StripeIdentityReactNative.initIdentityVerificationSheet(options);
+  return await StripeIdentityReactNative.presentIdentityVerificationSheet();
 }
