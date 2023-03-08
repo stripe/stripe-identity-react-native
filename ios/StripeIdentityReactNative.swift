@@ -37,9 +37,19 @@ class StripeIdentityReactNative: NSObject {
     }
 
     @objc func presentIdentityVerificationSheet(_ resolve: @escaping RCTPromiseResolveBlock, rejecter reject: @escaping RCTPromiseRejectBlock) {
+        // Note: creating a UIViewController inside here results in a nil window
+        // This is a bit of a hack: We traverse the view hierarchy looking for the most reasonable VC to present from.
+        // A VC hosted within a SwiftUI cell, for example, doesn't have a parent, so we need to find the UIWindow.
+        var presentingViewController: UIViewController =
+            UIApplication.shared.delegate?.window??.rootViewController ?? UIViewController()
+
+        // Find the most-presented UIViewController
+        while let presented = presentingViewController.presentedViewController {
+            presentingViewController = presented
+        }
         DispatchQueue.main.async {
             self.verificationSheet?.present(
-                from: UIApplication.shared.delegate?.window??.rootViewController ?? UIViewController(),
+                from: presentingViewController,
                 completion: { result in
                     switch result {
                     case .flowCompleted:
