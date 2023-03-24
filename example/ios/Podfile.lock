@@ -358,18 +358,18 @@ PODS:
   - RNScreens (3.15.0):
     - React-Core
     - React-RCTImage
-  - stripe-identity-react-native (0.1.3):
+  - stripe-identity-react-native (0.1.4):
     - React-Core
-    - StripeIdentity (~> 23.4.2)
-  - StripeCameraCore (23.4.2):
-    - StripeCore (= 23.4.2)
-  - StripeCore (23.4.2)
-  - StripeIdentity (23.4.2):
-    - StripeCameraCore (= 23.4.2)
-    - StripeCore (= 23.4.2)
-    - StripeUICore (= 23.4.2)
-  - StripeUICore (23.4.2):
-    - StripeCore (= 23.4.2)
+    - StripeIdentity (~> 23.5.0)
+  - StripeCameraCore (23.5.1):
+    - StripeCore (= 23.5.1)
+  - StripeCore (23.5.1)
+  - StripeIdentity (23.5.1):
+    - StripeCameraCore (= 23.5.1)
+    - StripeCore (= 23.5.1)
+    - StripeUICore (= 23.5.1)
+  - StripeUICore (23.5.1):
+    - StripeCore (= 23.5.1)
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
     - Yoga (~> 1.14)
@@ -575,11 +575,11 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: 27f468c5576eaf05ffb7a907528e44c75a3fcbae
   ReactCommon: e30ec17dfb1d4c4f3419eac254350d6abca6d5a2
   RNScreens: 4a1af06327774490d97342c00aee0c2bafb497b7
-  stripe-identity-react-native: 5cb14b0255a045f3e755128bdf7b9efdd6acb8e4
-  StripeCameraCore: 566b75a3fd6107d59a433ef62427d64323cf405e
-  StripeCore: 727a9f9ec21aa20eccdb357950a7886f8f3bbf8a
-  StripeIdentity: bab04df24e5c1daf3da383883dc55eced356ff9e
-  StripeUICore: 1fbe9a33b73633127205175c0e255a4bfb052212
+  stripe-identity-react-native: 6fc41cc1b0afbe88ea32df8bb99e0292957324f2
+  StripeCameraCore: 206ef25a13cc188c18f81ebbb41ff145913a5096
+  StripeCore: a6511a9b7481571dca38608e2d1fe2b56a753975
+  StripeIdentity: e7c89e53c0b8df4e8bfd2dfdd6aa29e4fcb39c69
+  StripeUICore: 5dc852ac5e4302721b7793ee16b74ad679dd5ffb
   Yoga: 7ab6e3ee4ce47d7b789d1cb520163833e515f452
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
