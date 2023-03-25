@@ -4,10 +4,15 @@ import logo from '../assets/RocketRides.png';
 import { getTestCredentials } from '../utils/api';
 import { Options } from '../components/Options';
 import { Identity } from '../components/Identity';
-import { AllowedTypes, VerificationSessionOptions } from '../types';
+import {
+  AllowedTypes,
+  VerificationSessionOptions,
+  VerificationType,
+} from '../types';
 
 export function HomeScreen() {
   const [options, setOptions] = useState<VerificationSessionOptions>({
+    verificationType: VerificationType.DOCUMENT,
     requireMatchingSelfie: false,
     requireIdNumber: false,
     allowedTypes: {
@@ -16,6 +21,7 @@ export function HomeScreen() {
       [AllowedTypes.PASSPORT]: true,
     },
     requireLiveCapture: false,
+    requireAddress: false,
   });
 
   const fetchOptions = useCallback(async () => {
