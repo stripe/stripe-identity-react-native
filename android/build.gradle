@@ -124,10 +124,11 @@ repositories {
 }
 
 def kotlin_version = getExtOrDefault('kotlinVersion')
+def stripe_version = getExtOrDefault('stripeVersion')
 
 dependencies {
   // noinspection GradleDynamicVersion
   api 'com.facebook.react:react-native:+'
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-  implementation 'com.stripe:identity:20.+'
+  implementation "com.stripe:identity:$stripe_version"
 }
