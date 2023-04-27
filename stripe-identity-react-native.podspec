@@ -1,6 +1,7 @@
 require 'json'
 
 package = JSON.parse(File.read(File.join(__dir__, 'package.json')))
+stripe_version = '23.6.0'
 
 Pod::Spec.new do |s|
   s.name         = 'stripe-identity-react-native'
@@ -16,5 +17,5 @@ Pod::Spec.new do |s|
   s.source_files = 'ios/**/*.{h,m,mm,swift}'
 
   s.dependency 'React-Core'
-  s.dependency 'StripeIdentity', '~> 23.5.0'
+  s.dependency 'StripeIdentity', stripe_version
 end
