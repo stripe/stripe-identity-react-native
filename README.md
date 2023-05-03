@@ -33,6 +33,8 @@ Alternatively use the `plugin-transform-typescript` plugin in your project.
     > See more details about material theme [here](https://material.io/develop/android/theming/dark).
 
 #### iOS
+> Note: [Xcode 13 is no longer supported by Apple](https://developer.apple.com/news/upcoming-requirements/). Please upgrade to Xcode 14.1 or later.
+
 - Compatible with apps targeting iOS 13.0 or above.
 - Run `pod install` in your `ios` directory to ensure that you also install the required native dependencies.
 - Stripe Identity requires access to the device’s camera to capture identity documents. To enable your app to request camera permissions:
