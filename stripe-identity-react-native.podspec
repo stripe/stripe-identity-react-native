@@ -3,7 +3,7 @@ require 'json'
 package = JSON.parse(File.read(File.join(__dir__, 'package.json')))
 
 # When stripe_version is updated, also need to update stripe_version in https://github.com/stripe/stripe-react-native/blob/master/stripe-react-native.podspec
-stripe_version = '~> 23.7.0'
+stripe_version = '~> 23.8.0'
 
 Pod::Spec.new do |s|
   s.name         = 'stripe-identity-react-native'
