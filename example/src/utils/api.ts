@@ -34,6 +34,34 @@ export const getTestCredentials = async (
           },
         }),
       });
+    } else if (options.verificationType === VerificationType.PHONE) {
+      let body = options.phoneFallbackToDocument
+        ? JSON.stringify({
+            type: options.verificationType,
+            options: {
+              phone_records: { fallback: 'document' },
+              phone_otp: { check: options.phoneOtpCheckType },
+              document: {
+                require_matching_selfie: options.requireMatchingSelfie,
+                require_id_number: options.requireIdNumber,
+                require_live_capture: options.requireLiveCapture,
+                require_address: options.requireAddress,
+                allowed_types: (
+                  Object.keys(options.allowedTypes) as AllowedTypes[]
+                ).filter((key: AllowedTypes) => options.allowedTypes[key]),
+              },
+            },
+          })
+        : JSON.stringify({
+            type: options.verificationType,
+          });
+      data = await fetch(baseURL + verifyEndpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: body,
+      });
     } else {
       data = await fetch(baseURL + verifyEndpoint, {
         method: 'POST',
