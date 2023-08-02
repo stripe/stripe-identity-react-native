@@ -11,6 +11,12 @@ export enum AllowedTypes {
   ID_CARD = 'id_card',
 }
 
+export enum PhoneOtpCheckTypes {
+  ATTEMPT = 'attempt',
+  NONE = 'none',
+  REQUIRED = 'required',
+}
+
 export type VerificationSessionOptions = {
   verificationType: VerificationType;
   requireMatchingSelfie: boolean;
@@ -18,4 +24,6 @@ export type VerificationSessionOptions = {
   allowedTypes: Record<AllowedTypes, boolean>;
   requireLiveCapture: boolean;
   requireAddress: boolean;
+  phoneFallbackToDocument: boolean;
+  phoneOtpCheckType: PhoneOtpCheckTypes;
 };

@@ -1,11 +1,18 @@
 import React, { useState, useCallback } from 'react';
-import { StyleSheet, Image, View, SafeAreaView } from 'react-native';
+import {
+  StyleSheet,
+  Image,
+  View,
+  SafeAreaView,
+  ScrollView,
+} from 'react-native';
 import logo from '../assets/RocketRides.png';
 import { getTestCredentials } from '../utils/api';
 import { Options } from '../components/Options';
 import { Identity } from '../components/Identity';
 import {
   AllowedTypes,
+  PhoneOtpCheckTypes,
   VerificationSessionOptions,
   VerificationType,
 } from '../types';
@@ -22,6 +29,8 @@ export function HomeScreen() {
     },
     requireLiveCapture: false,
     requireAddress: false,
+    phoneFallbackToDocument: false,
+    phoneOtpCheckType: PhoneOtpCheckTypes.ATTEMPT,
   });
 
   const fetchOptions = useCallback(async () => {
@@ -35,9 +44,11 @@ export function HomeScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Options options={options} setOptions={setOptions} />
-      <View style={styles.divider} />
-      <Identity fetchOptions={fetchOptions} />
+      <ScrollView style={styles.scrollView}>
+        <Options options={options} setOptions={setOptions} />
+        <View style={styles.divider} />
+        <Identity fetchOptions={fetchOptions} />
+      </ScrollView>
     </SafeAreaView>
   );
 }
@@ -45,8 +56,9 @@ export function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+  },
+  scrollView: {
+    marginHorizontal: 0,
   },
   divider: {
     borderBottomColor: 'black',

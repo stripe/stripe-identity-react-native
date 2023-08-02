@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import {
   AllowedTypes,
+  PhoneOtpCheckTypes,
   VerificationSessionOptions,
   VerificationType,
 } from '../types';
 import { Option } from './Option';
+import { SelectList } from 'react-native-dropdown-select-list';
 import RadioGroup from 'react-native-radio-buttons-group';
-import type { RadioButtonProps } from 'react-native-radio-buttons-group';
 
 type OptionsProps = {
   options: VerificationSessionOptions;
@@ -15,95 +16,105 @@ type OptionsProps = {
 };
 
 export function Options({ options, setOptions }: OptionsProps) {
-  const [verificationTypeRadioButtons] = useState([
+  const verificationTypeData = [
+    { key: VerificationType.DOCUMENT, value: 'Document' },
+    { key: VerificationType.ID_NUMBER, value: 'ID Number' },
+    { key: VerificationType.ADDRESS, value: 'Address' },
+    { key: VerificationType.PHONE, value: 'Phone' },
+  ];
+
+  const [phoneOtpCheckOptions] = useState([
     {
-      id: VerificationType.DOCUMENT, // acts as primary key, should be unique and non-empty string
-      label: 'Document',
-      value: VerificationType.DOCUMENT,
+      id: PhoneOtpCheckTypes.ATTEMPT, // acts as primary key, should be unique and non-empty string
+      label: PhoneOtpCheckTypes.ATTEMPT.valueOf(),
+      value: PhoneOtpCheckTypes.ATTEMPT,
       labelStyle: styles.verification_type_label,
-      selected: true,
     },
     {
-      id: VerificationType.ID_NUMBER,
-      label: 'ID Number',
-      value: VerificationType.ID_NUMBER,
+      id: PhoneOtpCheckTypes.NONE,
+      label: PhoneOtpCheckTypes.NONE.valueOf(),
+      value: PhoneOtpCheckTypes.NONE,
       labelStyle: styles.verification_type_label,
     },
     {
-      id: VerificationType.ADDRESS,
-      label: 'Address',
-      value: VerificationType.ADDRESS,
+      id: PhoneOtpCheckTypes.REQUIRED,
+      label: PhoneOtpCheckTypes.REQUIRED.valueOf(),
+      value: PhoneOtpCheckTypes.REQUIRED,
       labelStyle: styles.verification_type_label,
     },
   ]);
 
-  function onPressRadioButton(radioButtonsArray: RadioButtonProps[]) {
-    let selectedVerificaitonType = radioButtonsArray.find((prop) => {
-      return prop.selected;
+  function onPressPhoneOtpCheckOption(selectedId: string) {
+    let selectedPhoneOtpCheckType = phoneOtpCheckOptions.find((item) => {
+      return item.id === selectedId;
     })?.value;
 
     setOptions({
       ...options,
-      verificationType:
-        selectedVerificaitonType === undefined
-          ? VerificationType.DOCUMENT
-          : (selectedVerificaitonType as VerificationType),
+      phoneOtpCheckType: selectedPhoneOtpCheckType
+        ? selectedPhoneOtpCheckType
+        : PhoneOtpCheckTypes.ATTEMPT,
     });
   }
 
-  if (options.verificationType === VerificationType.DOCUMENT) {
+  const findItemByKey = (keyToFind: VerificationType) => {
+    const foundItem = verificationTypeData.find(
+      (item) => item.key === keyToFind
+    );
+    return foundItem;
+  };
+
+  function onSelectVerificationType(value: VerificationType) {
+    setOptions({
+      ...options,
+      verificationType: value,
+    });
+  }
+
+  const DocumentOptionSection = () => {
     return (
-      <View style={styles.container}>
-        <View>
-          <Text style={styles.label}>Verification Type:</Text>
-          <RadioGroup
-            radioButtons={verificationTypeRadioButtons}
-            onPress={onPressRadioButton}
-            layout="row"
-            containerStyle={styles.verification_type_container}
+      <View>
+        <Text style={styles.label}>Allowed Types:</Text>
+        <View style={styles.section}>
+          <Option
+            title="Driving License"
+            value={options.allowedTypes[AllowedTypes.DRIVING_LICENSE]}
+            onChange={(value) =>
+              setOptions({
+                ...options,
+                allowedTypes: {
+                  ...options.allowedTypes,
+                  [AllowedTypes.DRIVING_LICENSE]: value,
+                },
+              })
+            }
           />
-          <Text style={styles.label}>Allowed Types:</Text>
-          <View style={styles.section}>
-            <Option
-              title="Driving License"
-              value={options.allowedTypes[AllowedTypes.DRIVING_LICENSE]}
-              onChange={(value) =>
-                setOptions({
-                  ...options,
-                  allowedTypes: {
-                    ...options.allowedTypes,
-                    [AllowedTypes.DRIVING_LICENSE]: value,
-                  },
-                })
-              }
-            />
-            <Option
-              title="Passport"
-              value={options.allowedTypes[AllowedTypes.PASSPORT]}
-              onChange={(value) =>
-                setOptions({
-                  ...options,
-                  allowedTypes: {
-                    ...options.allowedTypes,
-                    [AllowedTypes.PASSPORT]: value,
-                  },
-                })
-              }
-            />
-            <Option
-              title="ID Card"
-              value={options.allowedTypes[AllowedTypes.ID_CARD]}
-              onChange={(value) =>
-                setOptions({
-                  ...options,
-                  allowedTypes: {
-                    ...options.allowedTypes,
-                    [AllowedTypes.ID_CARD]: value,
-                  },
-                })
-              }
-            />
-          </View>
+          <Option
+            title="Passport"
+            value={options.allowedTypes[AllowedTypes.PASSPORT]}
+            onChange={(value) =>
+              setOptions({
+                ...options,
+                allowedTypes: {
+                  ...options.allowedTypes,
+                  [AllowedTypes.PASSPORT]: value,
+                },
+              })
+            }
+          />
+          <Option
+            title="ID Card"
+            value={options.allowedTypes[AllowedTypes.ID_CARD]}
+            onChange={(value) =>
+              setOptions({
+                ...options,
+                allowedTypes: {
+                  ...options.allowedTypes,
+                  [AllowedTypes.ID_CARD]: value,
+                },
+              })
+            }
+          />
         </View>
         <Option
           title="Require ID Number"
@@ -135,15 +146,71 @@ export function Options({ options, setOptions }: OptionsProps) {
         />
       </View>
     );
+  };
+
+  if (options.verificationType === VerificationType.DOCUMENT) {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.label}>Verification Type:</Text>
+        <SelectList
+          setSelected={onSelectVerificationType}
+          data={verificationTypeData}
+          save="key"
+          defaultOption={findItemByKey(options.verificationType)}
+          search={false}
+          boxStyles={styles.verification_type_container}
+        />
+        <DocumentOptionSection />
+      </View>
+    );
+  } else if (options.verificationType === VerificationType.PHONE) {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.label}>Verification Type:</Text>
+        <SelectList
+          setSelected={onSelectVerificationType}
+          data={verificationTypeData}
+          save="key"
+          defaultOption={findItemByKey(options.verificationType)}
+          search={false}
+          boxStyles={styles.verification_type_container}
+        />
+        <Option
+          title="Fallback to document"
+          value={options.phoneFallbackToDocument}
+          onChange={(value) =>
+            setOptions({
+              ...options,
+              phoneFallbackToDocument: value,
+            })
+          }
+        />
+        {options.phoneFallbackToDocument ? (
+          <View>
+            <Text style={styles.label}>OTP Check:</Text>
+            <RadioGroup
+              radioButtons={phoneOtpCheckOptions}
+              selectedId={options.phoneOtpCheckType}
+              onPress={onPressPhoneOtpCheckOption}
+              layout="row"
+              containerStyle={styles.verification_type_container}
+            />
+            <DocumentOptionSection />
+          </View>
+        ) : null}
+      </View>
+    );
   } else {
     return (
       <View style={styles.container}>
         <Text style={styles.label}>Verification Type:</Text>
-        <RadioGroup
-          radioButtons={verificationTypeRadioButtons}
-          onPress={onPressRadioButton}
-          layout="row"
-          containerStyle={styles.verification_type_container}
+        <SelectList
+          setSelected={onSelectVerificationType}
+          data={verificationTypeData}
+          save="key"
+          defaultOption={findItemByKey(options.verificationType)}
+          search={false}
+          boxStyles={styles.verification_type_container}
         />
       </View>
     );
