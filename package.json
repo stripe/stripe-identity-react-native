@@ -1,6 +1,6 @@
 {
   "name": "@stripe/stripe-identity-react-native",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Stripe identity react native SDK library",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
