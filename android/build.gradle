@@ -6,7 +6,7 @@ buildscript {
     mavenLocal()
     google()
     mavenCentral()
-    jcenter()
+    //jcenter() //this repo is deprecated
   }
 
   dependencies {
@@ -54,7 +54,7 @@ android {
 repositories {
   mavenLocal()
   mavenCentral()
-  jcenter()
+  //jcenter() //this repo is deprecated
   google()
 
   def found = false
