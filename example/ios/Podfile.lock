@@ -284,7 +284,7 @@ PODS:
   - React-jsinspector (0.69.9)
   - React-logger (0.69.9):
     - glog
-  - react-native-safe-area-context (4.9.0):
+  - react-native-safe-area-context (4.10.1):
     - React-Core
   - React-perflogger (0.69.9)
   - React-RCTActionSheet (0.69.9):
@@ -352,22 +352,22 @@ PODS:
     - React-jsi (= 0.69.9)
     - React-logger (= 0.69.9)
     - React-perflogger (= 0.69.9)
-  - RNScreens (3.30.1):
+  - RNScreens (3.29.0):
     - React-Core
     - React-RCTImage
-  - stripe-identity-react-native (0.2.7):
+  - stripe-identity-react-native (0.2.9):
     - React-Core
-    - StripeIdentity (~> 23.27.0)
-  - StripeCameraCore (23.27.0):
-    - StripeCore (= 23.27.0)
-  - StripeCore (23.27.0)
-  - StripeIdentity (23.27.0):
+    - StripeIdentity
+  - StripeCameraCore (23.27.2):
+    - StripeCore (= 23.27.2)
+  - StripeCore (23.27.2)
+  - StripeIdentity (23.27.2):
     - MBCaptureCore (= 1.2.3)
-    - StripeCameraCore (= 23.27.0)
-    - StripeCore (= 23.27.0)
-    - StripeUICore (= 23.27.0)
-  - StripeUICore (23.27.0):
-    - StripeCore (= 23.27.0)
+    - StripeCameraCore (= 23.27.2)
+    - StripeCore (= 23.27.2)
+    - StripeUICore (= 23.27.2)
+  - StripeUICore (23.27.2):
+    - StripeCore (= 23.27.2)
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
     - Yoga (~> 1.14)
@@ -430,6 +430,7 @@ DEPENDENCIES:
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - stripe-identity-react-native (from `../..`)
+  - StripeIdentity (from `../../../stripe-ios`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -450,7 +451,6 @@ SPEC REPOS:
     - OpenSSL-Universal
     - StripeCameraCore
     - StripeCore
-    - StripeIdentity
     - StripeUICore
     - YogaKit
 
@@ -523,6 +523,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-screens"
   stripe-identity-react-native:
     :path: "../.."
+  StripeIdentity:
+    :path: "../../../stripe-ios"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -560,7 +562,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 3b506d7fc50275bf44f8fd5624f23eaedd78bf78
   React-jsinspector: 5b92a5a30e02e1a21802f293cc71e05d887c7378
   React-logger: 96d904c5bc87c2660d48e6a36fb2edf65f9cfb11
-  react-native-safe-area-context: b97eb6f9e3b7f437806c2ce5983f479f8eb5de4b
+  react-native-safe-area-context: dcab599c527c2d7de2d76507a523d20a0b83823d
   React-perflogger: f6f4b3c63629ead2e8a5a22eaedd06368c31617a
   React-RCTActionSheet: 5e95058e99c53313d778d96b7f37697ce3a9418e
   React-RCTAnimation: c4f86d756d8398c674f61d00075993a368d83480
@@ -573,15 +575,15 @@ SPEC CHECKSUMS:
   React-RCTVibration: ea899478e6f10ee526f476f769ab33211be2addd
   React-runtimeexecutor: df1518d092e8c74cafddc56690d1ac386ec24d7a
   ReactCommon: fac40473e2c4117522384027ab33ad0cb6717dc5
-  RNScreens: 848541d154d2a184131b34e468b10aa33008f357
-  stripe-identity-react-native: b7442c3b4cf98fa2e348f7319d4e71a2d830729c
-  StripeCameraCore: fc4ced1fe8beb644eaa112c3791e1a6942948763
-  StripeCore: bbaa237ed7d273315d9c8c48d3103e4fe1bcd380
-  StripeIdentity: 3f5038166df180eb65d44be2b4227d9b8273c6ca
-  StripeUICore: 31c66d62940078bd132c23a1fe9ec8746edc02a2
+  RNScreens: fa9b582d85ae5d62c91c66003b5278458fed7aaa
+  stripe-identity-react-native: 847fceebce216fb809365a39a8887815dbe61444
+  StripeCameraCore: fc83f47cb53eabb8beb382b9d35067baab59d4a5
+  StripeCore: 55c1fb4ec4edd61243c59839cef592b0ac4c469a
+  StripeIdentity: 18cfb6aa55968f6b27820ddf53b17890caafd111
+  StripeUICore: 436db87a21e3bb45b7a6a90c114a6d21c35b4be0
   Yoga: 7a4d48cfb35dfa542151e615fa73c1a0d88caf21
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: 70b9b7bc136bd1e96c211d73925330e3ad6a3afe
+PODFILE CHECKSUM: 4cefd89229d7a34f66d56971ff5373b54d1e113d
 
 COCOAPODS: 1.15.2
