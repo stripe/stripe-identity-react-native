@@ -13,8 +13,8 @@ target 'StripeIdentityReactNativeExample' do
   )
 
   pod 'stripe-identity-react-native', :path => '../..'
-#   pod 'StripeIdentity', :path => '../../../stripe-ios'
-  pod 'StripeIdentity', :git => 'https://github.com/TempMee/stripe-ios.git', :branch => 'feat/change-submitted-wording'
+  pod 'StripeIdentity', :path => '../../../stripe-ios'
+#   pod 'StripeIdentity', :git => 'https://github.com/TempMee/stripe-ios.git', :branch => 'feat/change-submitted-wording'
 
   # Enables Flipper.
   #
