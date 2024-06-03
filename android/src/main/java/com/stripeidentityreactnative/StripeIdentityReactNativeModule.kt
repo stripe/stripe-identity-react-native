@@ -34,7 +34,9 @@ class StripeIdentityReactNativeModule(reactContext: ReactApplicationContext) : R
 
     // If a fragment was already initialized, we want to remove it first
     stripeIdentityVerificationSheetFragment?.let {
-      activity.supportFragmentManager.beginTransaction().remove(it).commitAllowingStateLoss()
+      runCatching {
+        activity.supportFragmentManager.beginTransaction().remove(it).commitAllowingStateLoss()
+      }
     }
     stripeIdentityVerificationSheetFragment = StripeIdentityVerificationSheetFragment().also {
       val bundle = toBundleObject(options)
