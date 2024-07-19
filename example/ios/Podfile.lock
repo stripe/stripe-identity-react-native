@@ -73,7 +73,6 @@ PODS:
   - fmt (6.2.1)
   - glog (0.3.5)
   - libevent (2.1.12)
-  - MBCaptureCore (1.2.3)
   - OpenSSL-Universal (1.1.1100)
   - RCT-Folly (2021.06.28.00-v2):
     - boost
@@ -284,7 +283,7 @@ PODS:
   - React-jsinspector (0.69.9)
   - React-logger (0.69.9):
     - glog
-  - react-native-safe-area-context (4.9.0):
+  - react-native-safe-area-context (4.10.1):
     - React-Core
   - React-perflogger (0.69.9)
   - React-RCTActionSheet (0.69.9):
@@ -352,22 +351,21 @@ PODS:
     - React-jsi (= 0.69.9)
     - React-logger (= 0.69.9)
     - React-perflogger (= 0.69.9)
-  - RNScreens (3.30.1):
+  - RNScreens (3.29.0):
     - React-Core
     - React-RCTImage
-  - stripe-identity-react-native (0.2.7):
+  - stripe-identity-react-native (0.2.12):
     - React-Core
-    - StripeIdentity (~> 23.27.0)
-  - StripeCameraCore (23.27.0):
-    - StripeCore (= 23.27.0)
-  - StripeCore (23.27.0)
-  - StripeIdentity (23.27.0):
-    - MBCaptureCore (= 1.2.3)
-    - StripeCameraCore (= 23.27.0)
-    - StripeCore (= 23.27.0)
-    - StripeUICore (= 23.27.0)
-  - StripeUICore (23.27.0):
-    - StripeCore (= 23.27.0)
+    - StripeIdentity (~> 23.28.0)
+  - StripeCameraCore (23.28.1):
+    - StripeCore (= 23.28.1)
+  - StripeCore (23.28.1)
+  - StripeIdentity (23.28.1):
+    - StripeCameraCore (= 23.28.1)
+    - StripeCore (= 23.28.1)
+    - StripeUICore (= 23.28.1)
+  - StripeUICore (23.28.1):
+    - StripeCore (= 23.28.1)
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
     - Yoga (~> 1.14)
@@ -446,7 +444,6 @@ SPEC REPOS:
     - FlipperKit
     - fmt
     - libevent
-    - MBCaptureCore
     - OpenSSL-Universal
     - StripeCameraCore
     - StripeCore
@@ -544,7 +541,6 @@ SPEC CHECKSUMS:
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: 3d02b25ca00c2d456734d0bcff864cbc62f6ae1a
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
-  MBCaptureCore: d203310df64db3bfcd0f3740be18638d467d2e04
   OpenSSL-Universal: ebc357f1e6bc71fa463ccb2fe676756aff50e88c
   RCT-Folly: b9d9fe1fc70114b751c076104e52f3b1b5e5a95a
   RCTRequired: fe80e9f71dd15939e5399dd94d0aa0e5e069d592
@@ -560,7 +556,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 3b506d7fc50275bf44f8fd5624f23eaedd78bf78
   React-jsinspector: 5b92a5a30e02e1a21802f293cc71e05d887c7378
   React-logger: 96d904c5bc87c2660d48e6a36fb2edf65f9cfb11
-  react-native-safe-area-context: b97eb6f9e3b7f437806c2ce5983f479f8eb5de4b
+  react-native-safe-area-context: dcab599c527c2d7de2d76507a523d20a0b83823d
   React-perflogger: f6f4b3c63629ead2e8a5a22eaedd06368c31617a
   React-RCTActionSheet: 5e95058e99c53313d778d96b7f37697ce3a9418e
   React-RCTAnimation: c4f86d756d8398c674f61d00075993a368d83480
@@ -573,12 +569,12 @@ SPEC CHECKSUMS:
   React-RCTVibration: ea899478e6f10ee526f476f769ab33211be2addd
   React-runtimeexecutor: df1518d092e8c74cafddc56690d1ac386ec24d7a
   ReactCommon: fac40473e2c4117522384027ab33ad0cb6717dc5
-  RNScreens: 848541d154d2a184131b34e468b10aa33008f357
-  stripe-identity-react-native: b7442c3b4cf98fa2e348f7319d4e71a2d830729c
-  StripeCameraCore: fc4ced1fe8beb644eaa112c3791e1a6942948763
-  StripeCore: bbaa237ed7d273315d9c8c48d3103e4fe1bcd380
-  StripeIdentity: 3f5038166df180eb65d44be2b4227d9b8273c6ca
-  StripeUICore: 31c66d62940078bd132c23a1fe9ec8746edc02a2
+  RNScreens: fa9b582d85ae5d62c91c66003b5278458fed7aaa
+  stripe-identity-react-native: 34b0a42e10cff70f5c71d529e15e6f459631c09a
+  StripeCameraCore: 3b956e8e7216ddb811fb1c919978e82ad8a77006
+  StripeCore: 880a68482cf78d4745c5213c2fd3446efc73574b
+  StripeIdentity: 7abc952a34c85b5e445c65a9c6ce6819a5e1019e
+  StripeUICore: 22b314dc9f7ea8814d0f9eeba0ddb5e4b77f34f3
   Yoga: 7a4d48cfb35dfa542151e615fa73c1a0d88caf21
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
