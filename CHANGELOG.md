@@ -1,3 +1,9 @@
+# Unreleased
+
+### Fixes
+* Updated `stripe-ios` to 23.28.\*
+* Updated `stripe-android` to 20.48.\*
+
 <a name="v0.1.8"></a>
 # [v0.1.8](https://github.com/stripe/stripe-identity-react-native/releases/tag/v0.1.8) - 15 May 2023
 
