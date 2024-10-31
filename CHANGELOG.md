@@ -1,6 +1,9 @@
 # Unreleased
 
 ### Fixes
+* Updated `stripe-ios` to 23.32.\*
+
+### Fixes
 * Updated `stripe-ios` to 23.30.\*
 * Updated `stripe-android` to 20.52.\*
 
