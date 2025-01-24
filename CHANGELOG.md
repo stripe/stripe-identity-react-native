@@ -1,16 +1,19 @@
 # Unreleased
 
+## Changed
+* Updated `stripe-ios` to 24.4.*
+
 <a name="v0.2.14"></a>
 # [v0.2.14](https://github.com/stripe/stripe-identity-react-native/releases/tag/v0.2.14) - 02 December 2024
 
-### Fixes
+### Changed
 * Updated `stripe-ios` to 24.1.*
 * Updated `stripe-android` to 20.52.*
 
 <a name="v0.2.13"></a>
 # [v0.2.13](https://github.com/stripe/stripe-identity-react-native/releases/tag/v0.2.13) - 19 July 2024
 
-### Fixes
+### Changed
 * Updated `stripe-ios` to 23.28.\*
 * Updated `stripe-android` to 20.48.\*
 
