@@ -1,6 +1,25 @@
 # Unreleased
 
-## Changed
+### Changed
+* Updated `stripe-ios` to 24.8.*
+
+
+<a name="v0.2.18"></a>
+# [v0.2.18](https://github.com/stripe/stripe-identity-react-native/releases/tag/v0.2.18) - 11 Mar 2025
+
+### Changed
+* Replaced unreliable boost dependency url
+
+<a name="v0.2.17"></a>
+# [v0.2.17](https://github.com/stripe/stripe-identity-react-native/releases/tag/v0.2.17) - 10 Mar 2025
+
+### Changed
+* Updated `stripe-ios` to 24.7.*
+
+<a name="v0.2.16"></a>
+# [v0.2.16](https://github.com/stripe/stripe-identity-react-native/releases/tag/v0.2.16) - 24 Jan 2025
+
+### Changed
 * Updated `stripe-ios` to 24.4.*
 
 <a name="v0.2.14"></a>
