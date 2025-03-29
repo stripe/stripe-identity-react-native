@@ -8,7 +8,7 @@ Stripe Identity enables online businesses to securely verify the identities of u
 
 Get started with our [📚 integration guides](https://stripe.com/docs/identity/verify-identity-documents?platform=react-native) and [example project](#run-the-example-app).
 
-> Updating to a newer version of the SDK? See our [changelog](https://github.com/stripe/stripe-identity-react-native/blob/main/CHANGELOG.md).
+> Updating to a newer version of the SDK? See our [changelog](https://github.com/stripe/stripe-identity-react-native/releases).
 
 ## Features
 
@@ -26,6 +26,7 @@ The SDK uses TypeScript features available in Babel version `7.9.0` and above.
 Alternatively use the `plugin-transform-typescript` plugin in your project.
 
 #### Android
+
 - Compatible with Android 5.0 (API level 21) and above.
 - Stripe Identity requires the hosting activity to use material theme. To enable material theme:
   - Open your project's `app/src/main/AndroidManifest.xml`.
@@ -33,6 +34,7 @@ Alternatively use the `plugin-transform-typescript` plugin in your project.
     > See more details about material theme [here](https://material.io/develop/android/theming/dark).
 
 #### iOS
+
 > Note: [Xcode 13 is no longer supported by Apple](https://developer.apple.com/news/upcoming-requirements/). Please upgrade to Xcode 14.1 or later.
 
 - Compatible with apps targeting iOS 13.0 or above.
