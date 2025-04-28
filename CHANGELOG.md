@@ -2,6 +2,14 @@
 
 ### Changed
 
+- Updated `stripe-ios` to 24.11.\*
+
+<a name="v0.3.2">
+
+# [v0.3.2](https://github.com/stripe/stripe-identity-react-native/releases/tag/v0.3.2) - 25 Apr 2025
+
+### Changed
+
 - Updated `stripe-ios` to 24.10.\*
 
 <a name="v0.3.1">
