@@ -1,4 +1,11 @@
-## Unreleased
+# [v0.3.5](https://github.com/stripe/stripe-identity-react-native/releases/tag/v0.3.4) - 5 May 2025
+
+### Changed
+
+- Updated `stripe-ios` to 24.12.1
+- [Fixed] Fixed an issue where identity verification may fail due to stale model cache.
+
+# [v0.3.4](https://github.com/stripe/stripe-identity-react-native/releases/tag/v0.3.4) - 29 Apr 2025
 
 ### Changed
 
