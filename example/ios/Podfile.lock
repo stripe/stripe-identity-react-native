@@ -356,7 +356,7 @@ PODS:
     - React-RCTImage
   - stripe-identity-react-native (0.3.5):
     - React-Core
-    - StripeIdentity (~> 24.13.0)
+    - StripeIdentity (~> 24.13.1)
   - StripeCameraCore (24.13.1):
     - StripeCore (= 24.13.1)
   - StripeCore (24.13.1)
@@ -570,7 +570,7 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: df1518d092e8c74cafddc56690d1ac386ec24d7a
   ReactCommon: fac40473e2c4117522384027ab33ad0cb6717dc5
   RNScreens: fa9b582d85ae5d62c91c66003b5278458fed7aaa
-  stripe-identity-react-native: 8ae782914f68bac57ed4426c568b408de93c1d0b
+  stripe-identity-react-native: 04ebf57732d717d8fabdcdf2493ea02b50da5af6
   StripeCameraCore: 55ffc07409adea90d69d1291bab2c6047da7065a
   StripeCore: 73f688dc871de77b22f3176b19e81013c5f21dbd
   StripeIdentity: 05de7fcde8bf263099aa66d9bbe3baa570121da6
