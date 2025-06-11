@@ -354,18 +354,18 @@ PODS:
   - RNScreens (3.29.0):
     - React-Core
     - React-RCTImage
-  - stripe-identity-react-native (0.3.5):
+  - stripe-identity-react-native (0.3.7):
     - React-Core
-    - StripeIdentity (~> 24.13.1)
-  - StripeCameraCore (24.13.1):
-    - StripeCore (= 24.13.1)
-  - StripeCore (24.13.1)
-  - StripeIdentity (24.13.1):
-    - StripeCameraCore (= 24.13.1)
-    - StripeCore (= 24.13.1)
-    - StripeUICore (= 24.13.1)
-  - StripeUICore (24.13.1):
-    - StripeCore (= 24.13.1)
+    - StripeIdentity (~> 24.15.0)
+  - StripeCameraCore (24.15.0):
+    - StripeCore (= 24.15.0)
+  - StripeCore (24.15.0)
+  - StripeIdentity (24.15.0):
+    - StripeCameraCore (= 24.15.0)
+    - StripeCore (= 24.15.0)
+    - StripeUICore (= 24.15.0)
+  - StripeUICore (24.15.0):
+    - StripeCore (= 24.15.0)
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
     - Yoga (~> 1.14)
@@ -542,21 +542,21 @@ SPEC CHECKSUMS:
   glog: 3d02b25ca00c2d456734d0bcff864cbc62f6ae1a
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   OpenSSL-Universal: ebc357f1e6bc71fa463ccb2fe676756aff50e88c
-  RCT-Folly: b9d9fe1fc70114b751c076104e52f3b1b5e5a95a
+  RCT-Folly: ba26c9ca44b1fb56915c3efd9ce618472addc544
   RCTRequired: fe80e9f71dd15939e5399dd94d0aa0e5e069d592
   RCTTypeSafety: 4c802f7c4b9e7c55470e7fc56d50385cbfcce89b
   React: efe0b6d0b7401a208d2d1bf8320c0b6a0dcd593b
   React-bridging: 11a324da43d8467cfe528ccff0e00ab43bdf1cf4
   React-callinvoker: d4d34002df449053784f1131a6382e526d172395
   React-Codegen: 63eb91553568558cbd6fb2f336c3ff2fea66b37a
-  React-Core: 2875b1749729d07ef7cacef36e8b1381f27cc86e
+  React-Core: 9ddf6ce498a84ce0d0c45950a552f594adf331cb
   React-CoreModules: 8b6665f9b128b875660d75a7144122c742ad4af9
-  React-cxxreact: 76d426551a4d1d6f623ef8f87a26690d5a6be93e
-  React-jsi: 47b65f4f789f198004c47e5b6ceaae95ea3f3659
-  React-jsiexecutor: 3b506d7fc50275bf44f8fd5624f23eaedd78bf78
+  React-cxxreact: bcc953d0a5456e0f147aafa8ae5d6eb3c18dfbde
+  React-jsi: 9da03b046fe346b9e2aefdd9f92c03fcf6573dac
+  React-jsiexecutor: 06dba9cd8105d5b58d935946d8b452cef1dee34f
   React-jsinspector: 5b92a5a30e02e1a21802f293cc71e05d887c7378
-  React-logger: 96d904c5bc87c2660d48e6a36fb2edf65f9cfb11
-  react-native-safe-area-context: dcab599c527c2d7de2d76507a523d20a0b83823d
+  React-logger: 52038e064f4ec6897bd820f3bdcc09d2d7aa40bb
+  react-native-safe-area-context: 8c70551c8688cd584a53487aa1b9361e991a3b4a
   React-perflogger: f6f4b3c63629ead2e8a5a22eaedd06368c31617a
   React-RCTActionSheet: 5e95058e99c53313d778d96b7f37697ce3a9418e
   React-RCTAnimation: c4f86d756d8398c674f61d00075993a368d83480
@@ -568,16 +568,16 @@ SPEC CHECKSUMS:
   React-RCTText: 87456d45e8bcc0c831b7c7fcfcfd860a54f54a79
   React-RCTVibration: ea899478e6f10ee526f476f769ab33211be2addd
   React-runtimeexecutor: df1518d092e8c74cafddc56690d1ac386ec24d7a
-  ReactCommon: fac40473e2c4117522384027ab33ad0cb6717dc5
-  RNScreens: fa9b582d85ae5d62c91c66003b5278458fed7aaa
-  stripe-identity-react-native: 04ebf57732d717d8fabdcdf2493ea02b50da5af6
-  StripeCameraCore: 55ffc07409adea90d69d1291bab2c6047da7065a
-  StripeCore: 73f688dc871de77b22f3176b19e81013c5f21dbd
-  StripeIdentity: 05de7fcde8bf263099aa66d9bbe3baa570121da6
-  StripeUICore: 8cd46f37a616f9af0cea190f149e85ac2f750ebd
+  ReactCommon: 0269321cb72a5979555d06490697270757aca921
+  RNScreens: 0de8f71eb41623a2e72ab802f89d1ee2495eb57d
+  stripe-identity-react-native: 7069b6f8fb62bd7eaba346f3bdfd69c2bfeb51b9
+  StripeCameraCore: c040c0f17fe3aa8b4d86c04aba733a0bc3f67b58
+  StripeCore: 224f995bb108e3be3bdf6cfab918657edf325559
+  StripeIdentity: c8e2ca8194721d65ca0a3435800305d05a74418c
+  StripeUICore: dbd893086aa4fe697517624af2f1f0cea3218ac8
   Yoga: 7a4d48cfb35dfa542151e615fa73c1a0d88caf21
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
 PODFILE CHECKSUM: b3dac7474c7793e74208826c9a2b1544937fe359
 
-COCOAPODS: 1.16.2
+COCOAPODS: 1.15.2
