@@ -4,8 +4,9 @@ import {
   VerificationType,
 } from '../types';
 
+// View and fork the backend code here: https://codesandbox.io/p/devbox/dsx4vq
 const baseURL =
-  'https://stripe-mobile-identity-verification-playground.glitch.me';
+  'https://stripe-mobile-identity-verification-playground.stripedemos.com';
 const verifyEndpoint = '/create-verification-session';
 
 export const getTestCredentials = async (
