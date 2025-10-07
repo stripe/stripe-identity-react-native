@@ -1,5 +1,5 @@
 /* eslint-env detox/detox, jest */
-/* eslint-disable */
+/* eslint-disable no-undef */
 
 import { getStatusText, pressBack, setupDevice } from './utils';
 
