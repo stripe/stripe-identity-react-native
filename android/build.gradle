@@ -62,8 +62,8 @@ def kotlin_version = getExtOrDefault('kotlinVersion')
 def stripe_version = getExtOrDefault('stripeVersion')
 
 dependencies {
-  // Lock to React Native 0.73.9 for compatibility
-  api 'com.facebook.react:react-android:0.73.9'
+  // Compile against React Native but don't force version on clients
+  compileOnly 'com.facebook.react:react-android:0.73.9'
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
   implementation("com.stripe:identity:$stripe_version") {
     exclude group: 'androidx.emoji2', module: 'emoji2'
