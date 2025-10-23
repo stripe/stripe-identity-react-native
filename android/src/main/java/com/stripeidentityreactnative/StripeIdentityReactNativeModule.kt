@@ -30,7 +30,7 @@ class StripeIdentityReactNativeModule(reactContext: ReactApplicationContext) : R
   @ReactMethod
   fun initIdentityVerificationSheet(options: ReadableMap, promise: Promise) {
     initialized = true
-    val activity = currentActivity as AppCompatActivity? ?: return
+    val activity = reactApplicationContext.currentActivity as AppCompatActivity? ?: return
 
     // If a fragment was already initialized, we want to remove it first
     stripeIdentityVerificationSheetFragment?.let {
