@@ -1762,10 +1762,12 @@
   resolved "https://registry.yarnpkg.com/@stripe/stripe-identity-react-native/-/stripe-identity-react-native-0.4.0.tgz#0e44ebcbe52646fd0d2589af39c4677c3a5fd79a"
   integrity sha512-l9Vluds95inT7Ux/dA5cLkdl7wkvtvnRR4pLcHMQl0QtysSRCcHlxghtcA5yPfaJLhyjxBIJVh657bcu+NCSKw==
 
-"@stripe/stripe-react-native@0.57.0":
-  version "0.57.0"
-  resolved "https://registry.yarnpkg.com/@stripe/stripe-react-native/-/stripe-react-native-0.57.0.tgz#55aec4f363748815b410fb73bbe205c57fd3df99"
-  integrity sha512-l68At+JKyd32TzyB7e3yklHsMqF3X+38KE2+NwByxAEIbxs/K7GKjQTABv3DIGmcZ/yGTpDSlKJqrYxtKH4j2g==
+"@stripe/stripe-react-native@0.57.2":
+  version "0.57.2"
+  resolved "https://registry.yarnpkg.com/@stripe/stripe-react-native/-/stripe-react-native-0.57.2.tgz#84f7f846a825534423ebfc2f98c2d18a0c406b7f"
+  integrity sha512-sSwyI/roYeYrq5VTDOWnh6bvCCCCpLfwbR/I6GMtrmtJT+d6pyZBrCgSEkVk4jfGqK6wJh84JLvoONcJinahcw==
+  dependencies:
+    react-native-webview "^13.16.0"
 
 "@types/babel__core@^7.1.14":
   version "7.20.5"
@@ -3701,7 +3703,7 @@ internal-slot@^1.1.0:
     hasown "^2.0.2"
     side-channel "^1.1.0"
 
-invariant@^2.2.4:
+invariant@2.2.4, invariant@^2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
   integrity sha512-phJfQVBuaJM5raOpJjSfkiD6BpbCE4Ns//LaXl6wGYtUBY83nWS6Rf9tXm2e8VaK60JEjYldbPif/A2B1C2gNA==
@@ -5307,6 +5309,14 @@ react-native-safe-area-context@^5.5.2:
   version "5.6.1"
   resolved "https://registry.yarnpkg.com/react-native-safe-area-context/-/react-native-safe-area-context-5.6.1.tgz#cb4d249ef1a6f7e8fd0cfdfa9764838dffda26b6"
   integrity sha512-/wJE58HLEAkATzhhX1xSr+fostLsK8Q97EfpfMDKo8jlOc1QKESSX/FQrhk7HhQH/2uSaox4Y86sNaI02kteiA==
+
+react-native-webview@^13.16.0:
+  version "13.16.0"
+  resolved "https://registry.yarnpkg.com/react-native-webview/-/react-native-webview-13.16.0.tgz#c995148f944a7eaf12389f0e6d5c6f5e6a775686"
+  integrity sha512-Nh13xKZWW35C0dbOskD7OX01nQQavOzHbCw9XoZmar4eXCo7AvrYJ0jlUfRVVIJzqINxHlpECYLdmAdFsl9xDA==
+  dependencies:
+    escape-string-regexp "^4.0.0"
+    invariant "2.2.4"
 
 react-native@0.82.1:
   version "0.82.1"
