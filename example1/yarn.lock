@@ -1762,10 +1762,10 @@
   resolved "https://registry.yarnpkg.com/@stripe/stripe-identity-react-native/-/stripe-identity-react-native-0.4.0.tgz#0e44ebcbe52646fd0d2589af39c4677c3a5fd79a"
   integrity sha512-l9Vluds95inT7Ux/dA5cLkdl7wkvtvnRR4pLcHMQl0QtysSRCcHlxghtcA5yPfaJLhyjxBIJVh657bcu+NCSKw==
 
-"@stripe/stripe-react-native@0.55.1":
-  version "0.55.1"
-  resolved "https://registry.yarnpkg.com/@stripe/stripe-react-native/-/stripe-react-native-0.55.1.tgz#a59119f83f4a4fe89093e7ce82ba20d6da65470e"
-  integrity sha512-8p4Km+Y/+TM5F9w+EhzLj9CTPftrvI6AGb+20Weg6+/fK8qV0T6PWCeThRO5+CeUvAuMiqeNhySeQJB31+dRrg==
+"@stripe/stripe-react-native@0.57.0":
+  version "0.57.0"
+  resolved "https://registry.yarnpkg.com/@stripe/stripe-react-native/-/stripe-react-native-0.57.0.tgz#55aec4f363748815b410fb73bbe205c57fd3df99"
+  integrity sha512-l68At+JKyd32TzyB7e3yklHsMqF3X+38KE2+NwByxAEIbxs/K7GKjQTABv3DIGmcZ/yGTpDSlKJqrYxtKH4j2g==
 
 "@types/babel__core@^7.1.14":
   version "7.20.5"
