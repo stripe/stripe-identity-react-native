@@ -34,7 +34,11 @@
 		<true/>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>This app requires location access for verification purposes.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>To verify your identity.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>To verify your identity.</string>
 	<key>RCTNewArchEnabled</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
