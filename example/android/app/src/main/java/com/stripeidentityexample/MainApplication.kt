@@ -1,4 +1,4 @@
-package com.stripeidentityexample1
+package com.stripeidentityexample
 
 import android.app.Application
 import com.facebook.react.PackageList

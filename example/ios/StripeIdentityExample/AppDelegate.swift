@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     window = UIWindow(frame: UIScreen.main.bounds)
 
     factory.startReactNative(
-      withModuleName: "StripeIdentityExample1",
+      withModuleName: "StripeIdentityExample",
       in: window,
       launchOptions: launchOptions
     )
