@@ -1554,7 +1554,7 @@
     wcwidth "^1.0.1"
     yaml "^2.2.1"
 
-"@react-native-community/cli-platform-android@20.1.0", "@react-native-community/cli-platform-android@21.0.0":
+"@react-native-community/cli-platform-android@20.1.0":
   version "20.1.0"
   resolved "https://registry.yarnpkg.com/@react-native-community/cli-platform-android/-/cli-platform-android-20.1.0.tgz#d221a7ad0dcea320410a7ed918bf2811fd68d9fa"
   integrity sha512-TeHPDThOwDppQRpndm9kCdRCBI8AMy3HSIQ+iy7VYQXL5BtZ5LfmGdusoj7nVN/ZGn0Lc6Gwts5qowyupXdeKg==
@@ -1576,7 +1576,7 @@
     fast-xml-parser "^4.4.1"
     picocolors "^1.1.1"
 
-"@react-native-community/cli-platform-ios@20.1.0", "@react-native-community/cli-platform-ios@21.0.0":
+"@react-native-community/cli-platform-ios@20.1.0":
   version "20.1.0"
   resolved "https://registry.yarnpkg.com/@react-native-community/cli-platform-ios/-/cli-platform-ios-20.1.0.tgz#6388b4453bb2bac7c46ded0546d0e43167107b0c"
   integrity sha512-XN7Da9z4WsJxtqVtEzY8q2bv22OsvzaFP5zy5+phMWNoJlU4lf7IvBSxqGYMpQ9XhYP7arDw5vmW4W34s06rnA==
@@ -1622,7 +1622,7 @@
   dependencies:
     joi "^17.2.1"
 
-"@react-native-community/cli@21.0.0":
+"@react-native-community/cli@20.1.0":
   version "20.1.0"
   resolved "https://registry.yarnpkg.com/@react-native-community/cli/-/cli-20.1.0.tgz#d4b9a1bcbbd4ad6b1462acb3af474c87b5de793c"
   integrity sha512-441WsVtRe4nGJ9OzA+QMU1+22lA6Q2hRWqqIMKD0wjEMLqcSfOZyu2UL9a/yRpL/dRpyUsU4n7AxqKfTKO/Csg==
@@ -1876,10 +1876,8 @@
   dependencies:
     "@sinonjs/commons" "^3.0.0"
 
-"@stripe/stripe-identity-react-native@0.4.1":
+"@stripe/stripe-identity-react-native@../":
   version "0.4.1"
-  resolved "https://registry.yarnpkg.com/@stripe/stripe-identity-react-native/-/stripe-identity-react-native-0.4.1.tgz#f796cc0219ecf928943c9401a8384157836b0174"
-  integrity sha512-ZSJ0xN9hlaUEtsOWc5ZUXjxNFlNjSCH6ckS2kwSoKXShUpMYhZabGYs2uYkLp2bhyXll15f1y1vFRDBibkdCmQ==
 
 "@stripe/stripe-react-native@0.57.2":
   version "0.57.2"

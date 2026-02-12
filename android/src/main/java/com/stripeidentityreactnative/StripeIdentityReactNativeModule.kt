@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import com.facebook.react.bridge.*
+import com.facebook.react.bridge.UiThreadUtil
 
 class StripeIdentityReactNativeModule(reactContext: ReactApplicationContext) : ReactContextBaseJavaModule(reactContext) {
 
@@ -29,30 +30,46 @@ class StripeIdentityReactNativeModule(reactContext: ReactApplicationContext) : R
 
   @ReactMethod
   fun initIdentityVerificationSheet(options: ReadableMap, promise: Promise) {
-    initialized = true
-    val activity = reactApplicationContext.currentActivity as AppCompatActivity? ?: return
+    UiThreadUtil.runOnUiThread {
+      try {
+        initialized = true
+        val activity = reactApplicationContext.currentActivity as AppCompatActivity?
+          ?: run {
+            promise.reject("Error", "No current activity")
+            return@runOnUiThread
+          }
 
-    // If a fragment was already initialized, we want to remove it first
-    stripeIdentityVerificationSheetFragment?.let {
-      runCatching {
-        activity.supportFragmentManager.beginTransaction().remove(it).commitAllowingStateLoss()
+        // If a fragment was already initialized, we want to remove it first
+        stripeIdentityVerificationSheetFragment?.let {
+          runCatching {
+            activity.supportFragmentManager.beginTransaction()
+              .remove(it)
+              .commitNowAllowingStateLoss()
+          }
+        }
+
+        stripeIdentityVerificationSheetFragment = StripeIdentityVerificationSheetFragment().also {
+          val bundle = toBundleObject(options)
+          it.arguments = bundle
+        }
+
+        activity.supportFragmentManager.beginTransaction()
+          .add(requireNotNull(stripeIdentityVerificationSheetFragment), "identity_sheet_launch_fragment")
+          .commitNowAllowingStateLoss()
+
+        promise.resolve(null)
+      } catch (e: Exception) {
+        promise.reject("Error", e.message, e)
       }
     }
-    stripeIdentityVerificationSheetFragment = StripeIdentityVerificationSheetFragment().also {
-      val bundle = toBundleObject(options)
-      it.arguments = bundle
-    }
-
-    activity.supportFragmentManager.beginTransaction()
-      .add(requireNotNull(stripeIdentityVerificationSheetFragment), "identity_sheet_launch_fragment")
-      .commit()
-
-    promise.resolve(null)
   }
 
   @ReactMethod
   fun presentIdentityVerificationSheet(promise: Promise) {
-    stripeIdentityVerificationSheetFragment?.present(promise)
+    UiThreadUtil.runOnUiThread {
+      stripeIdentityVerificationSheetFragment?.present(promise)
+        ?: promise.reject("Error", "IdentityVerificationSheet not initialized")
+    }
   }
 
 }
