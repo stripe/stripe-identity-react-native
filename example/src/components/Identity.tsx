@@ -10,12 +10,14 @@ import {
   useStripeIdentity,
   IdentityVerificationSheetOptions,
 } from '@stripe/stripe-identity-react-native';
+import { useAppThemeColors } from '../utils/theme';
 
 type Props = {
   fetchOptions: () => Promise<IdentityVerificationSheetOptions>;
 };
 
 export function Identity({ fetchOptions }: Props) {
+  const colors = useAppThemeColors();
   const { status, present, loading } = useStripeIdentity(fetchOptions);
 
   const handlePress = useCallback(() => {
@@ -26,7 +28,7 @@ export function Identity({ fetchOptions }: Props) {
     if (loading) {
       return (
         <View testID="loading-spinner">
-          <ActivityIndicator />
+          <ActivityIndicator color={colors.text} />
         </View>
       );
     }
@@ -37,12 +39,15 @@ export function Identity({ fetchOptions }: Props) {
         onPress={handlePress}
       />
     );
-  }, [loading, handlePress]);
+  }, [loading, handlePress, colors.text]);
 
   return (
     <View style={styles.container}>
       <View style={styles.buttonContainer}>{renderButton()}</View>
-      <Text>Status: {status ?? 'Undefined'}</Text>
+      <Text style={[styles.statusText, { color: colors.text }]}
+      >
+        Status: {status ?? 'Undefined'}
+      </Text>
     </View>
   );
 }
@@ -55,5 +60,8 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     height: 50,
+  },
+  statusText: {
+    marginTop: 12,
   },
 });

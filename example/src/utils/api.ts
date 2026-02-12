@@ -76,7 +76,7 @@ export const getTestCredentials = async (
     }
     const json = await data.json();
     return json;
-  } catch (e) {
+  } catch {
     return {};
   }
 };
