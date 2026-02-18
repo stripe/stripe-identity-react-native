@@ -15,10 +15,10 @@ import com.stripe.android.identity.IdentityVerificationSheet
 import com.stripe.android.identity.IdentityVerificationSheet.VerificationFlowResult
 
 class StripeIdentityVerificationSheetFragment : Fragment() {
+
   private lateinit var identityVerificationSheet: IdentityVerificationSheet
   private lateinit var verificationSessionId: String
   private lateinit var ephemeralKeySecret: String
-  private var imageUriString: String = ""
 
   private var promise: Promise? = null
 
@@ -68,6 +68,7 @@ class StripeIdentityVerificationSheetFragment : Fragment() {
           .appendPath(resources.getResourceTypeName(brandLogoId))
           .appendPath(resources.getResourceEntryName(brandLogoId))
           .build()
+
       }
     } ?: Uri.parse("")
   }

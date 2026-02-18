@@ -21,16 +21,6 @@ class StripeIdentityReactNativeModule(reactContext: ReactApplicationContext) : R
         stripeIdentityVerificationSheetFragment?.activity?.activityResultRegistry?.dispatchResult(requestCode, resultCode, data)
       }
     }
-    stripeIdentityVerificationSheetFragment = StripeIdentityVerificationSheetFragment().also {
-      val bundle = toBundleObject(options)
-      it.arguments = bundle
-    }
-
-    activity.supportFragmentManager.beginTransaction()
-      .add(requireNotNull(stripeIdentityVerificationSheetFragment), "identity_sheet_launch_fragment")
-      .commit()
-
-    promise.resolve(null)
   }
 
   init {
@@ -48,6 +38,16 @@ class StripeIdentityReactNativeModule(reactContext: ReactApplicationContext) : R
         activity.supportFragmentManager.beginTransaction().remove(it).commitAllowingStateLoss()
       }
     }
+    stripeIdentityVerificationSheetFragment = StripeIdentityVerificationSheetFragment().also {
+      val bundle = toBundleObject(options)
+      it.arguments = bundle
+    }
+
+    activity.supportFragmentManager.beginTransaction()
+      .add(requireNotNull(stripeIdentityVerificationSheetFragment), "identity_sheet_launch_fragment")
+      .commit()
+
+    promise.resolve(null)
   }
 
   @ReactMethod
