@@ -1,3 +1,16 @@
+# [Unreleased]
+
+### Changed
+
+- Added new example app
+- Updated `stripe-ios` to 25.6.3
+- Updated `stripe-android` to 22.7.+
+- Updated example app `@stripe/stripe-react-native` to 0.58.0
+
+> Note: This version is compatible with `stripe-react-native` [0.58.0](https://github.com/stripe/stripe-react-native/releases/tag/v0.58.0) if your app uses both SDKs
+
+# [v0.4.1](https://github.com/stripe/stripe-identity-react-native/releases/tag/v0.4.1) - 21 Nov 2025
+
 ### Changed
 
 - Updated `stripe-ios` to 25.0.0
