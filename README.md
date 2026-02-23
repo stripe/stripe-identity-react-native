@@ -176,18 +176,44 @@ import type {
 
 ## Run the example app
 
-- Run this command from root folder
-  - `cd example && yarn`
-- Install pods for iOS and update StripeIdentity
-  - `cd ios && pod install && pod update StripeIdentity`
-- Run example app on a specific simulator/emulator from root folder
-  - `yarn example ios`
-  - or
-  - `yarn example android`
-- Or from example folder
-  - `yarn ios`
-  - or
-  - `yarn android`
+### Prerequisites
+
+Make sure you have completed the [React Native Environment Setup](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+
+### Setup
+
+1. Install dependencies from the root folder:
+   ```sh
+   cd example && yarn
+   ```
+
+2. For iOS, install CocoaPods dependencies:
+   ```sh
+   cd ios
+   bundle install
+   bundle exec pod install
+   cd ..
+   ```
+
+### Running the app
+
+From the root folder:
+```sh
+# For iOS
+yarn example ios
+
+# For Android
+yarn example android
+```
+
+Or from the example folder:
+```sh
+# For iOS
+yarn ios
+
+# For Android
+yarn android
+```
 
 ## Contributing
 
