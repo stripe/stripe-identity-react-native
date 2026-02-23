@@ -51,7 +51,7 @@ Remember to add tests for your change if possible. Run the unit tests by:
 yarn test
 ```
 
-To edit the Objective-C files, open `example/ios/StripeIdentityExample.xcworkspace` in XCode and find the source files at `Pods > Development Pods > stripe-identity-react-native`.
+To edit the Objective-C files, open `example/ios/StripeIdentityExample.xcworkspace` in Xcode and find the source files at `Pods > Development Pods > stripe-identity-react-native`.
 
 To edit the Kotlin files, open `example/android` in Android studio and find the source files at `stripeidentityreactnative` under `Android`.
 
