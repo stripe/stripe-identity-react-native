@@ -4,13 +4,13 @@
   "apps": {
     "ios.debug": {
       "type": "ios.app",
-      "binaryPath": "example/ios/build/Build/Products/Debug-iphonesimulator/StripeIdentityReactNativeExample.app",
-      "build": "xcodebuild -workspace example/ios/StripeIdentityReactNativeExample.xcworkspace -configuration Debug -scheme StripeIdentityReactNativeExample -destination 'platform=iOS Simulator,name=iPhone 11' -derivedDataPath example/ios/build"
+      "binaryPath": "example/ios/build/Build/Products/Debug-iphonesimulator/StripeIdentityExample.app",
+      "build": "xcodebuild -workspace example/ios/StripeIdentityExample.xcworkspace -configuration Debug -scheme StripeIdentityExample -destination 'platform=iOS Simulator,name=iPhone 11' -derivedDataPath example/ios/build"
     },
     "ios.release": {
       "type": "ios.app",
-      "binaryPath": "example/ios/build/Build/Products/Release-iphonesimulator/StripeIdentityReactNativeExample.app",
-      "build": "export RCT_NO_LAUNCH_PACKAGER=true && xcodebuild -workspace example/ios/StripeIdentityReactNativeExample.xcworkspace -configuration Release -scheme StripeIdentityReactNativeExample -destination 'platform=iOS Simulator,name=iPhone 11' -derivedDataPath example/ios/build"
+      "binaryPath": "example/ios/build/Build/Products/Release-iphonesimulator/StripeIdentityExample.app",
+      "build": "export RCT_NO_LAUNCH_PACKAGER=true && xcodebuild -workspace example/ios/StripeIdentityExample.xcworkspace -configuration Release -scheme StripeIdentityExample -destination 'platform=iOS Simulator,name=iPhone 11' -derivedDataPath example/ios/build"
     },
     "android.debug": {
       "type": "android.apk",

@@ -10,6 +10,7 @@ import logo from '../assets/RocketRides.png';
 import { getTestCredentials } from '../utils/api';
 import { Options } from '../components/Options';
 import { Identity } from '../components/Identity';
+import { useAppThemeColors } from '../utils/theme';
 import {
   AllowedTypes,
   PhoneOtpCheckTypes,
@@ -18,6 +19,8 @@ import {
 } from '../types';
 
 export function HomeScreen() {
+  const colors = useAppThemeColors();
+
   const [options, setOptions] = useState<VerificationSessionOptions>({
     verificationType: VerificationType.DOCUMENT,
     requireMatchingSelfie: false,
@@ -43,10 +46,12 @@ export function HomeScreen() {
   }, [options]);
 
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.scrollView}>
+    <SafeAreaView style={[styles.container, { backgroundColor: colors.background }]}>
+      <ScrollView style={[styles.scrollView, { backgroundColor: colors.background }]}>
         <Options options={options} setOptions={setOptions} />
-        <View style={styles.divider} />
+        <View
+          style={[styles.divider, { borderBottomColor: colors.separator }]}
+        />
         <Identity fetchOptions={fetchOptions} />
       </ScrollView>
     </SafeAreaView>
@@ -61,7 +66,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 0,
   },
   divider: {
-    borderBottomColor: 'black',
     borderBottomWidth: 1,
   },
 });
