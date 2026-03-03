@@ -5,6 +5,8 @@
 - Added new example app
 - Updated `stripe-ios` to 25.6.3
 - Updated `stripe-android` to 22.7.+
+- Updated JavaScript tooling dependencies in the library workspace (`eslint` to `^8`, `@react-native-community/eslint-config` to `^3.2.0`)
+- Refreshed root and example JS lockfiles to include newer transitive dependency versions
 
 > Note: This version is compatible with `stripe-react-native` [0.58.0](https://github.com/stripe/stripe-react-native/releases/tag/v0.58.0) if your app uses both SDKs
 
