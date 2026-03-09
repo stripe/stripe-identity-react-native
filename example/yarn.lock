@@ -1747,10 +1747,10 @@
 "@stripe/stripe-identity-react-native@../":
   version "0.4.1"
 
-"@stripe/stripe-react-native@^0.58.0":
-  version "0.58.0"
-  resolved "https://registry.yarnpkg.com/@stripe/stripe-react-native/-/stripe-react-native-0.58.0.tgz#2d94f7907b4706cf6a36d5eb5605778d13cd178d"
-  integrity sha512-5JSx/4thMMubVewUZezIfWOrwkeSjAsMjusf1eR5A85MUxmbDer71gXbKSt+hjAuJfhqw4W6F4nCPqsYwPjUZA==
+"@stripe/stripe-react-native@^0.59.2":
+  version "0.59.2"
+  resolved "https://registry.npmjs.org/@stripe/stripe-react-native/-/stripe-react-native-0.59.2.tgz"
+  integrity sha512-pZcqmjKQrf/NEMeovSFtYbA1FahetA4+Fgr1xtEo9qGEOlkWRvkdyUyEjioUZ+IkXI/J0ErviyteEggiJB0wkQ==
 
 "@types/babel__core@^7.1.14":
   version "7.20.5"
