@@ -12,7 +12,7 @@
   "dependencies": {
     "@react-native/new-app-screen": "0.83.1",
     "@stripe/stripe-identity-react-native": "../",
-    "@stripe/stripe-react-native": "^0.59.2",
+    "@stripe/stripe-react-native": "^0.62.0",
     "react": "19.2.0",
     "react-native": "0.83.1",
     "react-native-dropdown-select-list": "^2.0.4",

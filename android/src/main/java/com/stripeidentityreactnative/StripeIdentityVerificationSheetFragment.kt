@@ -44,7 +44,7 @@ class StripeIdentityVerificationSheetFragment : Fragment() {
         when (it) {
           VerificationFlowResult.Completed -> result.putString("status", "FlowCompleted")
           VerificationFlowResult.Canceled -> result.putString("status", "FlowCanceled")
-          else -> result.putString("status", "FlowFailed")
+          is VerificationFlowResult.Failed -> result.putString("status", "FlowFailed")
         }
         currentPromise.resolve(result)
       } ?: run {

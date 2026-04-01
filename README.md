@@ -26,7 +26,7 @@ The SDK uses TypeScript features available in Babel version `7.9.0` and above.
 Alternatively use the `plugin-transform-typescript` plugin in your project.
 
 #### Android
-- Compatible with Android 5.0 (API level 21) and above.
+- Compatible with Android 6.0 (API level 23) and above.
 - Stripe Identity requires the hosting activity to use material theme. To enable material theme:
   - Open your project's `app/src/main/AndroidManifest.xml`.
   - Make sure the `android:theme` applied to the `application` is a child of one of the material themes(e.g `Theme.MaterialComponents.DayNight`).
