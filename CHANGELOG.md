@@ -3,12 +3,12 @@
 ### Changed
 
 - Added new example app
-- Updated `stripe-ios` to 25.9.0
-- Updated `stripe-android` to 23.2.+
+- Updated `stripe-ios` to 25.10.0
+- Updated `stripe-android` to 23.3.+
 - Updated Android Kotlin to 2.2.21 and default Android compile / target SDK to 36
 - Updated JavaScript tooling dependencies in the library workspace (`eslint` to `^8`, `@react-native-community/eslint-config` to `^3.2.0`)
 - Refreshed root and example JS lockfiles to include newer transitive dependency versions
-> Note: This version is compatible with `stripe-react-native` [0.62.0](https://github.com/stripe/stripe-react-native/releases/tag/v0.62.0) if your app uses both SDKs
+> Note: This version is compatible with `stripe-react-native` [0.63.0](https://github.com/stripe/stripe-react-native/releases/tag/v0.63.0) if your app uses both SDKs
 
 # [v0.4.1](https://github.com/stripe/stripe-identity-react-native/releases/tag/v0.4.1) - 21 Nov 2025
 

@@ -1747,10 +1747,10 @@
 "@stripe/stripe-identity-react-native@../":
   version "0.6.0"
 
-"@stripe/stripe-react-native@^0.62.0":
-  version "0.62.0"
-  resolved "https://registry.yarnpkg.com/@stripe/stripe-react-native/-/stripe-react-native-0.62.0.tgz#4bcf894ac66cf5db3076b555126c0f62873f7c9c"
-  integrity sha512-ojYyebNlLNCMtu5dNMuoWrOXiF6bZqygtBQOi9WdjQRWCoB76H51i9Pi1rvDq7Gz81djCy8+zt6AFa3VEJ9Z7A==
+"@stripe/stripe-react-native@^0.63.0":
+  version "0.63.0"
+  resolved "https://registry.yarnpkg.com/@stripe/stripe-react-native/-/stripe-react-native-0.63.0.tgz#b5a04568928dd75a5b8490fb9a56557cec245160"
+  integrity sha512-5vy+b+sP3xOqtHDZ2nezOIx0MWbcrJ/hwoL74gAc2Qa+/wF/JVjzirG8zVD7AtMYFjlIldmznpSePaPEaLJLWA==
 
 "@types/babel__core@^7.1.14":
   version "7.20.5"
@@ -3381,7 +3381,7 @@ flat-cache@^3.0.4:
 flatted@^3.2.9:
   version "3.4.2"
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.4.2.tgz#f5c23c107f0f37de8dbdf24f13722b3b98d52726"
-  integrity "sha512-PjDse7RzhcPkIJwy5t7KPWQSZ9cAbzQXcafsetQoD7sOJRQlGikNbx7yZp2OotDnJyrDcbyRq3Ttb18iYOqkxA== sha1-9cI8EH8PN96NvfJPE3IrO5jVJyY="
+  integrity "sha1-9cI8EH8PN96NvfJPE3IrO5jVJyY= sha512-PjDse7RzhcPkIJwy5t7KPWQSZ9cAbzQXcafsetQoD7sOJRQlGikNbx7yZp2OotDnJyrDcbyRq3Ttb18iYOqkxA=="
 
 flow-enums-runtime@^0.0.6:
   version "0.0.6"
@@ -5224,7 +5224,7 @@ picocolors@^1.1.1:
 picomatch@^2.0.4, picomatch@^2.2.3, picomatch@^2.3.1:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.3.2.tgz#5a942915e26b372dc0f0e6753149a16e6b1c5601"
-  integrity "sha512-V7+vQEJ06Z+c5tSye8S+nHUfI51xoXIXjHQ99cQtKUkQqqO1kO/KCJUfZXuB47h/YBlDhah2H3hdUGXn8ie0oA== sha1-WpQpFeJrNy3A8OZ1MUmhbmscVgE="
+  integrity "sha1-WpQpFeJrNy3A8OZ1MUmhbmscVgE= sha512-V7+vQEJ06Z+c5tSye8S+nHUfI51xoXIXjHQ99cQtKUkQqqO1kO/KCJUfZXuB47h/YBlDhah2H3hdUGXn8ie0oA=="
 
 picomatch@^4.0.3:
   version "4.0.3"
