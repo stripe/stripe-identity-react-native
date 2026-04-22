@@ -1,5 +1,8 @@
 # [Unreleased]
 
+
+# [v0.7.0](https://github.com/stripe/stripe-identity-react-native/releases/tag/v0.7.0) - 21 Apr 2026
+
 ### Changed
 
 - Added new example app
