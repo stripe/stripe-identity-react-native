@@ -1745,12 +1745,12 @@
     "@sinonjs/commons" "^3.0.0"
 
 "@stripe/stripe-identity-react-native@../":
-  version "0.6.0"
+  version "0.7.0"
 
-"@stripe/stripe-react-native@^0.64.0":
-  version "0.64.0"
-  resolved "https://registry.yarnpkg.com/@stripe/stripe-react-native/-/stripe-react-native-0.64.0.tgz#70e9cd578499af735607cbfb7cb67a9c96b11c47"
-  integrity sha512-NQxFUMWJ7W/T1jEho3qd0XRnQGhXG6GdcoieG8JZo3IG/1QggugOVqEzvg1HRAq8S+cAGVXaj5CXfJuJsnF3eg==
+"@stripe/stripe-react-native@^0.65.0":
+  version "0.65.0"
+  resolved "https://registry.yarnpkg.com/@stripe/stripe-react-native/-/stripe-react-native-0.65.0.tgz#9ae4805a8071b1b23fe634e74b7aa1fa9706afbe"
+  integrity sha512-oE45FXoS38eZmD37HuiSZpA1n3gzzriKH4aBJBxgztNuZTh8NVK2PEoemg7473Q5edpQYIjjB/XkSLTN3iytdw==
 
 "@types/babel__core@^7.1.14":
   version "7.20.5"

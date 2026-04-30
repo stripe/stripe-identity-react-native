@@ -2537,17 +2537,17 @@ PODS:
     - React-utils (= 0.83.1)
     - SocketRocket
   - SocketRocket (0.7.1)
-  - Stripe (25.11.0):
-    - StripeApplePay (= 25.11.0)
-    - StripeCore (= 25.11.0)
-    - StripeIssuing (= 25.11.0)
-    - StripePayments (= 25.11.0)
-    - StripePaymentsUI (= 25.11.0)
-    - StripeUICore (= 25.11.0)
-  - stripe-identity-react-native (0.6.0):
+  - Stripe (25.12.0):
+    - StripeApplePay (= 25.12.0)
+    - StripeCore (= 25.12.0)
+    - StripeIssuing (= 25.12.0)
+    - StripePayments (= 25.12.0)
+    - StripePaymentsUI (= 25.12.0)
+    - StripeUICore (= 25.12.0)
+  - stripe-identity-react-native (0.7.0):
     - React-Core
-    - StripeIdentity (~> 25.11.0)
-  - stripe-react-native (0.64.0):
+    - StripeIdentity (~> 25.12.0)
+  - stripe-react-native (0.65.0):
     - boost
     - DoubleConversion
     - fast_float
@@ -2574,10 +2574,10 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - SocketRocket
-    - stripe-react-native/Core (= 0.64.0)
-    - stripe-react-native/NewArch (= 0.64.0)
+    - stripe-react-native/Core (= 0.65.0)
+    - stripe-react-native/NewArch (= 0.65.0)
     - Yoga
-  - stripe-react-native/Core (0.64.0):
+  - stripe-react-native/Core (0.65.0):
     - boost
     - DoubleConversion
     - fast_float
@@ -2604,14 +2604,14 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - SocketRocket
-    - Stripe (~> 25.11.0)
-    - StripeApplePay (~> 25.11.0)
-    - StripeFinancialConnections (~> 25.11.0)
-    - StripePayments (~> 25.11.0)
-    - StripePaymentSheet (~> 25.11.0)
-    - StripePaymentsUI (~> 25.11.0)
+    - Stripe (~> 25.12.0)
+    - StripeApplePay (~> 25.12.0)
+    - StripeFinancialConnections (~> 25.12.0)
+    - StripePayments (~> 25.12.0)
+    - StripePaymentSheet (~> 25.12.0)
+    - StripePaymentsUI (~> 25.12.0)
     - Yoga
-  - stripe-react-native/NewArch (0.64.0):
+  - stripe-react-native/NewArch (0.65.0):
     - boost
     - DoubleConversion
     - fast_float
@@ -2639,38 +2639,38 @@ PODS:
     - ReactCommon/turbomodule/core
     - SocketRocket
     - Yoga
-  - StripeApplePay (25.11.0):
-    - StripeCore (= 25.11.0)
-  - StripeCameraCore (25.11.0):
-    - StripeCore (= 25.11.0)
-  - StripeCore (25.11.0)
-  - StripeFinancialConnections (25.11.0):
-    - StripeCore (= 25.11.0)
-    - StripeUICore (= 25.11.0)
-  - StripeIdentity (25.11.0):
-    - StripeCameraCore (= 25.11.0)
-    - StripeCore (= 25.11.0)
-    - StripeUICore (= 25.11.0)
-  - StripeIssuing (25.11.0):
-    - StripeCore (= 25.11.0)
-    - StripePayments (= 25.11.0)
-    - StripePaymentsUI (= 25.11.0)
-  - StripePayments (25.11.0):
-    - StripeCore (= 25.11.0)
-    - StripePayments/Stripe3DS2 (= 25.11.0)
-  - StripePayments/Stripe3DS2 (25.11.0):
-    - StripeCore (= 25.11.0)
-  - StripePaymentSheet (25.11.0):
-    - StripeApplePay (= 25.11.0)
-    - StripeCore (= 25.11.0)
-    - StripePayments (= 25.11.0)
-    - StripePaymentsUI (= 25.11.0)
-  - StripePaymentsUI (25.11.0):
-    - StripeCore (= 25.11.0)
-    - StripePayments (= 25.11.0)
-    - StripeUICore (= 25.11.0)
-  - StripeUICore (25.11.0):
-    - StripeCore (= 25.11.0)
+  - StripeApplePay (25.12.0):
+    - StripeCore (= 25.12.0)
+  - StripeCameraCore (25.12.0):
+    - StripeCore (= 25.12.0)
+  - StripeCore (25.12.0)
+  - StripeFinancialConnections (25.12.0):
+    - StripeCore (= 25.12.0)
+    - StripeUICore (= 25.12.0)
+  - StripeIdentity (25.12.0):
+    - StripeCameraCore (= 25.12.0)
+    - StripeCore (= 25.12.0)
+    - StripeUICore (= 25.12.0)
+  - StripeIssuing (25.12.0):
+    - StripeCore (= 25.12.0)
+    - StripePayments (= 25.12.0)
+    - StripePaymentsUI (= 25.12.0)
+  - StripePayments (25.12.0):
+    - StripeCore (= 25.12.0)
+    - StripePayments/Stripe3DS2 (= 25.12.0)
+  - StripePayments/Stripe3DS2 (25.12.0):
+    - StripeCore (= 25.12.0)
+  - StripePaymentSheet (25.12.0):
+    - StripeApplePay (= 25.12.0)
+    - StripeCore (= 25.12.0)
+    - StripePayments (= 25.12.0)
+    - StripePaymentsUI (= 25.12.0)
+  - StripePaymentsUI (25.12.0):
+    - StripeCore (= 25.12.0)
+    - StripePayments (= 25.12.0)
+    - StripeUICore (= 25.12.0)
+  - StripeUICore (25.12.0):
+    - StripeCore (= 25.12.0)
   - Yoga (0.0.0)
 
 DEPENDENCIES:
@@ -3014,19 +3014,19 @@ SPEC CHECKSUMS:
   ReactCodegen: 3d48510bcef445f6403c0004047d4d9cbb915435
   ReactCommon: ac934cb340aee91282ecd6f273a26d24d4c55cae
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
-  Stripe: 0421dcc510a52f2abf63bbf03a547caf6639dce7
-  stripe-identity-react-native: 16d39b86cadc56c12b0fce27755997184bdb00d8
-  stripe-react-native: 7c7a63c967904f6b3ef0d45d57016f09e88a83f6
-  StripeApplePay: b74b487cdc4176b32ea3f250d63ceb7b0ab7dedb
-  StripeCameraCore: 44611536255dca20009f3b6ac60ddd1f0f4cedce
-  StripeCore: c9d8b48d4b9b14e73edfa2ca714dea44c0849f73
-  StripeFinancialConnections: 0209e955d46e927089a017f56e4a34f2e3e85bfd
-  StripeIdentity: 258f917af1c587d33a4ad1f5692066a6ab5247aa
-  StripeIssuing: 2b1f0054ee9439e7e716f101099a22bb95addc08
-  StripePayments: c54ac68d13e5ef09c98aa5c12314a73d1e6a1fc6
-  StripePaymentSheet: 46ca981c6106b559d323d41b5ee9af0485252a63
-  StripePaymentsUI: e942824c2a21c67f41b3bf6c09e87ebe882dd5c5
-  StripeUICore: 9ee3c730f282fd34605f7ba00f2b77d80729d882
+  Stripe: 0befd1ef4c49e9e1b5a781f1e61805c856bb9c1c
+  stripe-identity-react-native: c6a8fb422799fb1b4ac852a62022f748e8ca5dcb
+  stripe-react-native: 60f0ec39b32b7383e69e85d4ea14d6c40898d68d
+  StripeApplePay: a58f76d25970050c4b3447cf6d34ce098cd0b517
+  StripeCameraCore: 8b5ff52f138220cfb96713c1736f36b764e3cdc0
+  StripeCore: c10a35ed2d1f2165ccb8db8077e10c6fa488c6b8
+  StripeFinancialConnections: 6abb9257f511f8ba1fd17df07d48058f48eb7b22
+  StripeIdentity: b9a2bb898d6da31b527768c9532585bf49ba0891
+  StripeIssuing: c92d94e7f1e068d728715aa382f8b7907499b83f
+  StripePayments: fb4105c822f9f07ca2092c86b68ab366b5d4a144
+  StripePaymentSheet: 7285761bacc685b160fc31871632554577beec35
+  StripePaymentsUI: 6aabff3711d0543db04632a2d102deac7a139095
+  StripeUICore: fb5f1c2f7d702b2879f706e3db3a7b793125256e
   Yoga: 5456bb010373068fc92221140921b09d126b116e
 
 PODFILE CHECKSUM: bd056305f2881208b645266846719cd4c5cc3bcf
