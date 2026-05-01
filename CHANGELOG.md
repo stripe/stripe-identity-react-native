@@ -1,5 +1,8 @@
 # [Unreleased]
 
+
+# [v0.7.0](https://github.com/stripe/stripe-identity-react-native/releases/tag/v0.8.0) - 30 Apr 2026
+
 ### Changed
 
 - Updated `stripe-ios` to 25.12.0
