@@ -1,7 +1,13 @@
 # [Unreleased]
 
+### Changed
 
-# [v0.7.0](https://github.com/stripe/stripe-identity-react-native/releases/tag/v0.8.0) - 30 Apr 2026
+- Updated `stripe-ios` to 25.15.0
+- Updated `stripe-android` to 23.9.+
+- Updated compatibility with `stripe-react-native` [0.66.0](https://github.com/stripe/stripe-react-native/releases/tag/v0.66.0) if your app uses both SDKs
+- Refreshed root and example JS lockfiles to include newer transitive dependency versions
+
+# [v0.8.0](https://github.com/stripe/stripe-identity-react-native/releases/tag/v0.8.0) - 30 Apr 2026
 
 ### Changed
 
