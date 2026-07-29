@@ -2,12 +2,12 @@
 
 ### Changed
 
-- Updated `stripe-ios` to 26.3.0
-- Updated `stripe-android` to 23.12.0
-- Raised the minimum iOS deployment target to 15.0 to match `StripeIdentity` 26.3.0
+- Updated `stripe-ios` to 26.4.1
+- Updated `stripe-android` to 23.13.1
+- Raised the minimum iOS deployment target to 15.0 to match `StripeIdentity` 26.4.1
 - Raised the example app iOS deployment target to 15.1
 - Updated the example app to React Native 0.84.1
-- Updated compatibility with `stripe-react-native` [0.70.0](https://github.com/stripe/stripe-react-native/releases/tag/v0.70.0) if your app uses both SDKs
+- Updated compatibility with `stripe-react-native` [0.72.0](https://github.com/stripe/stripe-react-native/releases/tag/v0.72.0) if your app uses both SDKs
 - Refreshed root and example JS lockfiles to include newer transitive dependency versions
 
 # [v0.8.0](https://github.com/stripe/stripe-identity-react-native/releases/tag/v0.8.0) - 30 Apr 2026
