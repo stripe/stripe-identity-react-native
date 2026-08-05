@@ -7,9 +7,7 @@ export type IdentityVerificationSheetOptions = {
 };
 
 export type IdentityVerificationSheetStatus =
-  | 'FlowCompleted'
-  | 'FlowCanceled'
-  | 'FlowFailed';
+  'FlowCompleted' | 'FlowCanceled' | 'FlowFailed';
 
 export type IdentityVerificationSheetResult = {
   status: IdentityVerificationSheetStatus;
