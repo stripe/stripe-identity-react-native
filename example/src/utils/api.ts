@@ -4,15 +4,19 @@ import {
   VerificationType,
 } from '../types';
 
-// View and fork the backend code here: https://codesandbox.io/p/devbox/dsx4vq
+// View and fork the backend code here: https://codesandbox.io/p/devbox/compassionate-violet-gshhgf
 const baseURL =
   'https://stripe-mobile-identity-verification-playground.stripedemos.com';
-const verifyEndpoint = '/verification-sessions';
+const liveModeVerifyEndpoint = '/verification-sessions';
+const testModeVerifyEndpoint = '/test/verification-sessions';
 
 export const getTestCredentials = async (
   options: VerificationSessionOptions
 ) => {
   try {
+    const verifyEndpoint = options.useTestMode
+      ? testModeVerifyEndpoint
+      : liveModeVerifyEndpoint;
     let data;
     if (options.verificationType === VerificationType.DOCUMENT) {
       data = await fetch(baseURL + verifyEndpoint, {
