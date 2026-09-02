@@ -4,7 +4,6 @@ import {
   VerificationType,
 } from '../types';
 
-// View and fork the backend code here: https://codesandbox.io/p/devbox/compassionate-violet-gshhgf
 const baseURL =
   'https://stripe-mobile-identity-verification-playground.stripedemos.com';
 const liveModeVerifyEndpoint = '/verification-sessions';
