@@ -22,6 +22,7 @@ export function HomeScreen() {
   const colors = useAppThemeColors();
 
   const [options, setOptions] = useState<VerificationSessionOptions>({
+    useTestMode: false,
     verificationType: VerificationType.DOCUMENT,
     requireMatchingSelfie: false,
     requireIdNumber: false,

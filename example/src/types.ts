@@ -18,6 +18,7 @@ export enum PhoneOtpCheckTypes {
 }
 
 export type VerificationSessionOptions = {
+  useTestMode: boolean;
   verificationType: VerificationType;
   requireMatchingSelfie: boolean;
   requireIdNumber: boolean;
