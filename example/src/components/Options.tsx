@@ -150,6 +150,11 @@ export function Options({ options, setOptions }: OptionsProps) {
   if (options.verificationType === VerificationType.DOCUMENT) {
     return (
       <View style={styles.container}>
+        <Option
+          title="Use Test Mode"
+          value={options.useTestMode}
+          onChange={(value) => setOptions({ ...options, useTestMode: value })}
+        />
         <Text style={[styles.label, { color: colors.text }]}>Verification Type:</Text>
         <SelectList
           setSelected={onSelectVerificationType}
@@ -171,6 +176,11 @@ export function Options({ options, setOptions }: OptionsProps) {
   } else if (options.verificationType === VerificationType.PHONE) {
     return (
       <View style={styles.container}>
+        <Option
+          title="Use Test Mode"
+          value={options.useTestMode}
+          onChange={(value) => setOptions({ ...options, useTestMode: value })}
+        />
         <Text style={[styles.label, { color: colors.text }]}>Verification Type:</Text>
         <SelectList
           setSelected={onSelectVerificationType}
@@ -215,6 +225,11 @@ export function Options({ options, setOptions }: OptionsProps) {
   } else {
     return (
       <View style={styles.container}>
+        <Option
+          title="Use Test Mode"
+          value={options.useTestMode}
+          onChange={(value) => setOptions({ ...options, useTestMode: value })}
+        />
         <Text style={[styles.label, { color: colors.text }]}>Verification Type:</Text>
         <SelectList
           setSelected={onSelectVerificationType}

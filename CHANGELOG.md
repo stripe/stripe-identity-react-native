@@ -1,5 +1,9 @@
 # [Unreleased]
 
+### Added
+
+- Added a test mode toggle to the example app for creating test Verification Sessions with sample document and selfie images
+
 ### Fixed
 
 - Aligned the example app's React and React Test Renderer versions with React Native 0.84.1
