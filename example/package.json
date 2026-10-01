@@ -12,12 +12,12 @@
   "dependencies": {
     "@react-native/new-app-screen": "0.84.1",
     "@stripe/stripe-identity-react-native": "link:../",
-    "@stripe/stripe-react-native": "^0.76.0",
+    "@stripe/stripe-react-native": "^0.80.0",
     "react": "19.2.8",
     "react-native": "0.84.1",
     "react-native-dropdown-select-list": "^2.0.4",
     "react-native-radio-buttons-group": "^3.0.2",
-    "react-native-safe-area-context": "^5.9.1"
+    "react-native-safe-area-context": "^5.10.1"
   },
   "devDependencies": {
     "@babel/core": "^7.29.7",

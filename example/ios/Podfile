@@ -8,11 +8,8 @@ require Pod::Executable.execute_command('node', ['-p',
 platform :ios, '15.1'
 prepare_react_native_project!
 
-linkage = ENV['USE_FRAMEWORKS']
-if linkage != nil
-  Pod::UI.puts "Configuring Pod with #{linkage}ally linked Frameworks".green
-  use_frameworks! :linkage => linkage.to_sym
-end
+# stripe-react-native 0.80+ resolves Stripe iOS through SPM.
+use_frameworks! :linkage => :dynamic
 
 target 'StripeIdentityExample' do
   config = use_native_modules!

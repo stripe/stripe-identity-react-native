@@ -10,12 +10,15 @@
 
 ### Changed
 
-- Updated `stripe-ios` to 26.9.0
-- Updated `stripe-android` to 23.17.1
-- Raised the minimum iOS deployment target to 15.0 to match `StripeIdentity` 26.9.0
+- Updated `stripe-ios` to 26.12.1
+- Updated `stripe-android` to 23.21.0
+- Raised the minimum iOS deployment target to 15.0 to match `StripeIdentity` 26.12.1
 - Raised the example app iOS deployment target to 15.1
 - Updated the example app to React Native 0.84.1
-- Updated compatibility with `stripe-react-native` [0.76.0](https://github.com/stripe/stripe-react-native/releases/tag/v0.76.0) if your app uses both SDKs
+- Updated compatibility with `stripe-react-native` [0.80.0](https://github.com/stripe/stripe-react-native/releases/tag/v0.80.0) if your app uses both SDKs
+- Updated `react-native-safe-area-context` to 5.10.1
+- Configured the example app to use dynamic frameworks for Stripe's Swift Package Manager integration
+- Updated the iOS pod integration for React Native's prebuilt core framework
 - Refreshed root and example JS lockfiles to include newer transitive dependency versions
 
 # [v0.8.0](https://github.com/stripe/stripe-identity-react-native/releases/tag/v0.8.0) - 30 Apr 2026
