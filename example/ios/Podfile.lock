@@ -1875,9 +1875,9 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - ReactNativeDependencies
-    - StripeIdentity (= 26.12.1)
+    - StripeIdentity (= 26.14.0)
     - Yoga
-  - stripe-react-native (0.80.0):
+  - stripe-react-native (0.82.0):
     - hermes-engine
     - RCTRequired
     - RCTTypeSafety
@@ -1898,32 +1898,10 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - ReactNativeDependencies
-    - stripe-react-native/Core (= 0.80.0)
-    - stripe-react-native/NewArch (= 0.80.0)
+    - stripe-react-native/Core (= 0.82.0)
+    - stripe-react-native/NewArch (= 0.82.0)
     - Yoga
-  - stripe-react-native/Core (0.80.0):
-    - hermes-engine
-    - RCTRequired
-    - RCTTypeSafety
-    - React-Core
-    - React-Core-prebuilt
-    - React-debug
-    - React-Fabric
-    - React-featureflags
-    - React-graphics
-    - React-ImageManager
-    - React-jsi
-    - React-NativeModulesApple
-    - React-RCTFabric
-    - React-renderercss
-    - React-rendererdebug
-    - React-utils
-    - ReactCodegen
-    - ReactCommon/turbomodule/bridging
-    - ReactCommon/turbomodule/core
-    - ReactNativeDependencies
-    - Yoga
-  - stripe-react-native/NewArch (0.80.0):
+  - stripe-react-native/Core (0.82.0):
     - hermes-engine
     - RCTRequired
     - RCTTypeSafety
@@ -1945,15 +1923,37 @@ PODS:
     - ReactCommon/turbomodule/core
     - ReactNativeDependencies
     - Yoga
-  - StripeCameraCore (26.12.1):
-    - StripeCore (= 26.12.1)
-  - StripeCore (26.12.1)
-  - StripeIdentity (26.12.1):
-    - StripeCameraCore (= 26.12.1)
-    - StripeCore (= 26.12.1)
-    - StripeUICore (= 26.12.1)
-  - StripeUICore (26.12.1):
-    - StripeCore (= 26.12.1)
+  - stripe-react-native/NewArch (0.82.0):
+    - hermes-engine
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-Core-prebuilt
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-jsi
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-renderercss
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - ReactNativeDependencies
+    - Yoga
+  - StripeCameraCore (26.14.0):
+    - StripeCore (= 26.14.0)
+  - StripeCore (26.14.0)
+  - StripeIdentity (26.14.0):
+    - StripeCameraCore (= 26.14.0)
+    - StripeCore (= 26.14.0)
+    - StripeUICore (= 26.14.0)
+  - StripeUICore (26.14.0):
+    - StripeCore (= 26.14.0)
   - Yoga (0.0.0)
 
 DEPENDENCIES:
@@ -2271,12 +2271,12 @@ SPEC CHECKSUMS:
   ReactCodegen: 66522f37c7e4861aec1f6a574dee83917fad4397
   ReactCommon: 07572bf9e687c8a52fbe4a3641e9e3a1a477c78e
   ReactNativeDependencies: dd348088487db963d16317be555a00af0d677c86
-  stripe-identity-react-native: 4c06b566aa3d9f44dce74abd860b2074277b7fd5
-  stripe-react-native: fc043f915ed6cdd344b6d4e1e1c179b535bae1b3
-  StripeCameraCore: 9d29f29b671f186f379168dcf4a38b610e5b6b68
-  StripeCore: 471bae436301f54fbed03d50d6cd379a6ece66c5
-  StripeIdentity: f9852ea28e8e6287a21e29cb3bc429d383ec690d
-  StripeUICore: 08341ac339adb3f3544055d38d2ce02baa24f789
+  stripe-identity-react-native: f96083af1d1547d7db1549564073dbfbbb0c1efa
+  stripe-react-native: c12ed6c96e9256807dd7921f5894b41a6b206f63
+  StripeCameraCore: 70b3658d7b4ebeb6f7148f6ca47f50c89b752165
+  StripeCore: 9f52b54c9d2e8d2109656ead5122740fa56440c8
+  StripeIdentity: 9bb6215f0df52bb26b986652ba5c68978307205d
+  StripeUICore: fa08aabef37001ac1e34812e6fa225b780d75483
   Yoga: 846fbe6f595136be802ad81d05688ff748839764
 
 PODFILE CHECKSUM: b13f380e683dd8d1125ae70f195f7b273f4a006e
