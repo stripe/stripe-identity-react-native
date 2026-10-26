@@ -2088,10 +2088,10 @@
   version "0.0.0"
   uid ""
 
-"@stripe/stripe-react-native@^0.82.0":
-  version "0.82.0"
-  resolved "https://registry.yarnpkg.com/@stripe/stripe-react-native/-/stripe-react-native-0.82.0.tgz#29b65c7b0104aa3ce6bc23af8e98c520f9f9dd9a"
-  integrity sha512-zM507j0c2SdR/+gHmKNG5EqbuwJU57s5gou4rKVKUaQvVpMB4486so+52iHfRgotf12M3G3V9Rd4Z1doURuz1Q==
+"@stripe/stripe-react-native@^0.83.0":
+  version "0.83.0"
+  resolved "https://registry.yarnpkg.com/@stripe/stripe-react-native/-/stripe-react-native-0.83.0.tgz#4b370ba9cf0ae3a533e34e20e3b6c40d4a0b1f8f"
+  integrity sha512-0q8ITUxmTX3uXWigj2DOWoBhumF56qqGwtJm/vDHd2lpnENN3om8lcWWvG5trDZTa/CGneHXUZtXz/RHOwlVYQ==
 
 "@types/babel__core@^7.1.14":
   version "7.20.5"
@@ -6096,9 +6096,9 @@ shebang-regex@^3.0.0:
   integrity sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==
 
 shell-quote@^1.6.1, shell-quote@^1.8.3:
-  version "1.8.4"
-  resolved "https://registry.yarnpkg.com/shell-quote/-/shell-quote-1.8.4.tgz#2edd9a4dcefc96649e2e2cb12f637b1f1d92a190"
-  integrity sha512-VsC6n6vz1ihYYyZZwX7YZSF5l5x36ca17OC+a69h94YqB7X6XLwf+5MOgynYir2SLFUbl8gIYvBo8K8RoNQ6bQ==
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/shell-quote/-/shell-quote-1.12.0.tgz#e98fdfd2e921d8a58ae2820f4fc0f75c39f09675"
+  integrity sha512-PcByqNyT/38F2kDNi006HAMRJaULuBzq/FOsw3qdZvX/GA9W/jamDaRskgHjubHiftXK5sIFxLNkvrXUwcof6Q==
 
 side-channel-list@^1.0.0:
   version "1.0.0"
