@@ -51,6 +51,8 @@ Remember to add tests for your change if possible. Run the unit tests by:
 yarn test
 ```
 
+For iOS dependency integration changes, run `yarn test:spm` with CocoaPods and the example dependencies installed. Also reinstall pods and build the example workspace to verify that Identity and Payments resolve the same Stripe Swift package. Test an Identity-only app as well; the Identity package must work without Payments installed.
+
 To edit the Objective-C files, open `example/ios/StripeIdentityExample.xcworkspace` in Xcode and find the source files at `Pods > Development Pods > stripe-identity-react-native`.
 
 To edit the Kotlin files, open `example/android` in Android studio and find the source files at `stripeidentityreactnative` under `Android`.

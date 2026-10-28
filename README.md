@@ -33,14 +33,43 @@ Alternatively use the `plugin-transform-typescript` plugin in your project.
     > See more details about material theme [here](https://material.io/develop/android/theming/dark).
 
 #### iOS
-> Note: [Xcode 13 is no longer supported by Apple](https://developer.apple.com/news/upcoming-requirements/). Please upgrade to Xcode 14.1 or later.
 
-- Compatible with apps targeting iOS 13.0 or above.
-- Run `pod install` in your `ios` directory to ensure that you also install the required native dependencies.
+- Requires React Native 0.75 or later, CocoaPods 1.13 or later, and iOS 15.0 or later. Use an Apple-supported Xcode version that also meets your React Native version's requirements, and a higher deployment target if React Native requires one.
+- The React Native bridge is installed through CocoaPods; the Stripe iOS SDK is resolved through Swift Package Manager (SPM). Payments is not required to use Identity.
+- Add dynamic frameworks to your app's `ios/Podfile`:
+
+  ```ruby
+  use_frameworks! :linkage => :dynamic
+  ```
+
+  Keep the standard `react_native_post_install` call in your Podfile's `post_install` block, then run `bundle exec pod install` and rebuild your app. Open the `.xcworkspace` in Xcode so it can resolve the Swift package. No manual Xcode package setup is needed.
+
+- Expo apps can configure dynamic frameworks with `expo-build-properties`:
+
+  ```json
+  {
+    "expo": {
+      "plugins": [
+        ["expo-build-properties", { "ios": { "useFrameworks": "dynamic" } }]
+      ]
+    }
+  }
+  ```
+
+  Regenerate the native iOS project and build a development client; this native SDK is not included in Expo Go. Set your camera description in `ios.infoPlist.NSCameraUsageDescription`.
+
 - Stripe Identity requires access to the device’s camera to capture identity documents. To enable your app to request camera permissions:
   - Open your project’s `Info.plist`.
   - Add the `NSCameraUsageDescription` key.
   - Add a string value that explains to your users why your app requires camera permissions(e.g `This app uses the camera to take a picture of your identity documents.`).
+
+##### Migrating an existing iOS integration
+
+Remove `$StripeDisableSPM = true` from your Podfile and the Payments Expo plugin's `disableSPM` option, if present. Stripe iOS no longer supports CocoaPods resolution. Enable dynamic frameworks as shown above, reinstall pods, and make a clean native build to remove previously compiled Stripe pods.
+
+When using both `@stripe/stripe-identity-react-native` and `@stripe/stripe-react-native`, use releases that pin the same Stripe iOS SDK version. This version pins **26.15.1** and is compatible with Payments **0.84.0**. Both bridges share one Swift package and its common Stripe modules. Conflicting versions fail installation with instructions to align the two packages.
+
+If the app fails at launch with `dyld: Library not loaded: @rpath/Stripe….framework`, rerun `pod install` and verify the app target has a `[stripe-identity-react-native] Embed SPM Frameworks` build phase. That phase embeds and signs dynamically linked Stripe frameworks for normal builds and archives.
 
 ## Usage example
 

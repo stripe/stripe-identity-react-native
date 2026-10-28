@@ -113,6 +113,7 @@
 				E235C05ADACE081382539298 /* [CP] Copy Pods Resources */,
 				A56B5FEAF5D8463BB2278125 /* [CP] Embed Pods Frameworks */,
 				D543A441169F5CF0F5FCD919 /* [stripe-react-native] Embed SPM Frameworks */,
+				1CB4B5148B42F80B373BC25C /* [stripe-identity-react-native] Embed SPM Frameworks */,
 			);
 			buildRules = (
 			);
@@ -183,6 +184,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"$REACT_NATIVE_PATH/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"$REACT_NATIVE_PATH/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
+		};
+		1CB4B5148B42F80B373BC25C /* [stripe-identity-react-native] Embed SPM Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[stripe-identity-react-native] Embed SPM Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n[ -n \"${TARGET_BUILD_DIR:-}\" ] || exit 0\n[ -n \"${FRAMEWORKS_FOLDER_PATH:-}\" ] || exit 0\nDEST=\"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\nmkdir -p \"$DEST\"\nfor SEARCH_DIR in \"${BUILT_PRODUCTS_DIR}/PackageFrameworks\" \"${OBJROOT}/UninstalledProducts/${PLATFORM_NAME}\"; do\n  [ -d \"$SEARCH_DIR\" ] || continue\n  for FRAMEWORK in \"$SEARCH_DIR\"/Stripe*.framework; do\n    [ -d \"$FRAMEWORK\" ] || continue\n    NAME=\"$(basename \"$FRAMEWORK\" .framework)\"\n    BINARY=\"$FRAMEWORK/$NAME\"\n    [ -f \"$BINARY\" ] || continue\n    file -b \"$BINARY\" | grep -q \"dynamically linked\" || continue\n    # No trailing slash: --delete stays inside this framework.\n    rsync -a --delete --exclude Headers --exclude PrivateHeaders --exclude Modules \"$FRAMEWORK\" \"$DEST/\"\n    if [ -n \"${EXPANDED_CODE_SIGN_IDENTITY:-}\" ] && [ \"${CODE_SIGNING_ALLOWED:-NO}\" = \"YES\" ]; then\n      codesign --force --sign \"$EXPANDED_CODE_SIGN_IDENTITY\" --preserve-metadata=identifier,entitlements \"$DEST/$NAME.framework\"\n    fi\n  done\ndone\n";
 		};
 		A56B5FEAF5D8463BB2278125 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

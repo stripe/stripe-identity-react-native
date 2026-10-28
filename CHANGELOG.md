@@ -6,11 +6,12 @@
 
 ### Fixed
 
-- Aligned the example app's React and React Test Renderer versions with React Native 0.84.1
+- Aligned the example app's React and React Test Renderer versions to 19.2.3, matching the renderer bundled with React Native 0.84.1 and preventing a crash when starting verification
 
 ### Changed
 
-- Updated `stripe-ios` to 26.15.0
+- Resolve Stripe Identity on iOS through Swift Package Manager, including when used without Payments. Requires React Native 0.75+, CocoaPods 1.13+, and `use_frameworks! :linkage => :dynamic`.
+- Updated `stripe-ios` to 26.15.1, matching `@stripe/stripe-react-native` 0.84.0. Remove `$StripeDisableSPM = true` and reinstall pods when migrating an existing app; see the [iOS setup instructions](./README.md#ios).
 - Updated `stripe-android` to 23.24.0
 - Raised the minimum iOS deployment target to 15.0 to match `StripeIdentity` 26.15.0
 - Raised the example app iOS deployment target to 15.1
