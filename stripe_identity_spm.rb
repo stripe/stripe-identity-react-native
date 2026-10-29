@@ -46,7 +46,7 @@ module StripeIdentitySPM
         raise Pod::PlainInformative, "[#{POD_NAME}] Swift Package Manager requires React Native 0.75 or newer. Upgrade React Native and require react_native_pods.rb in your Podfile"
       end
       if Gem::Version.new(Pod::VERSION) < Gem::Version.new(MINIMUM_COCOAPODS_VERSION)
-        raise Pod::PlainInformative, "[#{POD_NAME}] Swift Package Manager requires CocoaPods #{MINIMUM_COCOAPODS_VERSION} or newer. Update CocoaPods and run `bundle exec pod install`"
+        raise Pod::PlainInformative, "[#{POD_NAME}] This React Native integration requires CocoaPods #{MINIMUM_COCOAPODS_VERSION} or newer. Update CocoaPods and run `bundle exec pod install`"
       end
 
       @version = version
@@ -72,6 +72,12 @@ module StripeIdentitySPM
     def prepare_pods_project(installer)
       targets = identity_targets(installer)
       return if !active? || targets.empty?
+
+      # React Native's SPM bridge looks up pod targets in the single Pods project.
+      # With one project per pod that lookup returns nil before we can link Identity.
+      if installer.podfile.installation_options.generate_multiple_pod_projects
+        raise Pod::Informative, "[#{POD_NAME}] The React Native helper used to attach Swift packages requires CocoaPods' default single Pods project. Remove `generate_multiple_pod_projects: true` and `incremental_installation: true` from your Podfile's `install! 'cocoapods'` options"
+      end
 
       targets.each { |target| verify_dynamic_linkage!(target) }
       declarations = registered_dependencies

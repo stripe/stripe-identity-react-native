@@ -44,6 +44,8 @@ Alternatively use the `plugin-transform-typescript` plugin in your project.
 
   Keep the standard `react_native_post_install` call in your Podfile's `post_install` block, then run `bundle exec pod install` and rebuild your app. Open the `.xcworkspace` in Xcode so it can resolve the Swift package. No manual Xcode package setup is needed.
 
+  Keep CocoaPods' default project layout: the React Native helper used here to attach Swift packages does not support `generate_multiple_pod_projects: true` or `incremental_installation: true`. Multiple app targets and repeated `pod install` runs are supported.
+
 - Expo apps can configure dynamic frameworks with `expo-build-properties`:
 
   ```json

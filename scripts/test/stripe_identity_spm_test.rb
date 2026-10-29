@@ -47,7 +47,9 @@ class StripeIdentitySPMTest < Minitest::Test
     def build_as_dynamic?; [:dynamic_framework, :dynamic_library].include?(linkage); end
     def specs; []; end
   end
-  Installer = Struct.new(:pods_project, :pod_targets, :aggregate_targets)
+  Installer = Struct.new(:pods_project, :pod_targets, :aggregate_targets) do
+    def podfile; @podfile ||= Pod::Podfile.new; end
+  end
   Aggregate = Struct.new(:pod_targets, :user_project, :user_targets)
 
   def setup
@@ -178,6 +180,20 @@ class StripeIdentitySPMTest < Minitest::Test
       error = assert_raises(Pod::Informative, Pod::PlainInformative) { StripeIdentitySPM.prepare_pods_project(@installer) }
       assert_match(/use_frameworks!.*dynamic/, error.message)
     end
+  end
+
+  def test_multiple_pod_projects_has_actionable_error_before_react_native_runs
+    @installer.podfile.installation_options.generate_multiple_pod_projects = true
+    activate_identity
+    error = assert_raises(Pod::Informative) { StripeIdentitySPM.prepare_pods_project(@installer) }
+    assert_match(/single Pods project/, error.message)
+    assert_match(/generate_multiple_pod_projects/, error.message)
+    assert_match(/incremental_installation/, error.message)
+    assert_empty @project.root_object.package_references
+
+    # Loading the helper must not reject an unrelated project's install options.
+    @installer.pod_targets.clear
+    assert_nil StripeIdentitySPM.prepare_pods_project(@installer)
   end
 
   def test_missing_react_native_post_install_has_actionable_error
@@ -362,7 +378,7 @@ class StripeIdentitySPMTest < Minitest::Test
       app = user_project.new_target(:application, 'HookApp', :ios, '15.0')
       @installer.aggregate_targets = [Aggregate.new(@installer.pod_targets, user_project, [app])]
       installer = Pod::Installer.allocate
-      [:pods_project, :pod_targets, :aggregate_targets].each do |attribute|
+      [:pods_project, :pod_targets, :aggregate_targets, :podfile].each do |attribute|
         value = @installer.public_send(attribute)
         installer.define_singleton_method(attribute) { value }
       end
