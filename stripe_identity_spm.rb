@@ -165,7 +165,8 @@ module StripeIdentitySPM
         users = projects[project] ||= {}
         consumes_identity = active? && aggregate.pod_targets.any? { |target| target.pod_name == POD_NAME }
         aggregate.user_targets.each do |target|
-          next unless target.respond_to?(:symbol_type) && target.symbol_type == :application
+          next unless target.respond_to?(:symbol_type)
+          next unless [:application, :application_on_demand_install_capable].include?(target.symbol_type)
 
           users[target] = users.fetch(target, false) || consumes_identity
         end

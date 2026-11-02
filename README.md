@@ -58,6 +58,8 @@ Alternatively use the `plugin-transform-typescript` plugin in your project.
   }
   ```
 
+  If Expo precompiled modules are enabled, use Expo 58.0.19 or later with `expo-modules-autolinking` 58.0.15 or later. Older versions can override the dynamic framework setting and cause `pod install` to fail.
+
   Regenerate the native iOS project and build a development client; this native SDK is not included in Expo Go. Set your camera description in `ios.infoPlist.NSCameraUsageDescription`.
 
 - Stripe Identity requires access to the device’s camera to capture identity documents. To enable your app to request camera permissions:

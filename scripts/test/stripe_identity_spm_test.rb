@@ -277,6 +277,35 @@ class StripeIdentitySPMTest < Minitest::Test
     assert_equal [payments_phase], app.shell_script_build_phases
   end
 
+  def test_app_clip_embeds_frameworks_without_changing_unrelated_targets
+    activate_identity
+    user_project = Xcodeproj::Project.new(File.join(@directory, 'AppClips.xcodeproj'))
+    clip = user_project.new_target(:application_on_demand_install_capable, 'IdentityClip', :ios, '16.0')
+    unrelated_clip = user_project.new_target(:application_on_demand_install_capable, 'UnrelatedClip', :ios, '16.0')
+    host = user_project.new_target(:application, 'HostApp', :ios, '16.0')
+    @installer.aggregate_targets = [
+      Aggregate.new(@installer.pod_targets, user_project, [clip]),
+      Aggregate.new([], user_project, [unrelated_clip, host])
+    ]
+
+    2.times { StripeIdentitySPM.apply_user_project(@installer) }
+    phases = clip.shell_script_build_phases.select { |phase| phase.name == StripeIdentitySPM::EMBED_PHASE_NAME }
+    assert_equal 1, phases.length
+    assert_equal StripeIdentitySPM::EMBED_SCRIPT, phases.first.shell_script
+    assert_equal '/bin/sh', phases.first.shell_path
+    assert_equal '1', phases.first.always_out_of_date
+    assert_empty unrelated_clip.shell_script_build_phases
+    assert_empty host.shell_script_build_phases
+
+    reopened = Xcodeproj::Project.open(user_project.path)
+    saved_clip = reopened.targets.find { |target| target.name == 'IdentityClip' }
+    assert_equal [StripeIdentitySPM::EMBED_PHASE_NAME], saved_clip.shell_script_build_phases.map(&:name)
+
+    @installer.aggregate_targets.first.pod_targets = []
+    StripeIdentitySPM.apply_user_project(@installer)
+    assert_empty clip.shell_script_build_phases
+  end
+
   def test_identical_duplicate_embed_phases_keep_one_attached_phase
     activate_identity
     user_project = Xcodeproj::Project.new(File.join(@directory, 'DuplicatePhases.xcodeproj'))
