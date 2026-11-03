@@ -40,7 +40,7 @@ if ENV['STRIPE_IDENTITY_SPM_HOOK_ORDER'] == 'identity-first'
 end
 
 class StripeIdentitySPMTest < Minitest::Test
-  VERSION = '26.15.1'.freeze
+  VERSION = '26.16.0'.freeze
   PodTarget = Struct.new(:pod_name, :label, :linkage) do
     def build_as_dynamic_framework?; linkage == :dynamic_framework; end
     def build_as_framework?; [:dynamic_framework, :static_framework].include?(linkage); end
@@ -141,11 +141,11 @@ class StripeIdentitySPMTest < Minitest::Test
     [:identity_first, :payments_first].each do |order|
       reset_projects
       add_pod('stripe-react-native')
-      register_both(order, payments_version: '26.14.0')
+      register_both(order, payments_version: '26.15.1')
       error = assert_raises(Pod::Informative, Pod::PlainInformative) { apply_spm }
       assert_match(/version|requirement|pin/i, error.message)
-      assert_match(/26\.14\.0/, error.message)
       assert_match(/26\.15\.1/, error.message)
+      assert_match(/26\.16\.0/, error.message)
       assert_empty @project.root_object.package_references
     end
   end
