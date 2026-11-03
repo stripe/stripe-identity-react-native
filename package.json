@@ -14,6 +14,7 @@
     "ios",
     "cpp",
     "stripe-identity-react-native.podspec",
+    "stripe_identity_spm.rb",
     "!example",
     "!example/**",
     "!docs",
@@ -33,6 +34,7 @@
   ],
   "scripts": {
     "test": "jest",
+    "test:spm": "ruby scripts/test/stripe_identity_spm_test.rb",
     "typescript": "tsc --noEmit",
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "prepare": "bob build && husky install",

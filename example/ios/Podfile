@@ -8,7 +8,7 @@ require Pod::Executable.execute_command('node', ['-p',
 platform :ios, '15.1'
 prepare_react_native_project!
 
-# stripe-react-native 0.80+ resolves Stripe iOS through SPM.
+# Both Stripe SDKs resolve Stripe iOS through SPM and require dynamic frameworks.
 use_frameworks! :linkage => :dynamic
 
 target 'StripeIdentityExample' do

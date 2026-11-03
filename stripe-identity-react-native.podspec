@@ -1,9 +1,10 @@
 require 'json'
+require_relative 'stripe_identity_spm'
 
 package = JSON.parse(File.read(File.join(__dir__, 'package.json')))
 
 # When stripe_version is updated, also need to update stripe_version in https://github.com/stripe/stripe-react-native/blob/master/stripe-react-native.podspec
-stripe_version = '26.15.0'
+stripe_version = '26.15.1'
 
 Pod::Spec.new do |s|
   s.name         = 'stripe-identity-react-native'
@@ -17,11 +18,15 @@ Pod::Spec.new do |s|
   s.source       = { git: 'https://github.com/stripe/stripe-identity-react-native.git', tag: s.version.to_s }
 
   s.source_files = 'ios/**/*.{h,m,mm,swift}'
+  # Keep React imports out of the dynamic framework's public umbrella header.
+  s.private_header_files = 'ios/StripeIdentityReactNative-Bridging-Header.h'
+  s.swift_version = '5.0'
+
+  StripeIdentitySPM.activate!(s, version: stripe_version)
 
   if defined?(install_modules_dependencies)
     install_modules_dependencies(s)
   else
     s.dependency 'React-Core'
   end
-  s.dependency 'StripeIdentity', stripe_version
 end

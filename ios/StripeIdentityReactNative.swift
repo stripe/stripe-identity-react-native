@@ -1,4 +1,5 @@
 @_spi(STP) import StripeIdentity
+import React
 import UIKit
 
 @objc(StripeIdentityReactNative)
