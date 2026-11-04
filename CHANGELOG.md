@@ -12,7 +12,7 @@
 
 - Resolve Stripe Identity on iOS through Swift Package Manager, including when used without Payments. Requires React Native 0.75+, CocoaPods 1.13+, and `use_frameworks! :linkage => :dynamic`.
 - Updated `stripe-ios` to 26.16.0, requiring a Swift 6.1 or later toolchain. Remove `$StripeDisableSPM = true` and reinstall pods when migrating an existing app; see the [iOS setup instructions](./README.md#ios).
-- Updated `stripe-android` to 23.24.0
+- Updated `stripe-android` to 23.25.1
 - Raised the minimum iOS deployment target to 15.0 to match `StripeIdentity` 26.16.0
 - Raised the example app iOS deployment target to 15.1
 - Updated the example app to React Native 0.84.1
