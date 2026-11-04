@@ -1854,7 +1854,7 @@ PODS:
     - React-utils (= 0.84.1)
     - ReactNativeDependencies
   - ReactNativeDependencies (0.84.1)
-  - stripe-identity-react-native (0.9.0):
+  - stripe-identity-react-native (0.10.0):
     - hermes-engine
     - RCTRequired
     - RCTTypeSafety
@@ -2254,7 +2254,7 @@ SPEC CHECKSUMS:
   ReactCodegen: 66522f37c7e4861aec1f6a574dee83917fad4397
   ReactCommon: 07572bf9e687c8a52fbe4a3641e9e3a1a477c78e
   ReactNativeDependencies: dd348088487db963d16317be555a00af0d677c86
-  stripe-identity-react-native: 71744794adc4d9ac190b19c0a4e5e17554ce909d
+  stripe-identity-react-native: ca06d1bb2901833d99e32f7d4269afe26ccdc27f
   stripe-react-native: 3ed890830f4b4daec969df93b67b5a5ace239446
   Yoga: 846fbe6f595136be802ad81d05688ff748839764
 
