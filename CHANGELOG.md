@@ -16,7 +16,7 @@
 - Raised the minimum iOS deployment target to 15.0 to match `StripeIdentity` 26.16.0
 - Raised the example app iOS deployment target to 15.1
 - Updated the example app to React Native 0.84.1
-- Temporarily incompatible on iOS with `stripe-react-native` 0.84.0, which pins Stripe iOS 26.15.1. Apps using both SDKs must use releases with matching native iOS pins; Identity-only apps can use 26.16.0.
+- Updated the example app to `stripe-react-native` 0.85.0, aligning both SDKs on Stripe iOS 26.16.0 for apps that use Payments and Identity together.
 - Updated `react-native-safe-area-context` to 5.10.1
 - Configured the example app to use dynamic frameworks for Stripe's Swift Package Manager integration
 - Updated the iOS pod integration for React Native's prebuilt core framework

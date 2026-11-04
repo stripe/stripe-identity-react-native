@@ -1876,7 +1876,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - ReactNativeDependencies
     - Yoga
-  - stripe-react-native (0.84.0):
+  - stripe-react-native (0.85.0):
     - hermes-engine
     - RCTRequired
     - RCTTypeSafety
@@ -1897,10 +1897,10 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - ReactNativeDependencies
-    - stripe-react-native/Core (= 0.84.0)
-    - stripe-react-native/NewArch (= 0.84.0)
+    - stripe-react-native/Core (= 0.85.0)
+    - stripe-react-native/NewArch (= 0.85.0)
     - Yoga
-  - stripe-react-native/Core (0.84.0):
+  - stripe-react-native/Core (0.85.0):
     - hermes-engine
     - RCTRequired
     - RCTTypeSafety
@@ -1922,7 +1922,7 @@ PODS:
     - ReactCommon/turbomodule/core
     - ReactNativeDependencies
     - Yoga
-  - stripe-react-native/NewArch (0.84.0):
+  - stripe-react-native/NewArch (0.85.0):
     - hermes-engine
     - RCTRequired
     - RCTTypeSafety
@@ -2255,7 +2255,7 @@ SPEC CHECKSUMS:
   ReactCommon: 07572bf9e687c8a52fbe4a3641e9e3a1a477c78e
   ReactNativeDependencies: dd348088487db963d16317be555a00af0d677c86
   stripe-identity-react-native: 71744794adc4d9ac190b19c0a4e5e17554ce909d
-  stripe-react-native: 2afe2c6fde0ba5cb5adeea51f2d31368c8b3a79f
+  stripe-react-native: 3ed890830f4b4daec969df93b67b5a5ace239446
   Yoga: 846fbe6f595136be802ad81d05688ff748839764
 
 PODFILE CHECKSUM: 6ce26cbdeec7f4b3f96ab6de1aaeafe0b607d1f9
