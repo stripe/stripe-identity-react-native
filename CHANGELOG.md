@@ -1,5 +1,7 @@
 # [Unreleased]
 
+# [v0.10.0](https://github.com/stripe/stripe-identity-react-native/releases/tag/v0.10.0) - 04 Nov 2026
+
 ### Added
 
 - Added a test mode toggle to the example app for creating test Verification Sessions with sample document and selfie images
@@ -17,7 +19,7 @@
 - Raised the example app iOS deployment target to 15.1
 - Updated the example app to React Native 0.84.1
 - Updated the example app to `stripe-react-native` 0.85.0, aligning both SDKs on Stripe iOS 26.16.0 for apps that use Payments and Identity together.
-- Updated `react-native-safe-area-context` to 5.10.1
+- Updated `react-native-safe-area-context` to 5.11.1
 - Configured the example app to use dynamic frameworks for Stripe's Swift Package Manager integration
 - Updated the iOS pod integration for React Native's prebuilt core framework
 - Refreshed root and example JS lockfiles to include newer transitive dependency versions
