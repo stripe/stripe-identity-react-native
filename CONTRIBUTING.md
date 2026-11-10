@@ -4,10 +4,13 @@ We want this community to be friendly and respectful to each other. Please follo
 
 ## Development workflow
 
-To get started with the project, run `yarn` in the root directory to install the required dependencies for each package:
+Use Node.js 24.15 or later in the Node 24 release line (or another version allowed by `example/package.json`) and Yarn 1.22.22. If you use nvm, `nvm install` reads the checked-in `.nvmrc`. This is the development toolchain requirement; the published library does not impose it on consumers.
+
+Install dependencies for both the library and example app:
 
 ```sh
-yarn
+yarn install --frozen-lockfile
+yarn --cwd example install --frozen-lockfile
 ```
 
 > While it's possible to use [`npm`](https://github.com/npm/cli), the tooling is built around [`yarn`](https://classic.yarnpkg.com/), so you'll have an easier time if you use `yarn` for development.
@@ -37,6 +40,7 @@ Make sure your code passes TypeScript and ESLint. Run the following to verify:
 ```sh
 yarn typescript
 yarn lint
+yarn example typescript
 ```
 
 To fix formatting errors, run the following:
@@ -49,9 +53,34 @@ Remember to add tests for your change if possible. Run the unit tests by:
 
 ```sh
 yarn test
+yarn example test
+yarn build
 ```
 
+Run the packaged apps through Detox after native or dependency changes:
+
+```sh
+yarn e2e:build:ios:release
+yarn e2e:test:ios:release --cleanup
+yarn e2e:build:android:release
+yarn e2e:test:android:release --cleanup --device-name YOUR_AVD_NAME
+```
+
+Install `applesimutils` from the `wix/brew` tap for iOS tests. Android tests use an emulator with API 36 or later; use `emulator -list-avds` to find its name, or create `TestingAVD` to use the default. The tests explicitly enable test mode, open the native verification sheet, and check cancellation back in React Native. They require access to the example test backend and do not upload identity documents.
+
 For iOS dependency integration changes, run `yarn test:spm` with CocoaPods and the example dependencies installed. Also reinstall pods and build the example workspace to verify that Identity and Payments resolve the same Stripe Swift package. Test an Identity-only app as well; the Identity package must work without Payments installed.
+
+After dependency updates, run `yarn audit` and `yarn --cwd example audit` to check both lockfiles. Keep Babel on version 7, ESLint on version 9, and TypeScript on version 6 until React Native's presets and TypeScript ESLint support their newer major versions.
+
+The scoped `glob` and `minimatch` resolutions fix security advisories in Jest, Bob, and TypeScript ESLint. They intentionally leave older callers with different APIs alone. Verify Jest coverage, lint, and the library build when changing these resolutions, and remove them when the parent packages adopt patched versions.
+
+The November 2026 refresh still has upstream tooling advisories:
+
+- [`deepmerge` 4.3.1](https://github.com/advisories/GHSA-gcqx-w48m-w2h4), used by Jest and the React Native CLI, has no patched release.
+- Detox and its logging dependencies require `stream-json` 1.x. Releases that fix [prototype pollution](https://github.com/advisories/GHSA-mjw6-4jj6-33hc) and the [filter](https://github.com/advisories/GHSA-528h-pc64-c93x) and [parser](https://github.com/advisories/GHSA-hqr4-qq8f-hg3x) denial-of-service advisories change the imports and APIs those tools use.
+- CocoaPods 1.17 requires ActiveSupport below 8, preventing the upgrade that fixes [GHSA-8474-xrp6-wh69](https://github.com/rails/rails/security/advisories/GHSA-8474-xrp6-wh69).
+
+These dependencies belong to development/build tools. Do not replace them with incompatible major versions solely to obtain a clean audit.
 
 To edit the Objective-C files, open `example/ios/StripeIdentityExample.xcworkspace` in Xcode and find the source files at `Pods > Development Pods > stripe-identity-react-native`.
 

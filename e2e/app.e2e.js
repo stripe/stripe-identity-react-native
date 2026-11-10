@@ -1,35 +1,29 @@
-/* eslint-env detox/detox, jest */
-/* eslint-disable no-undef */
-
-import { getStatusText, pressBack, setupDevice } from './utils';
+import {
+  getStatusText,
+  pressBack,
+  setupDevice,
+  waitForTestModeSheet,
+} from './utils';
 
 describe('Identity', () => {
-  it('Verify', async () => {
+  it('launches the example with a ready verification button', async () => {
     await setupDevice();
 
-    const identityButton = element(by.id('verify-btn'));
-    await waitFor(identityButton).toBeVisible();
-    const statusText = await getStatusText('Undefined');
-    await expect(statusText).toBeVisible();
-    await identityButton.tap();
-
-    const loadingSpinner = element(by.id('loading-spinner'));
-
-    await expect(loadingSpinner).toNotExist();
-    await expect(identityButton).toNotExist();
+    await expect(element(by.id('verify-btn'))).toBeVisible();
+    await expect(getStatusText('Undefined')).toBeVisible();
+    await expect(element(by.id('loading-spinner'))).not.toExist();
   });
-  it('Cancel', async () => {
+  it('presents a test-mode native sheet and returns cancellation to React Native', async () => {
     await setupDevice();
 
-    const identityButton = element(by.id('verify-btn'));
-    await waitFor(identityButton).toBeVisible();
-    await identityButton.tap();
-    const consentView = await element(
-      by.id('StripeIdentity.BiometricConsentView')
-    );
-    await waitFor(consentView).toBeVisible();
+    await element(by.id('verify-btn')).tap();
+
+    await waitForTestModeSheet();
     await pressBack();
-    const statusText = await getStatusText('FlowCanceled');
-    await expect(statusText).toBeVisible();
+    await waitFor(getStatusText('FlowCanceled'))
+      .toBeVisible()
+      .withTimeout(10000);
+    await expect(element(by.id('verify-btn'))).toBeVisible();
+    await expect(element(by.id('loading-spinner'))).not.toExist();
   });
 });

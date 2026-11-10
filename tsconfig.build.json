@@ -1,4 +1,12 @@
-
 {
-  "extends": "./tsconfig"
+  "extends": "./tsconfig",
+  "compilerOptions": {
+    "rootDir": "src",
+    "types": []
+  },
+  "exclude": [
+    "src/**/__tests__/**",
+    "src/**/__fixtures__/**",
+    "src/**/__mocks__/**"
+  ]
 }

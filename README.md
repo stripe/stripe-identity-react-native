@@ -213,6 +213,8 @@ import type {
 
 Make sure you have completed the [React Native Environment Setup](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
 
+The example app uses React Native 0.88 and requires Node.js 24.15 or later in the Node 24 release line, Ruby 3.2 or later for iOS, and Android SDK/build tools 37. Run `nvm install` from the repository root if you use nvm. These are example/development requirements, not additional requirements for apps consuming the library.
+
 ### Setup
 
 1. Install dependencies from the root folder:

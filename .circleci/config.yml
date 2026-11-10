@@ -1,136 +1,125 @@
 version: 2.1
 
 orbs:
-  rn: react-native-community/react-native@5.6.2
+  node: circleci/node@7.2.1
+  android: circleci/android@3.2.0
+
+executors:
+  javascript:
+    docker:
+      - image: cimg/node:24.22.1
 
 commands:
-  attach_project:
+  install_dependencies:
     steps:
-      - attach_workspace:
-          at: ~/project
-
-jobs:
-  install-dependencies:
-    executor: rn/linux_js
-    steps:
-      - checkout
-      - attach_project
+      # Dependencies with native binaries must be installed on each OS.
       - restore_cache:
           keys:
-            - dependencies-{{ checksum "package.json" }}
-            - dependencies-
-      - restore_cache:
-          keys:
-            - dependencies-example-{{ checksum "example/package.json" }}
-            - dependencies-example-
+            - dependencies-v2-{{ arch }}-{{ checksum "yarn.lock" }}-{{ checksum "example/yarn.lock" }}
       - run:
           name: Install dependencies
           command: |
             yarn install --cwd example --frozen-lockfile
             yarn install --frozen-lockfile
       - save_cache:
-          key: dependencies-{{ checksum "package.json" }}
-          paths: [node_modules]
-      - save_cache:
-          key: dependencies-example-{{ checksum "example/package.json" }}
-          paths: [example/node_modules]
-      - persist_to_workspace:
-          root: .
-          paths: [.]
+          key: dependencies-v2-{{ arch }}-{{ checksum "yarn.lock" }}-{{ checksum "example/yarn.lock" }}
+          paths: [node_modules, example/node_modules]
 
+jobs:
   lint:
-    executor: rn/linux_js
+    executor: javascript
     steps:
-      - attach_project
-      - run:
-          name: Lint files
-          command: |
-            yarn lint
+      - checkout
+      - install_dependencies
+      - run: yarn lint
 
   typescript:
-    executor: rn/linux_js
+    executor: javascript
     steps:
-      - attach_project
+      - checkout
+      - install_dependencies
       - run:
-          name: Typecheck files
+          name: Typecheck library and example
           command: |
             yarn typescript
+            yarn example tsc --noEmit
 
   test:
-    executor: rn/linux_js
+    executor: javascript
     steps:
-      - attach_project
+      - checkout
+      - install_dependencies
       - run:
-          name: Integration tests
+          name: Unit tests and package build
           command: |
-            yarn test
+            yarn test --runInBand
+            yarn example test --runInBand
+            yarn bob build
 
   e2e-ios:
-    executor:
-      name: rn/macos
-      xcode_version: '12.4.0'
+    macos:
+      xcode: '26.4.1'
+    resource_class: m4pro.medium
     steps:
-      - attach_workspace:
-          at: .
-      - rn/setup_macos_executor:
-          node_version: '14.15.0'
-      - rn/ios_simulator_start:
-          device: 'iPhone 11'
+      - checkout
+      - node/install:
+          node-version: '24.22.1'
+          install-yarn: true
+          yarn-version: '1.22.22'
+      - install_dependencies
       - run:
-          command: yarn install --frozen-lockfile
-          name: yarn install
-      - rn/pod_install:
-          pod_install_directory: 'example/ios'
+          name: Install iOS test dependencies
+          command: |
+            brew tap wix/brew
+            brew install applesimutils
+            # Restored node_modules can skip Detox's postinstall on a fresh VM.
+            yarn detox build-framework-cache
+            cd example
+            bundle install
+            cd ios
+            bundle exec pod install
       - run:
+          name: Test Swift package integration
+          command: BUNDLE_GEMFILE=example/Gemfile bundle exec ruby scripts/test/stripe_identity_spm_test.rb
+      - run:
+          name: Build for Detox
           command: yarn e2e:build:ios:release
-          name: build for detox
       - run:
+          name: Run Detox
           command: yarn e2e:test:ios:release
-          name: test detox
       - store_artifacts:
           path: ./artifacts
 
   e2e-android:
     executor:
-      name: rn/macos
-      xcode_version: '12.4.0'
+      name: android/android_machine
+      tag: '2026.10.1'
+      resource_class: large
     steps:
-      - attach_workspace:
-          at: .
-      - rn/setup_macos_executor:
-          node_version: '14.15.0'
-      - run:
-          command: yarn install --frozen-lockfile
-          name: yarn install
-      - rn/android_emulator_start:
-          logcat_grep: 'com.example.stripeterminalreactnative'
-          platform_version: android-28
-      - run:
-          command: yarn e2e:build:android:release
-          name: build for detox
-      - run:
+      - checkout
+      - node/install:
+          node-version: '24.22.1'
+          install-yarn: true
+          yarn-version: '1.22.22'
+      - android/change_java_version:
+          java_version: 17
+      - install_dependencies
+      - android/accept_licenses
+      - android/start_emulator_and_run_tests:
+          avd_name: TestingAVD
+          system_image: system-images;android-36;google_apis;x86_64
+          post_emulator_launch_assemble_command: yarn e2e:build:android:release
+          test_command: yarn e2e:test:android:release
+          max_tries: 1
           no_output_timeout: 60m
-          command: yarn e2e:test:android:release
-          name: test detox
       - store_artifacts:
           path: ./artifacts
 
 workflows:
   build-and-test:
     jobs:
-      - install-dependencies
-      - lint:
-          requires:
-            - install-dependencies
-      - typescript:
-          requires:
-            - install-dependencies
-      - test:
-          requires:
-            - install-dependencies
-      - e2e-android:
-          requires:
-            - install-dependencies
-      - e2e-ios:
-          requires:
-            - install-dependencies
+      - lint
+      - typescript
+      - test
+      - e2e-android
+      - e2e-ios

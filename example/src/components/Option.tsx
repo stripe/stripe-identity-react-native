@@ -4,17 +4,23 @@ import { useAppThemeColors } from '../utils/theme';
 
 type OptionType = {
   title: string;
+  testID?: string;
   value: boolean;
   onChange(value: boolean): void;
 };
 
-export function Option({ title, value, onChange }: OptionType) {
+export function Option({ title, testID, value, onChange }: OptionType) {
   const colors = useAppThemeColors();
 
   return (
     <View style={styles.container}>
       <Text style={[styles.label, { color: colors.text }]}>{title}</Text>
-      <Switch value={value} onValueChange={onChange} />
+      <Switch
+        testID={testID}
+        accessibilityLabel={title}
+        value={value}
+        onValueChange={onChange}
+      />
     </View>
   );
 }
