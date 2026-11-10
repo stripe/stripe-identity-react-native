@@ -45,7 +45,7 @@ export function Options({ options, setOptions }: OptionsProps) {
   ];
 
   function onPressPhoneOtpCheckOption(selectedId: string) {
-    let selectedPhoneOtpCheckType = phoneOtpCheckOptions.find((item) => {
+    let selectedPhoneOtpCheckType = phoneOtpCheckOptions.find(item => {
       return item.id === selectedId;
     })?.value;
 
@@ -58,9 +58,7 @@ export function Options({ options, setOptions }: OptionsProps) {
   }
 
   const findItemByKey = (keyToFind: VerificationType) => {
-    const foundItem = verificationTypeData.find(
-      (item) => item.key === keyToFind
-    );
+    const foundItem = verificationTypeData.find(item => item.key === keyToFind);
     return foundItem;
   };
 
@@ -74,12 +72,14 @@ export function Options({ options, setOptions }: OptionsProps) {
   const DocumentOptionSection = () => {
     return (
       <View>
-        <Text style={[styles.label, { color: colors.text }]}>Allowed Types:</Text>
+        <Text style={[styles.label, { color: colors.text }]}>
+          Allowed Types:
+        </Text>
         <View style={styles.section}>
           <Option
             title="Driving License"
             value={options.allowedTypes[AllowedTypes.DRIVING_LICENSE]}
-            onChange={(value) =>
+            onChange={value =>
               setOptions({
                 ...options,
                 allowedTypes: {
@@ -92,7 +92,7 @@ export function Options({ options, setOptions }: OptionsProps) {
           <Option
             title="Passport"
             value={options.allowedTypes[AllowedTypes.PASSPORT]}
-            onChange={(value) =>
+            onChange={value =>
               setOptions({
                 ...options,
                 allowedTypes: {
@@ -105,7 +105,7 @@ export function Options({ options, setOptions }: OptionsProps) {
           <Option
             title="ID Card"
             value={options.allowedTypes[AllowedTypes.ID_CARD]}
-            onChange={(value) =>
+            onChange={value =>
               setOptions({
                 ...options,
                 allowedTypes: {
@@ -119,22 +119,24 @@ export function Options({ options, setOptions }: OptionsProps) {
         <Option
           title="Require ID Number"
           value={options.requireIdNumber}
-          onChange={(value) => setOptions({ ...options, requireIdNumber: value })}
+          onChange={value => setOptions({ ...options, requireIdNumber: value })}
         />
         <Option
           title="Require Address"
           value={options.requireAddress}
-          onChange={(value) => setOptions({ ...options, requireAddress: value })}
+          onChange={value => setOptions({ ...options, requireAddress: value })}
         />
         <Option
           title="Require Live Capture"
           value={options.requireLiveCapture}
-          onChange={(value) => setOptions({ ...options, requireLiveCapture: value })}
+          onChange={value =>
+            setOptions({ ...options, requireLiveCapture: value })
+          }
         />
         <Option
           title="Require Matching Selfie"
           value={options.requireMatchingSelfie}
-          onChange={(value) =>
+          onChange={value =>
             setOptions({ ...options, requireMatchingSelfie: value })
           }
         />
@@ -142,20 +144,24 @@ export function Options({ options, setOptions }: OptionsProps) {
     );
   };
 
-  const verificationTypeBoxStyles = StyleSheet.flatten([
-    styles.verification_type_container,
-    { backgroundColor: colors.card, borderColor: colors.separator },
-  ]);
+  const verificationTypeBoxStyles = {
+    ...styles.verification_type_container,
+    backgroundColor: colors.card,
+    borderColor: colors.separator,
+  };
 
   if (options.verificationType === VerificationType.DOCUMENT) {
     return (
       <View style={styles.container}>
         <Option
           title="Use Test Mode"
+          testID="test-mode-switch"
           value={options.useTestMode}
-          onChange={(value) => setOptions({ ...options, useTestMode: value })}
+          onChange={value => setOptions({ ...options, useTestMode: value })}
         />
-        <Text style={[styles.label, { color: colors.text }]}>Verification Type:</Text>
+        <Text style={[styles.label, { color: colors.text }]}>
+          Verification Type:
+        </Text>
         <SelectList
           setSelected={onSelectVerificationType}
           data={verificationTypeData}
@@ -178,10 +184,13 @@ export function Options({ options, setOptions }: OptionsProps) {
       <View style={styles.container}>
         <Option
           title="Use Test Mode"
+          testID="test-mode-switch"
           value={options.useTestMode}
-          onChange={(value) => setOptions({ ...options, useTestMode: value })}
+          onChange={value => setOptions({ ...options, useTestMode: value })}
         />
-        <Text style={[styles.label, { color: colors.text }]}>Verification Type:</Text>
+        <Text style={[styles.label, { color: colors.text }]}>
+          Verification Type:
+        </Text>
         <SelectList
           setSelected={onSelectVerificationType}
           data={verificationTypeData}
@@ -199,7 +208,7 @@ export function Options({ options, setOptions }: OptionsProps) {
         <Option
           title="Fallback to document"
           value={options.phoneFallbackToDocument}
-          onChange={(value) =>
+          onChange={value =>
             setOptions({
               ...options,
               phoneFallbackToDocument: value,
@@ -208,14 +217,19 @@ export function Options({ options, setOptions }: OptionsProps) {
         />
         {options.phoneFallbackToDocument ? (
           <View>
-            <Text style={[styles.label, { color: colors.text }]}>OTP Check:</Text>
+            <Text style={[styles.label, { color: colors.text }]}>
+              OTP Check:
+            </Text>
             <RadioGroup
               radioButtons={phoneOtpCheckOptions}
               selectedId={options.phoneOtpCheckType}
               onPress={onPressPhoneOtpCheckOption}
               layout="row"
               containerStyle={styles.verification_type_container}
-              labelStyle={[styles.verification_type_label, { color: colors.text }]}
+              labelStyle={[
+                styles.verification_type_label,
+                { color: colors.text },
+              ]}
             />
             <DocumentOptionSection />
           </View>
@@ -227,10 +241,13 @@ export function Options({ options, setOptions }: OptionsProps) {
       <View style={styles.container}>
         <Option
           title="Use Test Mode"
+          testID="test-mode-switch"
           value={options.useTestMode}
-          onChange={(value) => setOptions({ ...options, useTestMode: value })}
+          onChange={value => setOptions({ ...options, useTestMode: value })}
         />
-        <Text style={[styles.label, { color: colors.text }]}>Verification Type:</Text>
+        <Text style={[styles.label, { color: colors.text }]}>
+          Verification Type:
+        </Text>
         <SelectList
           setSelected={onSelectVerificationType}
           data={verificationTypeData}

@@ -10,7 +10,7 @@ const liveModeVerifyEndpoint = '/verification-sessions';
 const testModeVerifyEndpoint = '/test/verification-sessions';
 
 export const getTestCredentials = async (
-  options: VerificationSessionOptions
+  options: VerificationSessionOptions,
 ) => {
   try {
     const verifyEndpoint = options.useTestMode
@@ -30,7 +30,7 @@ export const getTestCredentials = async (
               require_matching_selfie: options.requireMatchingSelfie,
               require_id_number: options.requireIdNumber,
               require_live_capture: options.requireLiveCapture,
-              require_address: options.requireAddress,
+              ...(options.requireAddress ? { require_address: true } : {}),
               allowed_types: (
                 Object.keys(options.allowedTypes) as AllowedTypes[]
               ).filter((key: AllowedTypes) => options.allowedTypes[key]),
@@ -49,7 +49,7 @@ export const getTestCredentials = async (
                 require_matching_selfie: options.requireMatchingSelfie,
                 require_id_number: options.requireIdNumber,
                 require_live_capture: options.requireLiveCapture,
-                require_address: options.requireAddress,
+                ...(options.requireAddress ? { require_address: true } : {}),
                 allowed_types: (
                   Object.keys(options.allowedTypes) as AllowedTypes[]
                 ).filter((key: AllowedTypes) => options.allowedTypes[key]),

@@ -96,6 +96,30 @@ class StripeIdentitySPMTest < Minitest::Test
     assert_same package, identity_target.package_product_dependencies.first.package
   end
 
+  def test_standalone_pod_xcconfig_exposes_transitive_package_frameworks
+    spec = Pod::Specification.from_file(File.join(ROOT, 'stripe-identity-react-native.podspec'))
+    podfile = Pod::Podfile.new do
+      platform :ios, '15.1'
+      target 'IdentityOnly' do
+        use_frameworks! :linkage => :dynamic
+      end
+    end
+    sandbox = Pod::Sandbox.new(File.join(@directory, 'Pods'))
+    accessor = Pod::Sandbox::FileAccessor.new(Pathname.new(ROOT), spec.consumer(:ios))
+    target = Pod::PodTarget.new(sandbox, Pod::BuildType.dynamic_framework,
+                               { 'Debug' => :debug, 'Release' => :release }, ['arm64'],
+                               Pod::Platform.new(:ios, '15.1'), [spec],
+                               [podfile.target_definitions['IdentityOnly']], [accessor])
+
+    %w[Debug Release].each do |configuration|
+      paths = target.build_settings_for_spec(spec, configuration: configuration).xcconfig.attributes.fetch('FRAMEWORK_SEARCH_PATHS')
+      assert_includes paths, '$(inherited)'
+      assert_includes paths, '${PODS_CONFIGURATION_BUILD_DIR}/PackageFrameworks'
+      assert_includes paths, '${OBJROOT}/UninstalledProducts/${PLATFORM_NAME}'
+      refute_includes paths, 'stripe-react-native'
+    end
+  end
+
   def test_repeated_registration_and_incremental_project_updates_keep_one_identity_product
     2.times { activate_identity }
     2.times { apply_spm }

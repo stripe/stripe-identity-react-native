@@ -22,6 +22,11 @@ Pod::Spec.new do |s|
   s.private_header_files = 'ios/StripeIdentityReactNative-Bridging-Header.h'
   s.swift_version = '5.0'
 
+  # Swift's dependency scanner needs the dynamic transitive SPM modules too.
+  s.pod_target_xcconfig = {
+    'FRAMEWORK_SEARCH_PATHS' => '$(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/PackageFrameworks" "${OBJROOT}/UninstalledProducts/${PLATFORM_NAME}"'
+  }
+
   StripeIdentitySPM.activate!(s, version: stripe_version)
 
   if defined?(install_modules_dependencies)

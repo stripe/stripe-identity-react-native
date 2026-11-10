@@ -1,11 +1,6 @@
 import React, { useState, useCallback } from 'react';
-import {
-  StyleSheet,
-  Image,
-  View,
-  SafeAreaView,
-  ScrollView,
-} from 'react-native';
+import { StyleSheet, Image, View, ScrollView } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import logo from '../assets/RocketRides.png';
 import { getTestCredentials } from '../utils/api';
 import { Options } from '../components/Options';
@@ -38,17 +33,26 @@ export function HomeScreen() {
   });
 
   const fetchOptions = useCallback(async () => {
+    const brandLogo = Image.resolveAssetSource(logo);
+    if (!brandLogo) {
+      throw new Error('Could not resolve the verification brand logo.');
+    }
     const credentials = await getTestCredentials(options);
     return {
       sessionId: credentials.id,
       ephemeralKeySecret: credentials.ephemeral_key_secret,
-      brandLogo: Image.resolveAssetSource(logo),
+      brandLogo,
     };
   }, [options]);
 
   return (
-    <SafeAreaView style={[styles.container, { backgroundColor: colors.background }]}>
-      <ScrollView style={[styles.scrollView, { backgroundColor: colors.background }]}>
+    <SafeAreaView
+      style={[styles.container, { backgroundColor: colors.background }]}
+    >
+      <ScrollView
+        testID="example-scroll-view"
+        style={[styles.scrollView, { backgroundColor: colors.background }]}
+      >
         <Options options={options} setOptions={setOptions} />
         <View
           style={[styles.divider, { borderBottomColor: colors.separator }]}

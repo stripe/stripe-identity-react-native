@@ -5,7 +5,7 @@ require Pod::Executable.execute_command('node', ['-p',
     {paths: [process.argv[1]]},
   )', __dir__]).strip
 
-platform :ios, '15.1'
+platform :ios, min_ios_version_supported
 prepare_react_native_project!
 
 # Both Stripe SDKs resolve Stripe iOS through SPM and require dynamic frameworks.
@@ -27,5 +27,19 @@ target 'StripeIdentityExample' do
       :mac_catalyst_enabled => false,
       # :ccache_enabled => true
     )
+
+    # Payments 0.85 also needs its transitive dynamic SPM modules on Swift's
+    # explicit dependency scan path. Identity supplies these in its podspec.
+    installer.pods_project.targets.each do |pod_target|
+      next unless pod_target.name == 'stripe-react-native'
+
+      pod_target.build_configurations.each do |configuration|
+        paths = Array(configuration.build_settings['FRAMEWORK_SEARCH_PATHS'])
+        paths << '$(inherited)'
+        paths << '${PODS_CONFIGURATION_BUILD_DIR}/PackageFrameworks'
+        paths << '${OBJROOT}/UninstalledProducts/${PLATFORM_NAME}'
+        configuration.build_settings['FRAMEWORK_SEARCH_PATHS'] = paths.uniq
+      end
+    end
   end
 end

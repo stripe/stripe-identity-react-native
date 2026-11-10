@@ -78,12 +78,14 @@ android {
     compileSdk rootProject.ext.compileSdkVersion
 
     namespace "com.stripeidentityexample"
+    testBuildType System.getProperty('testBuildType', 'debug')
     defaultConfig {
         applicationId "com.stripeidentityexample"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     signingConfigs {
         debug {
@@ -102,12 +104,16 @@ android {
             // see https://reactnative.dev/docs/signed-apk-android.
             signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
-            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+            proguardFile "$rootDir/../../node_modules/detox/android/detox/proguard-rules-app.pro"
         }
     }
 }
 
 dependencies {
+    def detoxVersion = new groovy.json.JsonSlurper().parse(rootProject.file("../../node_modules/detox/package.json")).version
+    androidTestImplementation("com.wix:detox:$detoxVersion")
+
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
 

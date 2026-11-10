@@ -1,48 +1,55 @@
 {
-  "testRunner": "jest",
-  "runnerConfig": "e2e/config.json",
+  "testRunner": {
+    "args": {
+      "$0": "jest",
+      "config": "e2e/config.json"
+    },
+    "jest": {
+      "setupTimeout": 300000
+    }
+  },
   "apps": {
     "ios.debug": {
       "type": "ios.app",
       "binaryPath": "example/ios/build/Build/Products/Debug-iphonesimulator/StripeIdentityExample.app",
-      "build": "xcodebuild -workspace example/ios/StripeIdentityExample.xcworkspace -configuration Debug -scheme StripeIdentityExample -destination 'platform=iOS Simulator,name=iPhone 11' -derivedDataPath example/ios/build"
+      "build": "xcodebuild -workspace example/ios/StripeIdentityExample.xcworkspace -configuration Debug -scheme StripeIdentityExample -destination 'generic/platform=iOS Simulator' -derivedDataPath example/ios/build"
     },
     "ios.release": {
       "type": "ios.app",
       "binaryPath": "example/ios/build/Build/Products/Release-iphonesimulator/StripeIdentityExample.app",
-      "build": "export RCT_NO_LAUNCH_PACKAGER=true && xcodebuild -workspace example/ios/StripeIdentityExample.xcworkspace -configuration Release -scheme StripeIdentityExample -destination 'platform=iOS Simulator,name=iPhone 11' -derivedDataPath example/ios/build"
+      "build": "RCT_NO_LAUNCH_PACKAGER=true xcodebuild -workspace example/ios/StripeIdentityExample.xcworkspace -configuration Release -scheme StripeIdentityExample -destination 'generic/platform=iOS Simulator' -derivedDataPath example/ios/build"
     },
     "android.debug": {
       "type": "android.apk",
       "binaryPath": "example/android/app/build/outputs/apk/debug/app-debug.apk",
-      "build": "cd example/android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug ; cd -"
+      "build": "cd example/android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug",
+      "testBinaryPath": "example/android/app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk"
     },
     "android.release": {
       "type": "android.apk",
       "binaryPath": "example/android/app/build/outputs/apk/release/app-release.apk",
-      "build": "export RCT_NO_LAUNCH_PACKAGER=true && (cd example/android; ./gradlew assembleRelease assembleAndroidTest -DtestBuildType=release ; cd -)"
+      "build": "cd example/android && RCT_NO_LAUNCH_PACKAGER=true ./gradlew assembleRelease assembleAndroidTest -DtestBuildType=release",
+      "testBinaryPath": "example/android/app/build/outputs/apk/androidTest/release/app-release-androidTest.apk"
     }
   },
   "devices": {
     "simulator": {
       "type": "ios.simulator",
       "device": {
-        "type": "iPhone 11"
+        "type": "iPhone 17"
       }
     },
     "emulator": {
       "type": "android.emulator",
       "device": {
-        "avdName": "Nexus_6_API_29_2",
-        "utilBinaryPaths": ["./test-butler-app.apk"]
+        "avdName": "TestingAVD"
       }
     },
     "ci-emulator": {
       "type": "android.emulator",
       "device": {
         "avdName": "TestingAVD"
-      },
-      "utilBinaryPaths": ["./test-butler-app.apk"]
+      }
     }
   },
   "configurations": {

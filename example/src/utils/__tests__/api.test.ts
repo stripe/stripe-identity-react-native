@@ -49,7 +49,7 @@ describe('getTestCredentials', () => {
 
     expect(fetchMock).toHaveBeenCalledWith(
       'https://stripe-mobile-identity-verification-playground.stripedemos.com/verification-sessions',
-      expect.any(Object)
+      expect.any(Object),
     );
   });
 
@@ -58,7 +58,34 @@ describe('getTestCredentials', () => {
 
     expect(fetchMock).toHaveBeenCalledWith(
       'https://stripe-mobile-identity-verification-playground.stripedemos.com/test/verification-sessions',
-      expect.any(Object)
+      expect.any(Object),
     );
+  });
+
+  it.each([VerificationType.DOCUMENT, VerificationType.PHONE])(
+    'omits the opt-in address parameter when disabled for %s',
+    async verificationType => {
+      await getTestCredentials({
+        ...baseOptions,
+        verificationType,
+        phoneFallbackToDocument: true,
+        useTestMode: true,
+      });
+
+      const request = JSON.parse(fetchMock.mock.calls[0][1].body);
+      expect(request.options.document).not.toHaveProperty('require_address');
+      expect(request.options.document.allowed_types).toEqual([
+        AllowedTypes.DRIVING_LICENSE,
+        AllowedTypes.ID_CARD,
+        AllowedTypes.PASSPORT,
+      ]);
+    },
+  );
+
+  it('preserves the address option when explicitly enabled', async () => {
+    await getTestCredentials({ ...baseOptions, requireAddress: true });
+
+    const request = JSON.parse(fetchMock.mock.calls[0][1].body);
+    expect(request.options.document.require_address).toBe(true);
   });
 });
