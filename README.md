@@ -71,7 +71,7 @@ Alternatively use the `plugin-transform-typescript` plugin in your project.
 
 Remove `$StripeDisableSPM = true` from your Podfile and the Payments Expo plugin's `disableSPM` option, if present. Stripe iOS no longer supports CocoaPods resolution. Enable dynamic frameworks as shown above, reinstall pods, and make a clean native build to remove previously compiled Stripe pods.
 
-When using both `@stripe/stripe-identity-react-native` and `@stripe/stripe-react-native`, use releases that pin the same Stripe iOS SDK version. This version and Payments **0.85.0** both pin **26.16.0**, as used in the checked-in example. Both bridges share one Swift package and its common Stripe modules. Conflicting versions fail installation with instructions to align the two packages. Identity-only apps do not need Payments installed.
+When using both `@stripe/stripe-identity-react-native` and `@stripe/stripe-react-native`, use releases that pin the same Stripe iOS SDK version. This version and Payments **0.85.1** both pin **26.16.1**, as used in the checked-in example. Both bridges share one Swift package and its common Stripe modules. Conflicting versions fail installation with instructions to align the two packages. Identity-only apps do not need Payments installed.
 
 If the app fails at launch with `dyld: Library not loaded: @rpath/Stripe….framework`, rerun `pod install` and verify the app target has a `[stripe-identity-react-native] Embed SPM Frameworks` build phase. That phase embeds and signs dynamically linked Stripe frameworks for normal builds and archives.
 
