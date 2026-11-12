@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@stripe/stripe-identity-react-native": "link:../",
-    "@stripe/stripe-react-native": "0.85.0",
+    "@stripe/stripe-react-native": "0.85.1",
     "react": "19.3.1",
     "react-native": "0.88.1",
     "react-native-dropdown-select-list": "^2.0.5",
@@ -21,8 +21,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.29.13",
-    "@babel/preset-env": "^7.29.7",
-    "@babel/runtime": "^7.29.13",
+    "@babel/preset-env": "^7.29.14",
+    "@babel/runtime": "^7.29.14",
     "@react-native-community/cli": "^20.2.0",
     "@react-native-community/cli-platform-android": "^20.2.0",
     "@react-native-community/cli-platform-ios": "^20.2.0",
@@ -35,7 +35,7 @@
     "@types/react": "^19.3.0",
     "eslint": "^9.39.5",
     "jest": "^30.5.2",
-    "prettier": "^3.9.10",
+    "prettier": "^3.10.1",
     "typescript": "^6.0.3"
   },
   "engines": {
@@ -43,11 +43,11 @@
   },
   "packageManager": "yarn@1.22.22",
   "resolutions": {
-    "**/@typescript-eslint/typescript-estree/minimatch": "11.0.5",
-    "**/@jest/reporters/glob": "14.0.4",
-    "**/jest-config/glob": "14.0.4",
-    "**/jest-runtime/glob": "14.0.4",
-    "jest/**/test-exclude/glob": "14.0.4",
-    "jest/**/test-exclude/minimatch": "11.0.5"
+    "**/@typescript-eslint/typescript-estree/minimatch": "11.0.8",
+    "**/@jest/reporters/glob": "14.0.6",
+    "**/jest-config/glob": "14.0.6",
+    "**/jest-runtime/glob": "14.0.6",
+    "jest/**/test-exclude/glob": "14.0.6",
+    "jest/**/test-exclude/minimatch": "11.0.8"
   }
 }

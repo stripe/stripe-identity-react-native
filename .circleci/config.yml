@@ -7,7 +7,7 @@ orbs:
 executors:
   javascript:
     docker:
-      - image: cimg/node:24.22.1
+      - image: cimg/node:24.22.2
 
 commands:
   install_dependencies:
@@ -63,7 +63,7 @@ jobs:
     steps:
       - checkout
       - node/install:
-          node-version: '24.22.1'
+          node-version: '24.22.2'
           install-yarn: true
           yarn-version: '1.22.22'
       - install_dependencies
@@ -98,7 +98,7 @@ jobs:
     steps:
       - checkout
       - node/install:
-          node-version: '24.22.1'
+          node-version: '24.22.2'
           install-yarn: true
           yarn-version: '1.22.22'
       - android/change_java_version:

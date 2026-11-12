@@ -4,7 +4,7 @@ require_relative 'stripe_identity_spm'
 package = JSON.parse(File.read(File.join(__dir__, 'package.json')))
 
 # When stripe_version is updated, also need to update stripe_version in https://github.com/stripe/stripe-react-native/blob/master/stripe-react-native.podspec
-stripe_version = '26.16.0'
+stripe_version = '26.16.1'
 
 Pod::Spec.new do |s|
   s.name         = 'stripe-identity-react-native'

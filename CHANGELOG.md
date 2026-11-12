@@ -1,5 +1,9 @@
 # [Unreleased]
 
+### Changed
+
+- Updated Stripe iOS to 26.16.1 and Stripe Android to 23.26.0, aligned with Payments 0.85.1 in the example app.
+
 # [v0.10.0](https://github.com/stripe/stripe-identity-react-native/releases/tag/v0.10.0) - 04 Nov 2026
 
 ### Added
